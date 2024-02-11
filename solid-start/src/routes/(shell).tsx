@@ -1,4 +1,4 @@
-import { RouteSectionProps  } from '@solidjs/router';
+import { A, RouteSectionProps  } from '@solidjs/router';
 import styles from './(shell).module.css';
 
 export default function Shell({ children }: RouteSectionProps) {
@@ -10,11 +10,11 @@ export default function Shell({ children }: RouteSectionProps) {
             </header>
 
             <section>
-                <a href="/">Dashboard</a>
-                <a href="/accounts">Accounts</a>
-                <a href="/sales">Sales</a>
-                <a href="/expenses">Expenses</a>
-                <a href="/reports">Reports</a>
+                <A href="/" end>Dashboard</A>
+                <A href="/accounts">Accounts</A>
+                <A href="/sales">Sales</A>
+                <A href="/expenses">Expenses</A>
+                <A href="/reports">Reports</A>
             </section>
         </nav>
 

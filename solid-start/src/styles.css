@@ -1,3 +1,5 @@
+@layer reset, defaults, lib, component, app, customer;
+
 @layer reset {
   html, body {
       margin: 0;
@@ -15,6 +17,19 @@
 
   h1, h2, h3, h4, h5, h6, p {
     margin: 0;
+  }
+}
+
+@layer compontent {
+  a[link] {
+    text-decoration: none;
+    color: var(--grey-500);
+
+    &.active {
+      color: var(--grey-700);
+      background-color: var(--grey-200);
+      font-weight: bold;
+    }
   }
 }
 
@@ -40,4 +55,7 @@
   --yellow-200: oklab(96.5%, -0.25%, 43.25%);
   --yellow-500: oklab(86.5%, -0.25%, 43.25%);
   --yellow-700: oklab(76.5%, -0.25%, 43.25%);
+
+  --spacing-500: 1em;
+  --spacing-200: .5em;
 }

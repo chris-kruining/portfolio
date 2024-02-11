@@ -1,0 +1,123 @@
+@layer app.layout {
+    .host {
+        display: grid;
+        grid: auto auto 1fr / 20em 1fr;
+        grid-template-areas: 
+            'title title'
+            'header header'
+            'subtitle subtitle'
+            'nav main'
+        ;
+
+        & > h2 {
+            grid-area: title;
+        }
+
+        & > header {
+            grid-area: header;
+        }
+
+        & > nav {
+            grid-area: nav;
+            display: grid;
+            grid-auto-flow: row;
+            justify-content: start;
+            grid-template-columns: 100%;
+            inline-size: 100%;
+
+            & > a {
+                display: grid;
+                grid: 1fr 1fr / 1fr 1fr;
+                grid-template-areas: 
+                    'place price'
+                    'year due'
+                ;
+
+                & > [place] { 
+                    grid-area: place;
+                }
+
+                & > [price] { 
+                    grid-area: price;
+                    justify-self: end;
+                }
+
+                & > [year] { 
+                    grid-area: year;
+                }
+
+                & > [due] { 
+                    grid-area: due;
+                    justify-self: end;
+                }
+            }
+        }
+
+        & > main {
+            grid-area: main;
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: start;
+        }
+    }
+}
+
+@layer app.spacing {
+    .host {
+        row-gap: var(--spacing-500);
+
+        & > nav {
+            padding-block: 1em;
+
+            & > a {
+                padding: 1em;
+                gap: var(--spacing-200);
+            }
+
+            & > span {
+                padding-inline: 1em;
+            }
+        }
+
+        & > main {
+            padding: 1em;
+        }
+    }
+}
+
+@layer app.theme {
+    .host {
+        & > nav {
+            border: .2em solid var(--grey-200);
+            border-radius: 1em 0 0 1em;
+
+            & > a {
+                color: var(--grey-500);
+
+                &.active {
+                    color: var(--grey-700);
+                    background-color: var(--grey-200);
+                    font-weight: bold;
+                }
+
+                & > [due] {
+                    text-transform: uppercase;
+
+                    &[due="paid"] {
+                        color: var(--green-500);
+                    }
+
+                    &[due="overdue"] {
+                        color: var(--red-500);
+                    }
+                }
+            }
+        }
+
+        & > main {
+            border: .2em solid var(--grey-200);
+            border-inline-start: none;
+            border-radius: 0 1em 1em 0;
+        }
+    }
+}

@@ -65,7 +65,7 @@ function dueStatus(invoice: Invoice, pivot: Date|undefined = undefined): Due {
     return { status: 'dueInYears', dueInYears: Math.floor(dueInDays / 365) };
 }
 
-const invoices: readonly Invoice[] = [
+export const invoices: readonly Invoice[] = [
     { id: 1 , place: 'Zaltbommel', price: { value: 1_000_123, currency: 'EUR' }, paid: false, due: new Date(Date.parse('2015-11-17')), get status(){ return dueStatus(this) } },
     { id: 2 , place: 'Zaltbommel', price: { value: 1_456_000, currency: 'JPY' }, paid: false, due: new Date(Date.parse('2019-01-22')), get status(){ return dueStatus(this) } },
     { id: 3 , place: 'Zaltbommel', price: { value: 1_123_456, currency: 'USD' }, paid: true,  due: new Date(Date.parse('2020-08-11')), get status(){ return dueStatus(this) } },
