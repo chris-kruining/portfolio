@@ -1,0 +1,55 @@
+@layer layout {
+    :host {
+        display: grid;
+        grid: auto auto 1fr / 100%;
+
+        & > nav {
+          display: grid;
+          grid-auto-flow: column;
+          justify-content: start;
+          position: sticky;
+          inset-block-start: 0;
+          z-index: 2;
+        }
+    }
+}
+
+@layer spacing {
+    :host {
+        gap: 1em;
+
+        & > nav {
+            gap: 1em;
+
+            & > a {
+                padding: 1em;
+            }
+        }
+    }
+}
+
+@layer theme {
+    :host {
+        & > nav {
+            padding-inline: .5em;
+            margin-inline: -.5em;
+            border-block-end: .2em solid var(--grey-200);
+            background-color: var(--white-500);
+        }
+    }
+}
+
+@layer overrides {
+    
+}
+
+@keyframes scale-up {
+    from {
+      background-color: red;
+      transform: scaleX(0);
+    }
+    to {
+      background-color: darkred;
+      transform: scaleX(1);
+    }
+  }

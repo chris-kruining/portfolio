@@ -1,0 +1,146 @@
+{
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "name": "better-angular",
+  "projectType": "application",
+  "generators": {},
+  "sourceRoot": "src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "options": {
+        "outputPath": "dist/better-angular",
+        "index": "src/index.html",
+        "browser": "src/main.ts",
+        "polyfills": [
+          "zone.js"
+        ],
+        "tsConfig": "tsconfig.app.json",
+        "assets": [
+          "src/favicon.ico",
+          "src/assets",
+          "src/manifest.webmanifest"
+        ],
+        "styles": [
+          "src/styles.css"
+        ],
+        "scripts": [],
+        "serviceWorker": "ngsw-config.json"
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "all",
+          "appShell": true
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "better-angular:build:production"
+        },
+        "development": {
+          "buildTarget": "better-angular:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "better-angular:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "polyfills": [
+          "zone.js",
+          "zone.js/testing"
+        ],
+        "tsConfig": "tsconfig.spec.json",
+        "assets": [
+          "src/favicon.ico",
+          "src/assets",
+          "src/manifest.webmanifest"
+        ],
+        "styles": [
+          "src/styles.css"
+        ],
+        "scripts": []
+      }
+    },
+    "server": {
+      "executor": "@angular-devkit/build-angular:server",
+      "options": {
+        "outputPath": "dist/better-angular/server",
+        "main": "server.ts",
+        "tsConfig": "tsconfig.server.json"
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "media"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false,
+          "vendorChunk": true
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{options.outputPath}"
+      ]
+    },
+    "serve-ssr": {
+      "executor": "@angular-devkit/build-angular:ssr-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "sslKey": "ssl/server.key",
+        "sslCert": "ssl/server.crt",
+        "ssl": true
+      },
+      "configurations": {
+        "development": {
+          "browserTarget": "better-angular:build:development",
+          "serverTarget": "better-angular:server:development"
+        },
+        "production": {
+          "browserTarget": "better-angular:build:production",
+          "serverTarget": "better-angular:server:production"
+        }
+      }
+    },
+    "prerender": {
+      "executor": "@angular-devkit/build-angular:prerender",
+      "options": {
+        "routes": [
+          "/"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "better-angular:build:production",
+          "serverTarget": "better-angular:server:production"
+        },
+        "development": {
+          "browserTarget": "better-angular:build:development",
+          "serverTarget": "better-angular:server:development"
+        }
+      },
+      "defaultConfiguration": "production"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "name": "better-angular",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.13.0"
+  },
+  "scripts": {
+    "dev": "nx run better-angular:serve-ssr:development",
+    "ng": "ng",
+    "build": "nx build",
+    "watch": "nx build --watch --configuration development",
+    "test": "nx test",
+    "serve:ssr": "node dist/better-angular/server/main.js",
+    "build:ssr": "nx build && nx run better-angular:server",
+    "prerender": "nx run better-angular:prerender"
+  },
+  "dependencies": {
+    "@angular/animations": "^17.0.4",
+    "@angular/common": "^17.0.4",
+    "@angular/compiler": "^17.0.4",
+    "@angular/core": "^17.0.4",
+    "@angular/forms": "^17.0.4",
+    "@angular/platform-browser": "^17.0.4",
+    "@angular/platform-browser-dynamic": "^17.0.4",
+    "@angular/platform-server": "^17.0.4",
+    "@angular/router": "^17.0.4",
+    "@angular/service-worker": "^17.0.4",
+    "@angular/ssr": "^17.0.3",
+    "@trpc/client": "^10.45.0",
+    "@trpc/server": "^10.45.0",
+    "express": "^4.18.2",
+    "rxjs": "~7.8.0",
+    "superjson": "^2.2.1",
+    "tslib": "^2.3.0",
+    "zod": "^3.22.4",
+    "zone.js": "~0.14.2"
+  },
+  "devDependencies": {
+    "@analogjs/vite-plugin-angular": "^0.2.30",
+    "@analogjs/vite-plugin-nitro": "^0.2.30",
+    "@angular-devkit/build-angular": "^17.0.3",
+    "@angular-devkit/core": "~17.0.3",
+    "@angular-devkit/schematics": "~17.0.3",
+    "@angular/cli": "~17.0.3",
+    "@angular/compiler-cli": "^17.0.4",
+    "@nx/angular": "18.0.2",
+    "@nx/vite": "^18.0.2",
+    "@nx/web": "18.0.2",
+    "@nx/workspace": "18.0.2",
+    "@schematics/angular": "~17.0.3",
+    "@types/express": "^4.17.17",
+    "@types/jasmine": "~4.3.0",
+    "@types/node": "^18.18.0",
+    "@vitest/ui": "^1.0.4",
+    "jasmine-core": "~4.5.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "nx": "18.0.2",
+    "typescript": "~5.2.2",
+    "vite": "^5.0.0",
+    "vite-plugin-mkcert": "^1.17.3",
+    "vitest": "^1.2.2"
+  },
+  "nx": {
+    "includedScripts": []
+  }
+}

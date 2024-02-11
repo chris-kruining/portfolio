@@ -1,0 +1,13 @@
+@if(invoice().value; as v) {
+    <p>{{ v.place }}</p>
+
+    <h1 price>{{ v.price.value | currency: v.price.currency }}</h1>
+
+    <p>{{ v.due.toLocaleDateString('en-GB') }}</p>
+}
+@else if (invoice().state === 'loading') {
+    Loading...
+}
+@else if(invoice().error) {
+    Failed: {{ invoice().error }}
+}

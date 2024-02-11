@@ -1,0 +1,54 @@
+<h2>Invoices</h2>
+
+<header>
+    @if(totalOverDue(); as overdue) {
+        <span>overdue</span>
+        <p>{{ overdue }}</p>
+    }
+</header>
+
+<h3>Invoice list</h3>
+
+<nav>
+    @if(shown().value; as invoices) {
+        @for (invoice of invoices; track invoice.id) {
+            <a to="/sales/invoices/{{ invoice.id }}">
+                <strong place>{{ invoice.place }}</strong>
+                <strong price>{{ invoice.price.value | currency: invoice.price.currency }}</strong>
+                <!-- <span year>{{ invoice.due.getFullYear() }}</span> -->
+                @if (invoice.status; as due) {
+                    <span [attr.due]="due.status">
+                        @switch(due.status) {
+                            @case ('paid') {
+                                paid
+                            }
+
+                            @case ('overdue') {
+                                overdue
+                            }
+    
+                            @case ('dueToday') {
+                                due today
+                            }
+    
+                            @case ('dueInDays') {
+                                due in {{due.dueInDays}} days
+                            }
+    
+                            @case ('dueInYears') {
+                                due in {{due.dueInYears}} years
+                            }
+                        }
+                    </span>
+                }
+            </a>
+        }
+    } 
+    @else if (invoices().state === 'loading') {
+        <span>Loading...</span>
+    }
+</nav>
+
+<main>
+    <router-outlet></router-outlet>
+</main>

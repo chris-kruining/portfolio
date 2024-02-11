@@ -1,0 +1,43 @@
+@layer reset {
+  html, body {
+      margin: 0;
+      padding: 0;
+      inline-size: 100%;
+      block-size: 100%;
+      overflow: clip;
+      font-family: sans-serif;
+  }
+
+  * {
+      position: relative;
+      box-sizing: border-box;
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+}
+
+:root {
+  --white-200: oklab(100%, 0%, 0%);
+  --white-300: oklab(100%, 0%, 0%);
+  --white-500: oklab(100%, 0%, 0%);
+  --white-700: oklab(100%, 0%, 0%);
+
+  --grey-200: oklab(97.5%, 0%, 0%);
+  --grey-300: oklab(90%, 0%, 0%);
+  --grey-500: oklab(67.5%, 0%, 0%);
+  --grey-700: oklab(50%, 0%, 0%);
+
+  --green-200: oklab(86.5%, -36.5%, 27.5%);
+  --green-500: oklab(79.5%, -36.5%, 27.5%);
+  --green-700: oklab(69.5%, -36.5%, 27.5%);
+
+  --red-200: oklab(74.5%, 49.5%, 19.5%);
+  --red-500: oklab(64.5%, 49.5%, 19.5%);
+  --red-700: oklab(54.5%, 49.5%, 19.5%);
+
+  --yellow-200: oklab(96.5%, -0.25%, 43.25%);
+  --yellow-500: oklab(86.5%, -0.25%, 43.25%);
+  --yellow-700: oklab(76.5%, -0.25%, 43.25%);
+}
