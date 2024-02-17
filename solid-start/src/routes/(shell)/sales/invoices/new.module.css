@@ -1,0 +1,9 @@
+.dialog {
+    position: fixed;
+    border: none;
+    box-shadow: 0 0 1em #000;
+
+    &::backdrop {
+        backdrop-filter: blur(3px);
+    }
+}

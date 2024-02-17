@@ -1,45 +1,16 @@
 import { RouteSectionProps, cache, createAsync, A } from "@solidjs/router";
 import styles from './invoices.module.css';
-import { createMemo } from "solid-js";
+import { createMemo, For, Match, Switch } from "solid-js";
+import { list } from "~/services/invoices";
 
-type DiscriminatedUnion<K extends PropertyKey, T extends object> = {
-    [P in keyof T]: ({ [Q in K]: P } & T[P]) extends infer U ? { [Q in keyof U]: U[Q] } : never
-}[keyof T];
-
-type Due = DiscriminatedUnion<'status', {
-    'paid': {},
-    'overdue': {},
-    'dueToday': {},
-    'dueInDays': { dueInDays: number },
-    'dueInYears': { dueInYears: number },
-}>;
-
-interface Invoice {
-    id: number,
-    place: string,
-    price: {
-        value: number,
-        currency: 'EUR'|'JPY'|'USD',
-    },
-    paid: boolean,
-    due: Date,
-    status: Due,
-}
-
-const getInvoices = cache(async () => {
-    "use server";
-
-    const invoices = (await import('../../../../../shared/invoices.json')).default.map((i: Invoice) => ({ ...i, due: new Date(i.due)}));
-
-    return invoices as Invoice[];
-}, 'invoices');
+const getInvoices = cache(list, 'invoices');
 
 export const route = {
-    load: () => getInvoices(),
+    load: () => createAsync(() => getInvoices()),
 };
 
-export default function Invoices({ children }: RouteSectionProps) {
-    const invoices = createAsync<Invoice[]>(getInvoices);
+export default function Invoices({ children, data }: RouteSectionProps<ReturnType<typeof route['load']>>) {
+    const invoices = data!;
 
     const shown = createMemo(() => {
         return invoices()?.slice(0, 5) ?? [];
@@ -49,39 +20,53 @@ export default function Invoices({ children }: RouteSectionProps) {
         return invoices()?.filter(i => i.status.status === 'overdue').reduce((t, i) => t + i.price.value, 0) ?? 0;
     });
 
-    console.log(invoices(), );
-
     return <div class={styles.host}>
         <h2>Total due</h2>
 
         <header>
             <span>overdue</span>
             <p>{totalOverDue()}</p>
+
+            <A href="/sales/invoices/new" >Add new invoice</A>
         </header>
 
         <h3>Invoices</h3>
 
         <nav>
-            {shown().map(i => <A href={`/sales/invoices/${i.id}`}>
-                <strong place>{i.place}</strong>
-                <strong price>{i.price.value}</strong>
-                <span year>{i.due.getFullYear()}</span>
-                <span due={i.status.status}>{renderSwitch(i.status)}</span>
-            </A>)}
+            <For each={shown()}>
+                {i => <A href={`/sales/invoices/${i.id}`} end>
+                    <strong place>{i.place}</strong>
+                    <strong price>{i.price.value}</strong>
+                    <span year>{i.due.getFullYear()}</span>
+                    <span due={i.status.status}>
+                        <Switch>
+                            <Match when={i.status.status === 'paid' && i.status}>
+                                paid
+                            </Match>
+
+                            <Match when={i.status.status === 'overdue' && i.status}>
+                                overdue
+                            </Match>
+
+                            <Match when={i.status.status === 'dueToday' && i.status}>
+                                due today
+                            </Match>
+
+                            <Match when={i.status.status === 'dueInDays' && i.status}>
+                                {(due) => <>due in {due().dueInDays} days</>}
+                            </Match>
+
+                            <Match when={i.status.status === 'dueInYears' && i.status}>
+                                {(due) => <>due in {due().dueInYears} days</>}
+                            </Match>
+                        </Switch>
+                    </span>
+                </A>}
+            </For>
         </nav>
 
         <main>
             {children}
         </main>
     </div>;
-}
-
-function renderSwitch(due: Due) {
-    switch (due.status) {
-        case 'paid': return 'paid';
-        case 'overdue': return 'overdue';
-        case 'dueToday': return 'due today';
-        case 'dueInDays': return `due in ${due.dueInDays} days`;
-        case 'dueInYears': return `due in ${due.dueInYears} years`;
-    }
 }

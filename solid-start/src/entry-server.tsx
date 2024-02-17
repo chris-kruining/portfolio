@@ -2,7 +2,8 @@ import { createHandler, StartServer } from "@solidjs/start/server";
 
 export default createHandler(() => (
   <StartServer
-    document={({ assets, children, scripts }) => (
+    document={({ assets, children, scripts }) => {
+      return (
       <html lang="en">
         <head>
           <meta charset="utf-8" />
@@ -15,6 +16,6 @@ export default createHandler(() => (
           {scripts}
         </body>
       </html>
-    )}
-  />
+    )
+  }}  />
 ));

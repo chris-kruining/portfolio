@@ -15,6 +15,11 @@
           display: grid;
           grid: 100% / auto 1fr;
           align-items: center;
+
+          & > img {
+            block-size: 2.5em;
+            aspect-ratio: 1;
+          }
         }
   
         & > section {

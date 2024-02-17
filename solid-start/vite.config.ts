@@ -5,6 +5,22 @@ export default defineConfig({
     start: {
         ssr: true,
         // islands: true,
+        server: {
+            prerender: {
+                routes: [ '/', '/sales'],
+            },
+        },
     },
     plugins: [ mkcert() ],
+    css: {
+        transformer: 'lightningcss',
+        lightningcss: {
+            drafts: {
+                nesting: true,
+            }
+        }
+    },
+    build: {
+        cssMinify: 'lightningcss'
+    }
 });
