@@ -30,7 +30,7 @@ jobs:
       - name: build
         run: pnpm build
         env:
-          BASE_PATH: /portfolio/
+          BASE_PATH: /solid-start/
 
       - name: create .nojekyll
         run: touch .output/public/.nojekyll
