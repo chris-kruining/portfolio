@@ -24,8 +24,8 @@ jobs:
           version: 8
           run_install: |
             - recursive: true
-              args: [--frozen-lockfile, --strict-peer-dependencies]
-            - args: [--global, gulp, prettier, typescript]
+              args: [--strict-peer-dependencies]
+            - args: [--global, typescript]
 
       - name: build
         run: pnpm build
