@@ -3,11 +3,10 @@ name: CI
 on:
   push:
     branches: [ main ]
+    paths: [ 'solid-start/**' ]
   pull_request:
     branches: [ main ]
-  paths: [ 'solid-start/**' ]
-
-tab:
+    paths: [ 'solid-start/**' ]
   workflow_dispatch:
 
 jobs:
@@ -16,8 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - bash: |
-          cd ./solid-start
+      - name: change dir
+        run: cd ./solid-start
 
       - name: install
         run: pnpm i --legacy-peer-deps
