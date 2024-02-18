@@ -5,10 +5,9 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  paths:
-    - 'solid-start/**'
+  paths: [ 'solid-start/**' ]
 
-tab
+tab:
   workflow_dispatch:
 
 jobs:
