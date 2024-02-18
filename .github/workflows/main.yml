@@ -3,10 +3,10 @@ name: CI
 on:
   push:
     branches: [ main ]
-    paths: [ 'solid-start/**' ]
+    paths: [ 'solid-start/**', '.github/**' ]
   pull_request:
     branches: [ main ]
-    paths: [ 'solid-start/**' ]
+    paths: [ 'solid-start/**', '.github/**' ]
   workflow_dispatch:
 
 jobs:
@@ -17,9 +17,15 @@ jobs:
 
       - name: change dir
         run: cd ./solid-start
-
-      - name: install
-        run: pnpm i --legacy-peer-deps
+        
+      - uses: pnpm/action-setup@v3
+        name: install
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+            - args: [--global, gulp, prettier, typescript]
 
       - name: build
         run: pnpm build
