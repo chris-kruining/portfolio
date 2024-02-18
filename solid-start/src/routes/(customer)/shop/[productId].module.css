@@ -1,0 +1,45 @@
+@layer app.layout {
+    .host {
+        display: grid;
+        grid: 100% / 30em 1fr;
+    
+        & > img {
+            inline-size: 100%;
+            block-size: 100%;
+            object-fit: contain;
+        }
+    
+        & > form {
+            display: grid;
+            align-content: start;
+    
+            inline-size: 100%;
+            block-size: 100%;
+    
+            & > hr {
+                inline-size: 100%;
+            }
+        }
+    }
+}
+
+@layer app.spacing {
+    .host {    
+        gap: var(--size-3);
+        
+        & > form {
+            gap: var(--size-3);
+        }
+    }
+}
+
+@layer app.theme {
+    .host {
+        & > form {    
+            & > a.brand {
+                color: var(--blue-5);
+                text-decoration: underline;
+            }
+        }
+    }
+}

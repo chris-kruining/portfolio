@@ -1,0 +1,26 @@
+@layer app.layout {
+    .host {
+        display: grid;
+        /* Don't use vars in this line, it messes up the renaming done on grid lines */
+        grid-template-columns: var(--grid);
+        align-content: start;
+
+        inline-size: 100%;
+        block-size: 100%;
+        overflow: auto;
+
+        & > :not(.full) {
+            grid-column: var(--main);
+        }
+
+        & > .full {
+            grid-column: var(--full);
+        }
+    }
+}
+
+@layer app.theme {
+    .host {
+        background-color: var(--gray-0);
+    }
+}

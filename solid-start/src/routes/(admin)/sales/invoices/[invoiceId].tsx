@@ -9,8 +9,8 @@ export const route = {
     load: ({ params }: RouteLoadFuncArgs) => createAsync(() => getInvoice(Number(params.invoiceId))),
 };
 
-export default function Invoice({ data }: RouteSectionProps<ReturnType<typeof route['load']>>) {    
-    const invoice = data!;
+export default function Invoice(props: RouteSectionProps<ReturnType<typeof route['load']>>) {    
+    const invoice = props.data!;
 
     return <div class={styles.host}>
         <ErrorBoundary fallback={(err, reset) => <button onClick={reset}>Failed: {err.toString()}</button>}>

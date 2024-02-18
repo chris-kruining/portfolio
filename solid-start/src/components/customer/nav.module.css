@@ -1,0 +1,56 @@
+@layer component.layout {
+    .host {
+        position: sticky;
+        display: grid;
+        grid-template-columns: var(--grid);
+
+        & > div {
+            grid-column: var(--main);
+            display: grid;
+            grid: 100% / auto 1fr auto;
+
+            & > header {
+                display: grid;
+                grid-auto-flow: column;
+                /* align-content: start; */
+                place-items: center;
+            }
+    
+            & > main {
+                display: grid;
+                grid-auto-flow: column;
+                place-content: center start;
+            }
+    
+            & > aside {
+                display: grid;
+                grid-auto-flow: column;
+
+                & > .cart {
+                    justify-self: end;
+                }
+            }
+        }
+    }
+}
+
+@layer component.spacing {
+    .host > div {
+        gap: var(--size-3);
+        padding: var(--size-3);
+    
+        & > main {
+            gap: var(--size-3);
+        }
+    
+        & > aside {
+            gap: var(--size-3);
+        }
+    }
+}
+
+@layer component.theme {
+    .host {
+        background-color: var(--gray-1);
+    }
+}

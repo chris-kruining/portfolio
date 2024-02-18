@@ -1,0 +1,37 @@
+@layer component.layout {
+    #btn {
+        & > img {
+            inline-size: 2em;
+            aspect-ratio: 1;
+        }
+    }
+
+    #menu {
+        position: absolute;
+        inset-block-start: anchor(implicit end);
+        inset-inline-end: anchor(implicit end);
+
+        &:popover-open {
+            display: grid;
+        }
+    }
+}
+
+@layer component.layout {
+    #btn {
+        padding: 0;
+    }
+
+    #menu {
+        margin: 0;
+    }
+}
+
+@layer component.theme {
+    #btn {
+        background-color: transparent;
+    }
+
+    #menu {
+    }
+}

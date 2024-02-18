@@ -1,4 +1,14 @@
 {
     "git.ignoreLimitWarning": true,
-    "explorer.fileNesting.enabled": true
+    "explorer.fileNesting.enabled": true,
+    "cssvar.files": [
+        "**/node_modules/open-props/open-props.min.css",
+        "**/*.css"
+    ],
+    "cssvar.ignore": [
+        "**/node_modules/**"
+    ],
+    "cssvar.extensions": [
+      "css", "postcss", "jsx", "tsx"
+    ]
 }

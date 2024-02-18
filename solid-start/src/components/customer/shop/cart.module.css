@@ -1,0 +1,90 @@
+@layer component.layout {
+    #btn {
+    }
+
+    #cart {
+        position: absolute;
+        inset-block-start: calc(anchor(implicit start) - var(--size-3));
+        inset-inline-end: calc(anchor(implicit end) - var(--size-3));
+
+        &:popover-open {
+            display: grid;
+        }
+
+        & > div {
+            display: grid;
+            grid-template-columns: 3em 1fr 1fr;
+            justify-content: space-between;
+
+            & > img {
+                grid-area: span 2 / 1;
+                inline-size: 100%;
+                aspect-ratio: 1;
+            }
+
+            & > strong {
+                min-inline-size: 5em;
+            }
+
+            & > ul {
+                grid-column: span 2;
+            }
+        }
+    }
+}
+
+@layer component.spacing {
+    #btn {
+        padding: var(--size-2) var(--size-3);
+    }
+
+    #cart {
+        padding: var(--size-3);
+        gap: var(--size-5);
+
+        & > div {
+            gap: var(--size-1) var(--size-2);
+            
+
+            & > ul {
+                margin: 0;
+            }
+        }
+    }
+}
+
+@layer component.animation {
+    #cart {
+        --time: .5s;
+        transition: 
+            translate var(--time),
+            opacity var(--time),
+            overlay var(--time) allow-discrete,
+            display var(--time) allow-discrete
+        ;
+        transform-origin: top right;
+
+        opacity: 0;
+        translate: 50% 0;
+
+        &:popover-open {
+            translate: 0;
+            opacity: 1;
+        }
+    }
+
+    @starting-style {
+        #cart:popover-open {
+            opacity: 0;
+            translate: 50% 0;
+        }
+    }
+}
+
+@layer component.theme {
+    #cart {
+        border: none;
+        border-radius: var(--radius-2);
+        box-shadow: var(--shadow-3);
+    }
+}

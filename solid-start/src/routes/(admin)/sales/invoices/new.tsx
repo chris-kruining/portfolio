@@ -1,21 +1,10 @@
-import { action, redirect, useNavigate, useSubmission, useSubmissions } from "@solidjs/router"
+import { action, useNavigate, useSubmission } from "@solidjs/router"
 import { create } from "~/services/invoices";
 import styles from './new.module.css';
-import { ErrorBoundary, For, Show, createEffect, onMount } from "solid-js";
+import { Match, Show, Switch, createEffect, onMount } from "solid-js";
 
 const createInvoice = action(async (data: FormData) => {
-    if(Math.floor(Math.random() * 5) === 3) {
-        throw new Error('random error')
-    }
-
     return await create(data);
-
-    // if(data.get('action') === 'submit')
-    // {
-    //     await create(data);
-    // }
-
-    // return redirect('/sales/invoices');
 }, 'createInvoice');
 
 export default function NewInvoice() {
@@ -40,7 +29,7 @@ export default function NewInvoice() {
         }
     });
 
-    return <dialog id="dialog" class={styles.dialog} ref={dialog} popover="auto">
+    return <div id="dialog" class={styles.dialog} ref={dialog} popover="auto" open>
         <Show when={submission.result instanceof Error}>
             <p>Encountered an error: {submission.result.message}</p>
         </Show>
@@ -49,16 +38,18 @@ export default function NewInvoice() {
             <input name="someInput" type="text" value="Some value" />
 
             <button type="submit">
-                <Show when={!submission.pending} fallback="working on it">
-                    <Show when={submission.result} fallback="Lets go!">
-                        <Show when={!(submission.result instanceof Error)} fallback="retry?">
-                            Done!
-                        </Show>
-                    </Show>
-                </Show>
+                <Switch>
+                    <Match when={submission.pending}>working on it</Match>
+                    
+                    <Match when={submission.result instanceof Error}>retry?</Match>
+
+                    <Match when={submission.result}>Done!</Match>
+
+                    <Match when={true}>Lets go!</Match>
+                </Switch>
             </button>
         </form>
             
         <button popovertarget="dialog" popoverTargetAction="hide">cancel</button>
-    </dialog>
+    </div>
 }

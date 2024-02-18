@@ -1,0 +1,7 @@
+
+
+@layer component.layout {
+    .host {
+        display: contents;
+    }
+}

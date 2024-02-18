@@ -64,14 +64,14 @@
 
 @layer app.spacing {
     .host {
-        row-gap: var(--spacing-500);
+        row-gap: var(--size-3);
 
         & > nav {
             padding-block: 1em;
 
             & > a {
                 padding: 1em;
-                gap: var(--spacing-200);
+                gap: var(--size-2);
             }
 
             & > span {
@@ -88,15 +88,12 @@
 @layer app.theme {
     .host {
         & > nav {
-            border: .2em solid var(--grey-200);
+            border: .2em solid var(--gray-1);
             border-radius: 1em 0 0 1em;
 
             & > a {
-                color: var(--grey-500);
-
-                &.active {
-                    color: var(--grey-700);
-                    background-color: var(--grey-200);
+                &:global(.active) {
+                    background-color: var(--gray-1);
                     font-weight: bold;
                 }
 
@@ -104,18 +101,18 @@
                     text-transform: uppercase;
 
                     &[due="paid"] {
-                        color: var(--green-500);
+                        color: var(--green-5);
                     }
 
                     &[due="overdue"] {
-                        color: var(--red-500);
+                        color: var(--red-5);
                     }
                 }
             }
         }
 
         & > main {
-            border: .2em solid var(--grey-200);
+            border: .2em solid var(--gray-1);
             border-inline-start: none;
             border-radius: 0 1em 1em 0;
         }

@@ -17,6 +17,7 @@
     "node": ">=18"
   },
   "devDependencies": {
-    "lightningcss": "1.23.0"
+    "lightningcss": "1.23.0",
+    "open-props": "^1.6.18"
   }
 }

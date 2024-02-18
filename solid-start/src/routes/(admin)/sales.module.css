@@ -1,4 +1,4 @@
-@layer layout {
+@layer app.layout {
     .host {
         display: grid;
         grid: auto auto 1fr / 100%;
@@ -14,7 +14,7 @@
     }
 }
 
-@layer spacing {
+@layer app.spacing {
     .host {
         gap: 1em;
 
@@ -28,28 +28,17 @@
     }
 }
 
-@layer theme {
+@layer app.theme {
     .host {
         & > nav {
             padding-inline: .5em;
             margin-inline: -.5em;
-            border-block-end: .2em solid var(--grey-200);
-            background-color: var(--white-500);
+            border-block-end: .2em solid var(--gray-1);
+            background-color: var(--gray-0);
+
+            & > a:global(.active) {
+                background-color: var(--gray-1);
+            }
         }
     }
 }
-
-@layer overrides {
-    
-}
-
-@keyframes scale-up {
-    from {
-      background-color: red;
-      transform: scaleX(0);
-    }
-    to {
-      background-color: darkred;
-      transform: scaleX(1);
-    }
-  }

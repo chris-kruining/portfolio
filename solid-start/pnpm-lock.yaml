@@ -25,6 +25,9 @@ devDependencies:
   lightningcss:
     specifier: 1.23.0
     version: 1.23.0
+  open-props:
+    specifier: ^1.6.18
+    version: 1.6.18
 
 packages:
 
@@ -3743,6 +3746,10 @@ packages:
     dependencies:
       mimic-fn: 4.0.0
     dev: false
+
+  /open-props@1.6.18:
+    resolution: {integrity: sha512-xhkbGo6vFdYHWR9mt81p4mlPoRLQHunA6XJAuQ2cUyvoOGKGxDj8dGgXDIbR1EMJVyHPxU1AbtfbloAIRLHWKw==}
+    dev: true
 
   /open@8.4.2:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}

@@ -9,8 +9,8 @@ export const route = {
     load: () => createAsync(() => getInvoices()),
 };
 
-export default function Invoices({ children, data }: RouteSectionProps<ReturnType<typeof route['load']>>) {
-    const invoices = data!;
+export default function Invoices(props: RouteSectionProps<ReturnType<typeof route['load']>>) {
+    const invoices = props.data!;
 
     const shown = createMemo(() => {
         return invoices()?.slice(0, 5) ?? [];
@@ -66,7 +66,7 @@ export default function Invoices({ children, data }: RouteSectionProps<ReturnTyp
         </nav>
 
         <main>
-            {children}
+            {props.children}
         </main>
     </div>;
 }

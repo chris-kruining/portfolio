@@ -1,7 +1,7 @@
 import { A, RouteSectionProps } from "@solidjs/router";
 import styles from './sales.module.css'
 
-export default function Sales({ children }: RouteSectionProps) {
+export default function Sales(props: RouteSectionProps) {
     return <div class={styles.host}>
         <h1>Sales</h1>
 
@@ -14,7 +14,7 @@ export default function Sales({ children }: RouteSectionProps) {
         </nav>
 
         <main>
-            {children}
+            {props.children}
         </main>
     </div>;
 }

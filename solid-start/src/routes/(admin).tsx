@@ -1,7 +1,7 @@
 import { A, RouteSectionProps  } from '@solidjs/router';
-import styles from './(shell).module.css';
+import styles from './(admin).module.css';
 
-export default function Shell({ children }: RouteSectionProps) {
+export default function Admin(props: RouteSectionProps) {
     return <div class={styles.host}>
         <nav>
             <header>
@@ -11,6 +11,7 @@ export default function Shell({ children }: RouteSectionProps) {
 
             <section>
                 <A href="/" end>Dashboard</A>
+                <A href="/shop">shop</A>
                 <A href="/accounts">Accounts</A>
                 <A href="/sales">Sales</A>
                 <A href="/expenses">Expenses</A>
@@ -19,7 +20,7 @@ export default function Shell({ children }: RouteSectionProps) {
         </nav>
 
         <main>
-            { children }
+            {props.children}
         </main>
     </div>
 }
