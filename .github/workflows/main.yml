@@ -12,11 +12,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./solid-start
     steps:
       - uses: actions/checkout@v3
-
-      - name: change dir
-        run: cd ./solid-start
         
       - uses: pnpm/action-setup@v3
         name: install
@@ -30,7 +30,7 @@ jobs:
       - name: build
         run: pnpm build
         env:
-          BASE_PATH: /portfolio/solid-start/
+          BASE_PATH: /portfolio/
 
       - name: create .nojekyll
         run: touch .output/public/.nojekyll
