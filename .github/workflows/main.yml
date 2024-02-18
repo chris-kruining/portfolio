@@ -33,7 +33,9 @@ jobs:
           BASE_PATH: /solid-start/
 
       - name: create .nojekyll
-        run: touch .output/public/.nojekyll
+        run: |
+          touch .output/public/.nojekyll
+          ls -al .
 
       - name: deploy pages
         uses: JamesIves/github-pages-deploy-action@v4.5.0
