@@ -1,11 +1,12 @@
 import { A, RouteSectionProps  } from '@solidjs/router';
 import styles from './(admin).module.css';
+import logo from '../../images/logo.svg';
 
 export default function Admin(props: RouteSectionProps) {
     return <div class={styles.host}>
         <nav>
             <header>
-                <img width="40" alt="Analog Logo" src="/images/logo.svg" />
+                <img width="40" alt="Analog Logo" src={logo} />
                 <span>SolidStart</span>
             </header>
 
