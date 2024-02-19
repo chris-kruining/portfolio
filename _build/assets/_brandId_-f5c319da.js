@@ -1,1 +1,0 @@
-import{g as m,i as s,t as c}from"./web-3196b614.js";import{b as t,F as d,a as i,S as l}from"./solid-4c629049.js";var p=c("<h1>");function f(r){const{brand:a,products:n}=r.data;return t(l,{get when(){return a()},children:o=>[(()=>{var e=m(p);return s(e,()=>o().name),e})(),t(d,{get each(){return n()},children:e=>i(()=>e.name)})]})}export{f as default};
