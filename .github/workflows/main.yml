@@ -37,7 +37,7 @@ jobs:
 
       - name: create .nojekyll
         run: |
-          touch ./solid-start/.output/public/.nojekyll
+          touch .output/public/.nojekyll
 
       - name: deploy pages
         uses: JamesIves/github-pages-deploy-action@v4.5.0
