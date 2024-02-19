@@ -1,6 +1,6 @@
 {
   "\u0000virtual:#vinxi/handler/client.css": {
-    "file": "assets/client-b08181db.css",
+    "file": "assets/client-dc0f7af3.css",
     "src": "\u0000virtual:#vinxi/handler/client.css"
   },
   "_auth-689a503f.js": {
@@ -76,14 +76,14 @@
     "src": "public/images/logo.svg"
   },
   "src/routes/(admin).css": {
-    "file": "assets/(admin)-21e82f0e.css",
+    "file": "assets/(admin)-5ddd78f9.css",
     "src": "src/routes/(admin).css"
   },
   "src/routes/(admin).tsx?pick=default&pick=$css": {
     "css": [
-      "assets/(admin)-21e82f0e.css"
+      "assets/(admin)-5ddd78f9.css"
     ],
-    "file": "assets/(admin)-d07119ed.js",
+    "file": "assets/(admin)-764001ad.js",
     "imports": [
       "_web-3196b614.js",
       "_logo-606f43c6.js",
@@ -108,14 +108,14 @@
     "src": "src/routes/(admin)/index.tsx?pick=default&pick=$css"
   },
   "src/routes/(admin)/sales.css": {
-    "file": "assets/sales-4ae176e3.css",
+    "file": "assets/sales-b9692e55.css",
     "src": "src/routes/(admin)/sales.css"
   },
   "src/routes/(admin)/sales.tsx?pick=default&pick=$css": {
     "css": [
-      "assets/sales-4ae176e3.css"
+      "assets/sales-b9692e55.css"
     ],
-    "file": "assets/sales-beed7ef5.js",
+    "file": "assets/sales-20839143.js",
     "imports": [
       "_web-3196b614.js",
       "_solid-4c629049.js",
@@ -133,14 +133,14 @@
     "src": "src/routes/(admin)/sales/index.tsx?pick=default&pick=$css"
   },
   "src/routes/(admin)/sales/invoices.css": {
-    "file": "assets/invoices-d5adfe01.css",
+    "file": "assets/invoices-1de5ac8a.css",
     "src": "src/routes/(admin)/sales/invoices.css"
   },
   "src/routes/(admin)/sales/invoices.tsx?pick=default&pick=$css": {
     "css": [
-      "assets/invoices-d5adfe01.css"
+      "assets/invoices-1de5ac8a.css"
     ],
-    "file": "assets/invoices-4a0885b1.js",
+    "file": "assets/invoices-1923a2c1.js",
     "imports": [
       "_web-3196b614.js",
       "_solid-4c629049.js",
@@ -168,14 +168,14 @@
     "src": "src/routes/(admin)/sales/invoices/index.tsx?pick=default&pick=$css"
   },
   "src/routes/(admin)/sales/invoices/new.css": {
-    "file": "assets/new-efa924ba.css",
+    "file": "assets/new-7cf75ae3.css",
     "src": "src/routes/(admin)/sales/invoices/new.css"
   },
   "src/routes/(admin)/sales/invoices/new.tsx?pick=default&pick=$css": {
     "css": [
-      "assets/new-efa924ba.css"
+      "assets/new-7cf75ae3.css"
     ],
-    "file": "assets/new-c73fe02a.js",
+    "file": "assets/new-cd7ef259.js",
     "imports": [
       "_web-3196b614.js",
       "_invoices-d1a175d8.js",
@@ -188,14 +188,14 @@
     "src": "src/routes/(admin)/sales/invoices/new.tsx?pick=default&pick=$css"
   },
   "src/routes/(customer).css": {
-    "file": "assets/(customer)-610abc3a.css",
+    "file": "assets/(customer)-f8dd81e6.css",
     "src": "src/routes/(customer).css"
   },
   "src/routes/(customer).tsx?pick=default&pick=$css": {
     "css": [
-      "assets/(customer)-610abc3a.css"
+      "assets/(customer)-f8dd81e6.css"
     ],
-    "file": "assets/(customer)-b15e1e10.js",
+    "file": "assets/(customer)-fcf0d4e3.js",
     "imports": [
       "_web-3196b614.js",
       "_solid-4c629049.js",
@@ -237,14 +237,14 @@
     "src": "src/routes/(customer)/shop.tsx?pick=default&pick=$css"
   },
   "src/routes/(customer)/shop/[productId].css": {
-    "file": "assets/_productId_-fd666aba.css",
+    "file": "assets/_productId_-0270b6f0.css",
     "src": "src/routes/(customer)/shop/[productId].css"
   },
   "src/routes/(customer)/shop/[productId].tsx?pick=default&pick=$css": {
     "css": [
-      "assets/_productId_-fd666aba.css"
+      "assets/_productId_-0270b6f0.css"
     ],
-    "file": "assets/_productId_-edfe277d.js",
+    "file": "assets/_productId_-87b0eb5e.js",
     "imports": [
       "_web-3196b614.js",
       "_solid-4c629049.js",
@@ -272,7 +272,7 @@
   },
   "virtual:#vinxi/handler/client": {
     "css": [
-      "assets/client-b08181db.css"
+      "assets/client-dc0f7af3.css"
     ],
     "dynamicImports": [
       "src/routes/(admin).tsx?pick=default&pick=$css",
@@ -291,7 +291,7 @@
       "src/routes/(admin)/sales/invoices/index.tsx?pick=default&pick=$css",
       "src/routes/(admin)/sales/invoices/new.tsx?pick=default&pick=$css"
     ],
-    "file": "assets/client-e959698d.js",
+    "file": "assets/client-0ad83eae.js",
     "imports": [
       "_solid-4c629049.js",
       "_web-3196b614.js",
