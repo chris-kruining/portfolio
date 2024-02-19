@@ -23,6 +23,12 @@
       "_server-runtime-cb7094d4.js"
     ]
   },
+  "_logo-606f43c6.js": {
+    "assets": [
+      "assets/logo-191e221b.svg"
+    ],
+    "file": "assets/logo-606f43c6.js"
+  },
   "_price-d3e94d26.js": {
     "file": "assets/price-d3e94d26.js",
     "imports": [
@@ -65,6 +71,10 @@
     "file": "assets/onig-fd885c2d.wasm",
     "src": "node_modules/.pnpm/shikiji@0.9.19/node_modules/shikiji/dist/onig.wasm"
   },
+  "public/images/logo.svg": {
+    "file": "assets/logo-191e221b.svg",
+    "src": "public/images/logo.svg"
+  },
   "src/routes/(admin).css": {
     "file": "assets/(admin)-21e82f0e.css",
     "src": "src/routes/(admin).css"
@@ -73,9 +83,10 @@
     "css": [
       "assets/(admin)-21e82f0e.css"
     ],
-    "file": "assets/(admin)-4d554f28.js",
+    "file": "assets/(admin)-d07119ed.js",
     "imports": [
       "_web-3196b614.js",
+      "_logo-606f43c6.js",
       "_solid-4c629049.js",
       "_components-8bef54ce.js",
       "_routing-5942bcce.js"
@@ -91,7 +102,7 @@
     "src": "src/routes/(admin)/[...notFound].tsx?pick=default&pick=$css"
   },
   "src/routes/(admin)/index.tsx?pick=default&pick=$css": {
-    "file": "assets/index-20d1198d.js",
+    "file": "assets/index-938eeb37.js",
     "isDynamicEntry": true,
     "isEntry": true,
     "src": "src/routes/(admin)/index.tsx?pick=default&pick=$css"
@@ -151,7 +162,7 @@
     "src": "src/routes/(admin)/sales/invoices/[invoiceId].tsx?pick=default&pick=$css"
   },
   "src/routes/(admin)/sales/invoices/index.tsx?pick=default&pick=$css": {
-    "file": "assets/index-938eeb37.js",
+    "file": "assets/index-20d1198d.js",
     "isDynamicEntry": true,
     "isEntry": true,
     "src": "src/routes/(admin)/sales/invoices/index.tsx?pick=default&pick=$css"
@@ -184,13 +195,14 @@
     "css": [
       "assets/(customer)-610abc3a.css"
     ],
-    "file": "assets/(customer)-d603a428.js",
+    "file": "assets/(customer)-b15e1e10.js",
     "imports": [
       "_web-3196b614.js",
       "_solid-4c629049.js",
       "_price-d3e94d26.js",
       "_auth-689a503f.js",
       "_components-8bef54ce.js",
+      "_logo-606f43c6.js",
       "_products-0b342d3e.js",
       "_server-runtime-cb7094d4.js",
       "_routing-5942bcce.js"
@@ -279,7 +291,7 @@
       "src/routes/(admin)/sales/invoices/index.tsx?pick=default&pick=$css",
       "src/routes/(admin)/sales/invoices/new.tsx?pick=default&pick=$css"
     ],
-    "file": "assets/client-f6fb0dda.js",
+    "file": "assets/client-e959698d.js",
     "imports": [
       "_solid-4c629049.js",
       "_web-3196b614.js",
