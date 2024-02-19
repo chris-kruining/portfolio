@@ -37,11 +37,11 @@ jobs:
 
       - name: create .nojekyll
         run: |
-          touch .output/public/.nojekyll
+          touch solid-start/.output/public/.nojekyll
           echo "$PWD"
 
       - name: deploy pages
         uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           branch: gh-pages
-          folder: ./solid-start/.output/public
+          folder: solid-start/.output/public

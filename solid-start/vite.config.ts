@@ -2,11 +2,12 @@ import { defineConfig } from "@solidjs/start/config";
 import mkcert from 'vite-plugin-mkcert';
 
 export default defineConfig({
-    base: '/portfolio/',
     start: {
         ssr: true,
         // islands: true,
         server: {
+            baseURL: process.env.BASE_PATH,
+            preset: "static",
             prerender: {
                 routes: [ '/', '/sales'],
             },
