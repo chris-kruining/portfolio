@@ -26,6 +26,7 @@
 @layer app.spacing {
     .host {    
         gap: var(--size-3);
+        padding-block: var(--size-3);
         
         & > form {
             gap: var(--size-3);
