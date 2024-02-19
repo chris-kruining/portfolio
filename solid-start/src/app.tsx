@@ -8,7 +8,7 @@ import { AuthProvider } from './contexts/auth';
 export default function App() {
     return <>
         <AuthProvider>
-            <Router root={props => <Suspense>{props.children}</Suspense>}>
+            <Router base={import.meta.env.BASE_PATH} root={props => <Suspense>{props.children}</Suspense>}>
                 <FileRoutes />
             </Router>
         </AuthProvider>
