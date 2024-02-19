@@ -16,11 +16,6 @@ export default defineConfig({
     plugins: [ mkcert() ],
     css: {
         transformer: 'lightningcss',
-        lightningcss: {
-            drafts: {
-                nesting: true,
-            }
-        }
     },
     build: {
         cssMinify: 'lightningcss'
