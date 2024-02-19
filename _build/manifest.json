@@ -91,7 +91,7 @@
     "src": "src/routes/(admin)/[...notFound].tsx?pick=default&pick=$css"
   },
   "src/routes/(admin)/index.tsx?pick=default&pick=$css": {
-    "file": "assets/index-20d1198d.js",
+    "file": "assets/index-938eeb37.js",
     "isDynamicEntry": true,
     "isEntry": true,
     "src": "src/routes/(admin)/index.tsx?pick=default&pick=$css"
@@ -116,7 +116,7 @@
     "src": "src/routes/(admin)/sales.tsx?pick=default&pick=$css"
   },
   "src/routes/(admin)/sales/index.tsx?pick=default&pick=$css": {
-    "file": "assets/index-1d8a2c87.js",
+    "file": "assets/index-20d1198d.js",
     "isDynamicEntry": true,
     "isEntry": true,
     "src": "src/routes/(admin)/sales/index.tsx?pick=default&pick=$css"
@@ -151,7 +151,7 @@
     "src": "src/routes/(admin)/sales/invoices/[invoiceId].tsx?pick=default&pick=$css"
   },
   "src/routes/(admin)/sales/invoices/index.tsx?pick=default&pick=$css": {
-    "file": "assets/index-938eeb37.js",
+    "file": "assets/index-1d8a2c87.js",
     "isDynamicEntry": true,
     "isEntry": true,
     "src": "src/routes/(admin)/sales/invoices/index.tsx?pick=default&pick=$css"
@@ -279,7 +279,7 @@
       "src/routes/(admin)/sales/invoices/index.tsx?pick=default&pick=$css",
       "src/routes/(admin)/sales/invoices/new.tsx?pick=default&pick=$css"
     ],
-    "file": "assets/client-0338e4ec.js",
+    "file": "assets/client-c2b17abc.js",
     "imports": [
       "_solid-4c629049.js",
       "_web-3196b614.js",
