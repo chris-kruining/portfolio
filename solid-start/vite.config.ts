@@ -4,10 +4,9 @@ import mkcert from 'vite-plugin-mkcert';
 export default defineConfig({
     start: {
         ssr: true,
-        // islands: true,
         server: {
-            baseURL: process.env.BASE_PATH,
-            preset: "static",
+            // baseURL: process.env.BASE_PATH ?? '/',
+            // preset: "static",
             prerender: {
                 routes: [ '/', '/sales'],
             },

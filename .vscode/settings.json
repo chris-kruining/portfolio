@@ -1,6 +1,9 @@
 {
     "git.ignoreLimitWarning": true,
     "explorer.fileNesting.enabled": true,
+    "editor.codeActionsOnSave": {
+        "quickfix.biome": "explicit"
+    },
     "cssvar.files": [
         "**/node_modules/open-props/open-props.min.css",
         "**/*.css"

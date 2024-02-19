@@ -68,7 +68,7 @@
                 color: var(--gray-4);
             }
 
-            &:active {
+            &:not(:disabled):active {
                 background-color: var(--gray-1);
                 color: var(--gray-6);
             }
