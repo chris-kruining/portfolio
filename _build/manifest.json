@@ -17,24 +17,24 @@
       "_routing-5942bcce.js"
     ]
   },
-  "_invoices-6404b14c.js": {
-    "file": "assets/invoices-6404b14c.js",
+  "_invoices-5077fd2a.js": {
+    "file": "assets/invoices-5077fd2a.js",
     "imports": [
-      "_server-runtime-b0d5688d.js"
+      "_server-runtime-7cf80ad8.js"
     ]
   },
-  "_price-b292d567.js": {
-    "file": "assets/price-b292d567.js",
+  "_price-da1a1d14.js": {
+    "file": "assets/price-da1a1d14.js",
     "imports": [
       "_solid-4c629049.js",
-      "_products-9baa387a.js",
-      "_server-runtime-b0d5688d.js"
+      "_products-773fb53a.js",
+      "_server-runtime-7cf80ad8.js"
     ]
   },
-  "_products-9baa387a.js": {
-    "file": "assets/products-9baa387a.js",
+  "_products-773fb53a.js": {
+    "file": "assets/products-773fb53a.js",
     "imports": [
-      "_server-runtime-b0d5688d.js"
+      "_server-runtime-7cf80ad8.js"
     ]
   },
   "_routing-5942bcce.js": {
@@ -44,8 +44,8 @@
       "_web-3196b614.js"
     ]
   },
-  "_server-runtime-b0d5688d.js": {
-    "file": "assets/server-runtime-b0d5688d.js",
+  "_server-runtime-7cf80ad8.js": {
+    "file": "assets/server-runtime-7cf80ad8.js",
     "imports": [
       "_solid-4c629049.js",
       "_routing-5942bcce.js",
@@ -91,7 +91,7 @@
     "src": "src/routes/(admin)/[...notFound].tsx?pick=default&pick=$css"
   },
   "src/routes/(admin)/index.tsx?pick=default&pick=$css": {
-    "file": "assets/index-20d1198d.js",
+    "file": "assets/index-1d8a2c87.js",
     "isDynamicEntry": true,
     "isEntry": true,
     "src": "src/routes/(admin)/index.tsx?pick=default&pick=$css"
@@ -151,7 +151,7 @@
     "src": "src/routes/(admin)/sales/invoices/[invoiceId].tsx?pick=default&pick=$css"
   },
   "src/routes/(admin)/sales/invoices/index.tsx?pick=default&pick=$css": {
-    "file": "assets/index-1d8a2c87.js",
+    "file": "assets/index-20d1198d.js",
     "isDynamicEntry": true,
     "isEntry": true,
     "src": "src/routes/(admin)/sales/invoices/index.tsx?pick=default&pick=$css"
@@ -164,13 +164,13 @@
     "css": [
       "assets/new-efa924ba.css"
     ],
-    "file": "assets/new-fbc47832.js",
+    "file": "assets/new-84cb8500.js",
     "imports": [
       "_web-3196b614.js",
-      "_invoices-6404b14c.js",
+      "_invoices-5077fd2a.js",
       "_solid-4c629049.js",
       "_routing-5942bcce.js",
-      "_server-runtime-b0d5688d.js"
+      "_server-runtime-7cf80ad8.js"
     ],
     "isDynamicEntry": true,
     "isEntry": true,
@@ -184,15 +184,15 @@
     "css": [
       "assets/(customer)-610abc3a.css"
     ],
-    "file": "assets/(customer)-191cecd5.js",
+    "file": "assets/(customer)-2b7b6fd4.js",
     "imports": [
       "_web-3196b614.js",
       "_solid-4c629049.js",
-      "_price-b292d567.js",
+      "_price-da1a1d14.js",
       "_auth-689a503f.js",
       "_components-8bef54ce.js",
-      "_products-9baa387a.js",
-      "_server-runtime-b0d5688d.js",
+      "_products-773fb53a.js",
+      "_server-runtime-7cf80ad8.js",
       "_routing-5942bcce.js"
     ],
     "isDynamicEntry": true,
@@ -232,14 +232,14 @@
     "css": [
       "assets/_productId_-fd666aba.css"
     ],
-    "file": "assets/_productId_-fa93a251.js",
+    "file": "assets/_productId_-bfacccbc.js",
     "imports": [
       "_web-3196b614.js",
       "_solid-4c629049.js",
-      "_price-b292d567.js",
-      "_server-runtime-b0d5688d.js",
+      "_price-da1a1d14.js",
+      "_server-runtime-7cf80ad8.js",
       "_components-8bef54ce.js",
-      "_products-9baa387a.js",
+      "_products-773fb53a.js",
       "_routing-5942bcce.js"
     ],
     "isDynamicEntry": true,
@@ -279,13 +279,13 @@
       "src/routes/(admin)/sales/invoices/index.tsx?pick=default&pick=$css",
       "src/routes/(admin)/sales/invoices/new.tsx?pick=default&pick=$css"
     ],
-    "file": "assets/client-d5a0948c.js",
+    "file": "assets/client-44ecd358.js",
     "imports": [
       "_solid-4c629049.js",
       "_web-3196b614.js",
-      "_invoices-6404b14c.js",
-      "_server-runtime-b0d5688d.js",
-      "_products-9baa387a.js",
+      "_invoices-5077fd2a.js",
+      "_server-runtime-7cf80ad8.js",
+      "_products-773fb53a.js",
       "_auth-689a503f.js",
       "_routing-5942bcce.js"
     ],
