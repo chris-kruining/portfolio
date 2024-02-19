@@ -94,7 +94,7 @@
     "isDynamicEntry": true
   },
   "src/routes/(admin)/index.tsx?pick=default&pick=$css": {
-    "file": "assets/index-Dl7a3Ezc.js",
+    "file": "assets/index-Cj8ROzjh.js",
     "src": "src/routes/(admin)/index.tsx?pick=default&pick=$css",
     "isEntry": true,
     "isDynamicEntry": true
@@ -146,7 +146,7 @@
     ]
   },
   "src/routes/(admin)/sales/invoices/index.tsx?pick=default&pick=$css": {
-    "file": "assets/index-Cj8ROzjh.js",
+    "file": "assets/index-Dl7a3Ezc.js",
     "src": "src/routes/(admin)/sales/invoices/index.tsx?pick=default&pick=$css",
     "isEntry": true,
     "isDynamicEntry": true
@@ -213,7 +213,7 @@
     ]
   },
   "src/routes/(customer)/shop/[productId].tsx?pick=default&pick=$css": {
-    "file": "assets/_productId_-MTTUIhy4.js",
+    "file": "assets/_productId_-Bh-SzGOA.js",
     "src": "src/routes/(customer)/shop/[productId].tsx?pick=default&pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -227,7 +227,7 @@
       "_routing-CypKlUTf.js"
     ],
     "css": [
-      "assets/_productId_-BTdG8D6d.css"
+      "assets/_productId_-BGMMVeCQ.css"
     ]
   },
   "src/routes/(customer)/shop/index.tsx?pick=default&pick=$css": {
@@ -243,7 +243,7 @@
     ]
   },
   "virtual:#vinxi/handler/client": {
-    "file": "assets/client-CU7eFVFM.js",
+    "file": "assets/client-DEZ203W-.js",
     "src": "virtual:#vinxi/handler/client",
     "isEntry": true,
     "imports": [
