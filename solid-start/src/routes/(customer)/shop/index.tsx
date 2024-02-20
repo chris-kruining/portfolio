@@ -14,7 +14,7 @@ export default function Index(props: RouteSectionProps<ReturnType<typeof route['
         <For each={products()}>
             {product => <A href={`/shop/${product.id}`}>
                 <span>{product.name}</span>
-                <img src={product.image} />
+                <img src={product.thumbnail} />
             </A>}
         </For>
     </>

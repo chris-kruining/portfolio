@@ -29,7 +29,7 @@ export default function Details(props: RouteSectionProps<ReturnType<typeof route
     return <div class={styles.host}>
         <Show when={product()} fallback={<NotFound />}>
             {product => <>
-                <img src={product().image} />
+                <img src={product().images[0]} />
 
                 <form action={add} method="post">
                     <h1>{product().name}</h1>

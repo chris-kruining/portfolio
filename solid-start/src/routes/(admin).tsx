@@ -1,6 +1,6 @@
 import { A, RouteSectionProps  } from '@solidjs/router';
 import styles from './(admin).module.css';
-import logo from '~/../public/images/logo.svg';
+import logo from '~/images/logo.svg';
 
 export default function Admin(props: RouteSectionProps) {
     return <div class={styles.host}>

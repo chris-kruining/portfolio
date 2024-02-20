@@ -48,7 +48,8 @@ export interface Product<Props extends readonly Property[]> {
     id: number;
     name: string;
     description: string;
-    image: string;
+    thumbnail: string;
+    images: string[];
     brand: Brand;
     price: Price;
     properties: Props;

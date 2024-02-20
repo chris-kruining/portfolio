@@ -95,8 +95,6 @@ function createLocalStore<T extends object>(initState: T, version: number): [Sto
     const name = `cart.v${version}`;
 
     onMount(() => {
-        console.log(localStorage[name]);
-
         if (localStorage[name]) {
             try {
                 setState(JSON.parse(localStorage[name]));
