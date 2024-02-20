@@ -64,5 +64,4 @@ export const AuthProvider = (props: ParentProps) => {
     </Context.Provider>
 };
 
-// biome-ignore lint/style/noNonNullAssertion: in runtime the context's value is never actually undefined
 export  const useAuth = () => useContext(Context)!;

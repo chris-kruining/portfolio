@@ -5,8 +5,8 @@ export default defineConfig({
     start: {
         ssr: true,
         server: {
-            // baseURL: process.env.BASE_PATH ?? '/',
-            // preset: 'static',
+            baseURL: process.env.BASE_PATH ?? '/',
+            preset: 'static',
             prerender: {
                 routes: [ '/', '/sales'],
             },

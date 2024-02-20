@@ -20,22 +20,20 @@ export default function Menu() {
     </>
 }
 
-type ContentProps = { 
-    isLoggedIn: boolean,
-};
-
 function Content() {
     const { user, login, logout } = useAuth();
 
-    if(user() !== undefined) {
-        return <>
-            <A href="/sales">Sales</A>
+    const WhenLoggedIn = () => <>
+        <A href="/sales">Sales</A>
 
-            <ActionButton action={logout}>logout</ActionButton>
-        </>
-    }
+        <ActionButton action={logout}>logout</ActionButton>
+    </>;
 
-    return <>
+    const WhenLoggedOut = () => <>
         <ActionButton action={login}>login</ActionButton>
-    </>
+    </>;
+
+    return <Show when={user() !== undefined} fallback={<WhenLoggedOut />}>
+        <WhenLoggedIn />
+    </Show>
 }
