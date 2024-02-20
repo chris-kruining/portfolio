@@ -1,8 +1,20 @@
-import { A, RouteSectionProps  } from '@solidjs/router';
+import { A, RouteSectionProps, useNavigate  } from '@solidjs/router';
 import styles from './(admin).module.css';
 import logo from '~/images/logo.svg';
+import { useAuth } from '~/contexts/auth';
+import { createEffect } from 'solid-js';
+import Menu from '~/components/auth/menu';
 
 export default function Admin(props: RouteSectionProps) {
+    const navigate = useNavigate();
+    const { user } = useAuth();
+
+    createEffect(() => {
+        if (user() === undefined) {
+            navigate('/shop', { replace: true });
+        }
+    });
+
     return <div class={styles.host}>
         <nav>
             <header>
@@ -18,6 +30,10 @@ export default function Admin(props: RouteSectionProps) {
                 <A href="/expenses">Expenses</A>
                 <A href="/reports">Reports</A>
             </section>
+
+            <footer>
+                <Menu />
+            </footer>
         </nav>
 
         <main>

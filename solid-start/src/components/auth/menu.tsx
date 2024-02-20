@@ -24,7 +24,8 @@ function Content() {
     const { user, login, logout } = useAuth();
 
     const WhenLoggedIn = () => <>
-        <A href="/sales">Sales</A>
+        <a href="/">Admin</a>
+        <a href="/sales/invoices">Invoices</a>
 
         <ActionButton action={logout}>logout</ActionButton>
     </>;
