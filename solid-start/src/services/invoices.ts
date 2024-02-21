@@ -9,7 +9,7 @@ export const get = async (id: number) => {
 
     const invoice = invoices.find(i => i.id === id);
 
-    if(invoice === undefined) {
+    if (invoice === undefined) {
         throw new Error('not found');
     }
 
@@ -27,7 +27,7 @@ export const list = async () => {
 let id = invoices.at(-1)!.id;
 export const create = async (data: FormData) => {
     "use server";
-    
+
     id++;
 
     const someInput = data.get('someInput');
@@ -39,9 +39,8 @@ export const create = async (data: FormData) => {
     };
 }
 
-function dueStatus(invoice: Invoice, pivot: Date|undefined = undefined): Due {
-    if(invoice.paid)
-    {
+function dueStatus(invoice: Invoice, pivot: Date | undefined = undefined): Due {
+    if (invoice.paid) {
         return { status: 'paid' };
     }
 
@@ -85,7 +84,7 @@ export interface Invoice {
     place: string,
     price: {
         value: number,
-        currency: 'EUR'|'JPY'|'USD',
+        currency: 'EUR' | 'JPY' | 'USD',
     },
     paid: boolean,
     due: Date,

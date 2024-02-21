@@ -15,13 +15,13 @@ export default function Details(props: RouteSectionProps<ReturnType<typeof route
 
     const variations = createMemo(() => Object.entries<Set<any>>(product()?.variations.reduce(
         (result, variation) => {
-            for(const [ k, v ] of Object.entries(variation)) {    
+            for (const [k, v] of Object.entries(variation)) {
                 result[k].add(v);
             }
 
             return result;
-        }, 
-        Object.fromEntries(product()?.properties.map(p => [ p.name, new Set<any>() ]) ?? [])
+        },
+        Object.fromEntries(product()?.properties.map(p => [p.name, new Set<any>()]) ?? [])
     ) ?? []));
 
     const submission = useSubmission(add);
@@ -31,7 +31,7 @@ export default function Details(props: RouteSectionProps<ReturnType<typeof route
             {product => <>
                 <img src={product().images[0]} />
 
-                <form action={add} method="post">
+                <form action={add.with(product().id)} method="post">
                     <h1>{product().name}</h1>
                     <A href={`/brand/${product().brand.id}`} class={styles.brand}>{product().brand.name}</A>
 
@@ -42,7 +42,7 @@ export default function Details(props: RouteSectionProps<ReturnType<typeof route
                     <hr />
 
                     <For each={variations()}>
-                        {([ property, values ]) => <section>
+                        {([property, values]) => <section>
                             <strong>{property}</strong>
 
                             <ul>
@@ -58,11 +58,10 @@ export default function Details(props: RouteSectionProps<ReturnType<typeof route
                     </For>
 
                     <label>
-                        Quantity: 
+                        Quantity:
                         <input type="number" name="quantity" min="1" max="100" value="1" />
                     </label>
 
-                    <input type="hidden" name="id" value={product().id} />
                     <button type="submit" disabled={state() !== 'idle'}>Add to cart</button>
                 </form>
             </>}

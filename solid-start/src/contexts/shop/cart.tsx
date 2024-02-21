@@ -10,30 +10,28 @@ type CartItem<P extends Product<any> = Product<any>> = {
     variation: P['variations'][number]
 }
 
-const CartContext = createContext<{ 
-    items: CartItem[], 
-    current: Accessor<CartItem|undefined>, 
-    state: Accessor<'adding'|'clearing'|'idle'>, 
-    add: Action<[FormData], void>, 
-    clear: Action<[FormData], void>
+const CartContext = createContext<{
+    items: CartItem[],
+    current: Accessor<CartItem | undefined>,
+    state: Accessor<'adding' | 'clearing' | 'idle'>,
+    add: Action<[number, FormData], void>,
+    clear: Action<[], void>
 }>();
 
 export const CartProvider = (props: ParentProps) => {
-    const [ items, setItems ] = createLocalStore<CartItem[]>([], 1);
-    const [ item, setItem ] = createSignal<CartItem|undefined>(undefined);
+    const [items, setItems] = createLocalStore<CartItem[]>([], 1);
+    const [item, setItem] = createSignal<CartItem | undefined>(undefined);
 
-    const add = action(async (data: FormData) => {
-        const id = Number(data.get('id'));
+    const add = action(async (id: number, data: FormData) => {
         const quantity = Number(data.get('quantity'));
-    
+
         const product = await get(id);
-    
-        if(product === undefined)
-        {
+
+        if (product === undefined) {
             throw new Error('Product not found');
         }
-    
-        const variation = Object.fromEntries(product.properties.map(p => [ p.name, data.get(`p_${p.name}`) ]));
+
+        const variation = Object.fromEntries(product.properties.map(p => [p.name, data.get(`p_${p.name}`)]));
         const newItem = { product, quantity, variation };
 
         setItem(newItem);
@@ -42,7 +40,7 @@ export const CartProvider = (props: ParentProps) => {
 
         const existing = items.find(i => i.product.id === newItem.product.id && equals(i.variation, newItem.variation));
 
-        if(existing) {
+        if (existing) {
             const index = items.indexOf(existing);
 
             setItems(index, 'quantity', existing.quantity + newItem.quantity);
@@ -51,7 +49,7 @@ export const CartProvider = (props: ParentProps) => {
             setItems(items.length, newItem);
         }
     }, 'add');
-    
+
     const clear = action(async () => {
         await new Promise(res => setTimeout(res, 1000));
 
@@ -62,11 +60,11 @@ export const CartProvider = (props: ParentProps) => {
     const clearSubmission = useSubmission(clear);
 
     const state = createMemo(() => {
-        if(addSubmission.pending === true) {
+        if (addSubmission.pending === true) {
             return 'adding'
         }
 
-        if(clearSubmission.pending === true) {
+        if (clearSubmission.pending === true) {
             return 'clearing'
         }
 
@@ -74,7 +72,7 @@ export const CartProvider = (props: ParentProps) => {
     });
 
     const current = createMemo(() => {
-        switch(state()) {
+        switch (state()) {
             case 'adding': return item();
 
             case 'clearing': return undefined;
@@ -82,7 +80,7 @@ export const CartProvider = (props: ParentProps) => {
             case 'idle': return undefined;
         }
     });
-    
+
     return <CartContext.Provider value={{ items, current, state, add, clear }}>
         {props.children}
     </CartContext.Provider>
@@ -98,16 +96,16 @@ function createLocalStore<T extends object>(initState: T, version: number): [Sto
         if (localStorage[name]) {
             try {
                 setState(JSON.parse(localStorage[name]));
-            } 
+            }
             catch (error) {
                 setState(() => initState);
             }
         }
-    
+
         createEffect(() => {
             localStorage[name] = JSON.stringify(state);
         });
     })
-    
+
     return [state, setState];
 }

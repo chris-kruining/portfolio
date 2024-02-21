@@ -1,4 +1,4 @@
-import { RouteSectionProps, cache, createAsync, A } from "@solidjs/router";
+import { RouteSectionProps, cache, createAsync, A, RouteDefinition } from "@solidjs/router";
 import styles from './invoices.module.css';
 import { createMemo, For, Match, Switch } from "solid-js";
 import { list } from "~/services/invoices";
@@ -7,7 +7,7 @@ const getInvoices = cache(list, 'invoices');
 
 export const route = {
     load: () => createAsync(() => getInvoices()),
-};
+} satisfies RouteDefinition;
 
 export default function Invoices(props: RouteSectionProps<ReturnType<typeof route['load']>>) {
     const invoices = props.data!;
