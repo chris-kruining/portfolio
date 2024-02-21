@@ -4,8 +4,8 @@
 
     #cart {
         position: absolute;
-        inset-block-start: calc(anchor(implicit start) - var(--size-3));
-        inset-inline-end: calc(anchor(implicit end) - var(--size-3));
+        inset-block-start: anchor(end);
+        inset-inline-end: anchor(end);
 
         &:popover-open {
             display: grid;
@@ -55,7 +55,7 @@
 
 @layer component.animation {
     #cart {
-        --time: .5s;
+        --time: .3s;
         transition: 
             translate var(--time),
             opacity var(--time),
@@ -65,7 +65,7 @@
         transform-origin: top right;
 
         opacity: 0;
-        translate: 50% 0;
+        translate: 25% 0;
 
         &:popover-open {
             translate: 0;
@@ -76,7 +76,7 @@
     @starting-style {
         #cart:popover-open {
             opacity: 0;
-            translate: 50% 0;
+            translate: 25% 0;
         }
     }
 }

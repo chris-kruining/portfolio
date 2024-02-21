@@ -12,8 +12,11 @@
             & > header {
                 display: grid;
                 grid-auto-flow: column;
-                /* align-content: start; */
                 place-items: center;
+
+                & > a {
+                    display: contents;
+                }
             }
     
             & > main {

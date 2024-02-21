@@ -1,40 +1,32 @@
-import { useAuth } from '~/contexts/auth';
-import styles from './menu.module.css';
-import { A } from '@solidjs/router';
+import { Accessor, Show } from 'solid-js';
+import { User, useAuth } from '~/contexts/auth';
 import ActionButton from '../form/action-button';
-import { Show } from 'solid-js';
+import styles from './menu.module.css';
 
 export default function Menu() {
-    const { user } = useAuth();
+    const { user, login, logout } = useAuth();
 
-    return <>
+    const WhenLoggedIn = ({ user }: { user: Accessor<User> }) => <>
         <button type="button" id={styles.btn} popoverTarget={styles.menu} popoverTargetAction="toggle">
-            <Show when={user()} fallback="Log in">
-                {user => <img src={user().image} alt="avatar" />}
-            </Show>
+            <img src={user().image} alt="avatar" />
         </button>
 
         <div id={styles.menu} popover anchor={styles.btn}>
-            <Content />
+            <a href="/dashboard">Admin</a>
+            <a href="/sales/invoices">Invoices</a>
+
+            <ActionButton action={logout}>logout</ActionButton>
         </div>
-    </>
-}
-
-function Content() {
-    const { user, login, logout } = useAuth();
-
-    const WhenLoggedIn = () => <>
-        <a href="/">Admin</a>
-        <a href="/sales/invoices">Invoices</a>
-
-        <ActionButton action={logout}>logout</ActionButton>
     </>;
 
     const WhenLoggedOut = () => <>
         <ActionButton action={login}>login</ActionButton>
     </>;
 
-    return <Show when={user() !== undefined} fallback={<WhenLoggedOut />}>
-        <WhenLoggedIn />
+    return <Show when={user()} fallback={<WhenLoggedOut />}>
+        {user => <WhenLoggedIn user={user} />}
     </Show>
+}
+
+function Content() {
 }

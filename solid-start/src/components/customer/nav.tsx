@@ -1,15 +1,18 @@
+import { A } from '@solidjs/router';
 import { JSX } from 'solid-js';
-import Cart from './shop/cart';
-import styles from './nav.module.css'
-import Menu from '../auth/menu';
 import logo from '~/images/logo.svg';
+import Menu from '../auth/menu';
+import styles from './nav.module.css'
+import Cart from './shop/cart';
 
 export default function Nav(props: JSX.HTMLAttributes<HTMLElement>) {
     return <nav {...props} class={`${styles.host} ${props.class}`}>
         <div>
             <header>
-                <img width="40" alt="SolidStart Logo" src={logo} />
-                <span>SolidStart</span>
+                <A href="/">
+                    <img width="40" alt="SolidStart Logo" src={logo} />
+                    <span>SolidStart</span>
+                </A>
             </header>
 
             <main>{props.children}</main>

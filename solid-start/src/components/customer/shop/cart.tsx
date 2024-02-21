@@ -1,7 +1,8 @@
+import { A } from "@solidjs/router";
 import { For, JSX, Show, createEffect, createMemo } from "solid-js";
-import styles from './cart.module.css';
-import { useCart } from '~/contexts/shop/cart';
 import ActionButton from '~/components/form/action-button';
+import { useCart } from '~/contexts/shop/cart';
+import styles from './cart.module.css';
 import Price from './price';
 
 type CartProps = JSX.AnchorHTMLAttributes<HTMLDivElement>;
@@ -27,15 +28,13 @@ export default function Cart(props: CartProps) {
     </Show>
 
     return <div {...props}>
-        <button popoverTarget={styles.cart} popoverTargetAction="show" id={styles.btn}>Cart {optimisticItems().length}</button>
+        <button type="button" popoverTarget={styles.cart} popoverTargetAction="toggle" id={styles.btn}>Cart {optimisticItems().length}</button>
 
         <div ref={popover} id={styles.cart} popover anchor={styles.btn}>
-            <button popoverTarget={styles.cart} popoverTargetAction="hide">Cart {optimisticItems().length}</button>
-
             <Show when={optimisticItems().length > 0} fallback={<Fallback />} keyed>
                 <For each={optimisticItems()}>
                     {item => <div>
-                        <img src={item.product.image} />
+                        <img src={item.product.thumbnail} />
                         
                         <strong>{item.product.name}</strong>
                         <span>{item.quantity}</span>
@@ -68,6 +67,8 @@ export default function Cart(props: CartProps) {
                     </Show>
                 </ActionButton>
             </Show>
+
+            <A href="/checkout">To checkout</A>
         </div>
     </div>
 }

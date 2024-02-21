@@ -16,9 +16,13 @@
                 grid: 100% / auto 1fr;
                 align-items: center;
 
-                & > img {
-                    block-size: 2.5em;
-                    aspect-ratio: 1;
+                & > a {
+                    display: contents;
+
+                    & > img {
+                        block-size: 2.5em;
+                        aspect-ratio: 1;
+                    }
                 }
             }
 
@@ -26,6 +30,13 @@
                 display: grid;
                 grid-auto-flow: row;
                 align-content: start;
+            }
+
+            & > footer {
+                display: grid;
+                grid-auto-flow: column;
+                justify-content: start;
+                align-items: center;
             }
         }
 
@@ -53,19 +64,15 @@
         padding-block-start: var(--size-5);
 
         & > nav {
-            gap: 1em;
-            padding: 1em;
+            gap: var(--size-3);
+            padding: var(--size-3);
 
-            & > header {
-                gap: .5em;
+            & > :is(header, footer, section) {
+                gap: var(--size-2);
             }
 
-            & > section {
-                gap: .5em;
-
-                & a {
-                    padding: .5em;
-                }
+            & > section a {
+                padding: var(--size-2);
             }
         }
 
@@ -82,7 +89,7 @@
         background-color: var(--gray-1);
 
         & > nav {
-            & > header > span {
+            & > header > a > span {
                 font-weight: bold;
                 font-size: 1.5em;
                 color: var(--gray-7);
