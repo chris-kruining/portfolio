@@ -1,5 +1,5 @@
-import { Action, action, cache, createAsync, reload } from '@solidjs/router';
-import { Accessor, ParentProps, createContext, useContext } from 'solid-js';
+import { Action, action, cache, createAsync, reload, useNavigate } from '@solidjs/router';
+import { Accessor, ParentProps, createContext, createEffect, useContext } from 'solid-js';
 
 const user = {
     id: 10,
@@ -64,4 +64,17 @@ export const AuthProvider = (props: ParentProps) => {
     </Context.Provider>
 };
 
-export  const useAuth = () => useContext(Context)!;
+export const useAuth = () => useContext(Context);
+
+export const withAuthGuard = (callback: () => any) => {
+    const navigate = useNavigate();
+    const { user } = useAuth();
+
+    createEffect(() => {
+        if (user() === undefined) {
+            navigate('/shop', { replace: true });
+        }
+    });
+
+    return callback();
+};
