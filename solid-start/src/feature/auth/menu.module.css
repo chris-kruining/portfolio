@@ -1,6 +1,6 @@
 @layer component.layout {
     #btn {
-        & > img {
+        &>img {
             inline-size: 2em;
             aspect-ratio: 1;
         }
@@ -8,8 +8,6 @@
 
     #menu {
         position: absolute;
-        /* inset-block-start: anchor(implicit end);
-        inset-inline-end: anchor(implicit end); */
         inset-inline-start: auto;
         inset-inline-end: auto;
 
@@ -18,9 +16,9 @@
         @position-fallback --fallback {
             @try {
                 inset-block-end: anchor(top);
-                /* inset-inline-start: calc(anchor(left) - (anchor(center) - anchor(left))); */
                 inset-inline-start: anchor(left);
             }
+
             @try {
                 inset-block-start: anchor(bottom);
                 inset-inline-end: anchor(right);

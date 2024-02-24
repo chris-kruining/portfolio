@@ -1,17 +1,17 @@
 import { A, RouteSectionProps } from "@solidjs/router";
-import styles from './(customer).module.css';
-import Nav from "~/components/customer/nav";
-import { CartProvider } from '~/contexts/shop/cart';
+import { host } from './(customer).module.css';
+import { Nav } from "~/components/customer/nav";
+import { CartProvider } from '~/feature/shop';
 
 export default function Customer(props: RouteSectionProps) {
     return <CartProvider>
-        <div class={styles.host}>
-            <Nav class={styles.full}>
+        <div class={host}>
+            <Nav>
                 <A href="/shop">shop</A>
                 <A href="/brand">brands</A>
             </Nav>
 
-            <main>{props.children}</main>
+            {props.children}
         </div>
     </CartProvider>
 }

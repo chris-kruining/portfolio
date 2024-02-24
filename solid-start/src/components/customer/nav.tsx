@@ -1,12 +1,14 @@
 import { A } from '@solidjs/router';
 import { JSX } from 'solid-js';
-import logo from '~/images/logo.svg';
-import Menu from '../auth/menu';
-import styles from './nav.module.css'
-import Cart from './shop/cart';
 
-export default function Nav(props: JSX.HTMLAttributes<HTMLElement>) {
-    return <nav {...props} class={`${styles.host} ${props.class}`}>
+import { Menu } from '~/feature/auth';
+import { Cart } from '~/feature/shop';
+
+import logo from '~/images/logo.svg';
+import { host, cart } from './nav.module.css'
+
+export function Nav(props: JSX.HTMLAttributes<HTMLElement>) {
+    return <nav {...props} class={`${host} ${props.class ?? ''}`}>
         <div>
             <header>
                 <A href="/">
@@ -18,7 +20,7 @@ export default function Nav(props: JSX.HTMLAttributes<HTMLElement>) {
             <main>{props.children}</main>
 
             <aside>
-                <Cart class={styles.cart} />
+                <Cart class={cart} />
                 <Menu />
             </aside>
         </div>

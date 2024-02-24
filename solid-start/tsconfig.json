@@ -10,11 +10,15 @@
 		"allowJs": true,
 		"strict": true,
 		"noEmit": true,
-		"types": ["vinxi/client"],
+		"types": [
+			"vinxi/client"
+		],
 		"isolatedModules": true,
 		"resolveJsonModule": true,
 		"paths": {
-			"~/*": ["./src/*"]
+			"~/*": [
+				"./src/*"
+			],
 		}
 	}
 }

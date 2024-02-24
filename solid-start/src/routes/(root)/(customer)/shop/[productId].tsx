@@ -1,16 +1,16 @@
-import { A, RouteLoadFuncArgs, RouteSectionProps, action, createAsync, useSubmission } from "@solidjs/router";
-import { For, Show, createEffect, createMemo, useContext } from "solid-js";
+import { A, RouteDefinition, RouteLoadFuncArgs, RouteSectionProps, action, createAsync, useSubmission } from "@solidjs/router";
+import { For, Show, createMemo } from "solid-js";
 import { get } from "~/services/products";
 import styles from './[productId].module.css';
-import { useCart } from '~/contexts/shop/cart';
-import Price from '~/components/customer/shop/price';
+import { useCart, Price, } from '~/feature/shop';
 
 export const route = {
-    load: ({ params }: RouteLoadFuncArgs) => createAsync(() => get(Number(params.productId))),
-};
+    load: ({ params }) => createAsync(() => get(Number(params.productId))),
+} satisfies RouteDefinition;
 
 export default function Details(props: RouteSectionProps<ReturnType<typeof route['load']>>) {
     const product = props.data!;
+
     const { state, add } = useCart();
 
     const variations = createMemo(() => Object.entries<Set<any>>(product()?.variations.reduce(
@@ -24,15 +24,13 @@ export default function Details(props: RouteSectionProps<ReturnType<typeof route
         Object.fromEntries(product()?.properties.map(p => [p.name, new Set<any>()]) ?? [])
     ) ?? []));
 
-    const submission = useSubmission(add);
-
     return <div class={styles.host}>
         <Show when={product()} fallback={<NotFound />}>
             {product => <>
                 <img src={product().images[0]} />
 
                 <form action={add.with(product().id)} method="post">
-                    <h1>{product().name}</h1>
+                    <h1>{product().title}</h1>
                     <A href={`/brand/${product().brand.id}`} class={styles.brand}>{product().brand.name}</A>
 
                     <h2><Price value={product().price} /></h2>

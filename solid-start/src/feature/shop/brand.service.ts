@@ -1,4 +1,4 @@
-import b from '../../../shared/data/brands.json';
+import b from '../../../../shared/data/brands.json';
 
 export const brands = b as Brand[];
 

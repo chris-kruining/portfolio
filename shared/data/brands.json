@@ -1,5 +1,392 @@
 [
-    { "id": 1, "name": "The foodz company" },
-    { "id": 2, "name": "Foo-bar inc." },
-    { "id": 3, "name": "Bacon eats" }
+    {
+        "id": 1,
+        "name": "Al Munakh",
+        "image": ""
+    },
+    {
+        "id": 2,
+        "name": "AmnaMart",
+        "image": ""
+    },
+    {
+        "id": 3,
+        "name": "Apple",
+        "image": ""
+    },
+    {
+        "id": 4,
+        "name": "Arrivals Genuine",
+        "image": ""
+    },
+    {
+        "id": 5,
+        "name": "BRAVE BULL",
+        "image": ""
+    },
+    {
+        "id": 6,
+        "name": "Bake Parlor Big",
+        "image": ""
+    },
+    {
+        "id": 7,
+        "name": "Baking Food Items",
+        "image": ""
+    },
+    {
+        "id": 8,
+        "name": "Boho Decor",
+        "image": ""
+    },
+    {
+        "id": 9,
+        "name": "Bracelet",
+        "image": ""
+    },
+    {
+        "id": 10,
+        "name": "Car Aux",
+        "image": ""
+    },
+    {
+        "id": 11,
+        "name": "Copenhagen Luxe",
+        "image": ""
+    },
+    {
+        "id": 12,
+        "name": "Cuff Butterfly",
+        "image": ""
+    },
+    {
+        "id": 13,
+        "name": "DADAWU",
+        "image": ""
+    },
+    {
+        "id": 14,
+        "name": "Darojay",
+        "image": ""
+    },
+    {
+        "id": 15,
+        "name": "Dermive",
+        "image": ""
+    },
+    {
+        "id": 16,
+        "name": "Designer Sun Glasses",
+        "image": ""
+    },
+    {
+        "id": 17,
+        "name": "Digital Printed",
+        "image": ""
+    },
+    {
+        "id": 18,
+        "name": "Dry Rose",
+        "image": ""
+    },
+    {
+        "id": 19,
+        "name": "Eastern Watches",
+        "image": ""
+    },
+    {
+        "id": 20,
+        "name": "FREE FIRE",
+        "image": ""
+    },
+    {
+        "id": 21,
+        "name": "Fair & Clear",
+        "image": ""
+    },
+    {
+        "id": 22,
+        "name": "Fashion Jewellery",
+        "image": ""
+    },
+    {
+        "id": 23,
+        "name": "Flying Wooden",
+        "image": ""
+    },
+    {
+        "id": 24,
+        "name": "Fog Scent Xpressio",
+        "image": ""
+    },
+    {
+        "id": 25,
+        "name": "Furniture Bed Set",
+        "image": ""
+    },
+    {
+        "id": 26,
+        "name": "Ghazi Fabric",
+        "image": ""
+    },
+    {
+        "id": 27,
+        "name": "Golden",
+        "image": ""
+    },
+    {
+        "id": 28,
+        "name": "HP Pavilion",
+        "image": ""
+    },
+    {
+        "id": 29,
+        "name": "Hemani Tea",
+        "image": ""
+    },
+    {
+        "id": 30,
+        "name": "Huawei",
+        "image": ""
+    },
+    {
+        "id": 31,
+        "name": "IELGY",
+        "image": ""
+    },
+    {
+        "id": 32,
+        "name": "IELGY fashion",
+        "image": ""
+    },
+    {
+        "id": 33,
+        "name": "Ifei Home",
+        "image": ""
+    },
+    {
+        "id": 34,
+        "name": "Impression of Acqua Di Gio",
+        "image": ""
+    },
+    {
+        "id": 35,
+        "name": "Infinix",
+        "image": ""
+    },
+    {
+        "id": 36,
+        "name": "JIEPOLLY",
+        "image": ""
+    },
+    {
+        "id": 37,
+        "name": "Kitchen Shelf",
+        "image": ""
+    },
+    {
+        "id": 38,
+        "name": "L'Oreal Paris",
+        "image": ""
+    },
+    {
+        "id": 39,
+        "name": "LED Lights",
+        "image": ""
+    },
+    {
+        "id": 40,
+        "name": "Lord - Al-Rehab",
+        "image": ""
+    },
+    {
+        "id": 41,
+        "name": "LouisWill",
+        "image": ""
+    },
+    {
+        "id": 42,
+        "name": "Luxury Digital",
+        "image": ""
+    },
+    {
+        "id": 43,
+        "name": "METRO 70cc Motorcycle - MR70",
+        "image": ""
+    },
+    {
+        "id": 44,
+        "name": "Maasai Sandals",
+        "image": ""
+    },
+    {
+        "id": 45,
+        "name": "Microsoft Surface",
+        "image": ""
+    },
+    {
+        "id": 46,
+        "name": "Multi Purpose",
+        "image": ""
+    },
+    {
+        "id": 47,
+        "name": "Naviforce",
+        "image": ""
+    },
+    {
+        "id": 48,
+        "name": "Neon LED Light",
+        "image": ""
+    },
+    {
+        "id": 49,
+        "name": "OPPO",
+        "image": ""
+    },
+    {
+        "id": 50,
+        "name": "Professional Wear",
+        "image": ""
+    },
+    {
+        "id": 51,
+        "name": "RED MICKY MOUSE..",
+        "image": ""
+    },
+    {
+        "id": 52,
+        "name": "ROREC White Rice",
+        "image": ""
+    },
+    {
+        "id": 53,
+        "name": "Ratttan Outdoor",
+        "image": ""
+    },
+    {
+        "id": 54,
+        "name": "Royal_Mirage",
+        "image": ""
+    },
+    {
+        "id": 55,
+        "name": "Rubber",
+        "image": ""
+    },
+    {
+        "id": 56,
+        "name": "SKMEI 9117",
+        "image": ""
+    },
+    {
+        "id": 57,
+        "name": "Saaf & Khaas",
+        "image": ""
+    },
+    {
+        "id": 58,
+        "name": "Samsung",
+        "image": ""
+    },
+    {
+        "id": 59,
+        "name": "Sandals Flip Flops",
+        "image": ""
+    },
+    {
+        "id": 60,
+        "name": "Sneakers",
+        "image": ""
+    },
+    {
+        "id": 61,
+        "name": "Soft Cotton",
+        "image": ""
+    },
+    {
+        "id": 62,
+        "name": "Stainless",
+        "image": ""
+    },
+    {
+        "id": 63,
+        "name": "Steal Frame",
+        "image": ""
+    },
+    {
+        "id": 64,
+        "name": "Strap Skeleton",
+        "image": ""
+    },
+    {
+        "id": 65,
+        "name": "Synthetic Leather",
+        "image": ""
+    },
+    {
+        "id": 66,
+        "name": "TC Reusable",
+        "image": ""
+    },
+    {
+        "id": 67,
+        "name": "The Warehouse",
+        "image": ""
+    },
+    {
+        "id": 68,
+        "name": "Top Sweater",
+        "image": ""
+    },
+    {
+        "id": 69,
+        "name": "Vintage Apparel",
+        "image": ""
+    },
+    {
+        "id": 70,
+        "name": "W1209 DC12V",
+        "image": ""
+    },
+    {
+        "id": 71,
+        "name": "Watch Pearls",
+        "image": ""
+    },
+    {
+        "id": 72,
+        "name": "Xiangle",
+        "image": ""
+    },
+    {
+        "id": 73,
+        "name": "YIOSI",
+        "image": ""
+    },
+    {
+        "id": 74,
+        "name": "fauji",
+        "image": ""
+    },
+    {
+        "id": 75,
+        "name": "lightingbrilliance",
+        "image": ""
+    },
+    {
+        "id": 76,
+        "name": "luxury palace",
+        "image": ""
+    },
+    {
+        "id": 77,
+        "name": "mastar watch",
+        "image": ""
+    },
+    {
+        "id": 78,
+        "name": "shock absorber",
+        "image": ""
+    }
 ]

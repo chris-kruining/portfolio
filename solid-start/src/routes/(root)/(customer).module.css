@@ -1,7 +1,6 @@
 @layer app.layout {
     .host {
         display: grid;
-        /* Don't use vars in this line, it messes up the renaming done on grid lines */
         grid-template-columns: var(--grid);
         align-content: start;
 
@@ -9,18 +8,16 @@
         block-size: 100%;
         overflow: auto;
 
-        & > :not(.full) {
-            grid-column: var(--main);
-        }
+        scroll-timeline: --page-scroll block;
 
-        & > .full {
-            grid-column: var(--full);
+        >.child {
+            grid-column: var(--main);
         }
     }
 }
 
 @layer app.theme {
     .host {
-        background-color: var(--gray-0);
+        background-color: var(--gray-1);
     }
 }

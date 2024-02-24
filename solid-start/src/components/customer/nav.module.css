@@ -1,35 +1,39 @@
 @layer component.layout {
     .host {
+        grid-column: var(--full);
         position: sticky;
         display: grid;
-        grid-template-columns: var(--grid);
+        grid-template-columns: subgrid;
+        inset-block-start: 0;
+        z-index: var(--layer-2);
+        isolation: isolate;
 
-        & > div {
+        &>div {
             grid-column: var(--main);
             display: grid;
-            grid: 100% / auto 1fr auto;
+            grid: 100% / 10em 1fr auto;
 
-            & > header {
+            &>header {
                 display: grid;
                 grid-auto-flow: column;
                 place-items: center;
 
-                & > a {
+                &>a {
                     display: contents;
                 }
             }
-    
-            & > main {
+
+            &>main {
                 display: grid;
                 grid-auto-flow: column;
                 place-content: center start;
             }
-    
-            & > aside {
+
+            &>aside {
                 display: grid;
                 grid-auto-flow: column;
 
-                & > .cart {
+                &>.cart {
                     justify-self: end;
                 }
             }
@@ -38,22 +42,94 @@
 }
 
 @layer component.spacing {
-    .host > div {
-        gap: var(--size-3);
-        padding: var(--size-3);
-    
-        & > main {
+    .host {
+        margin-block-start: 5em;
+
+        &>div {
             gap: var(--size-3);
-        }
-    
-        & > aside {
-            gap: var(--size-3);
+            padding-block: var(--size-3);
+
+            &>main {
+                gap: var(--size-3);
+            }
+
+            &>aside {
+                gap: var(--size-3);
+            }
         }
     }
 }
 
 @layer component.theme {
     .host {
+        animation-name: nav-host-scroll;
+        animation-timeline: --page-scroll;
+        animation-range-end: 9em;
+        animation-fill-mode: both;
+
         background-color: var(--gray-1);
+
+        &>div {
+            &>header {
+                animation-name: nav-header-scroll;
+                animation-timeline: --page-scroll;
+                animation-range-end: 9em;
+                animation-fill-mode: both;
+                transform-origin: top left;
+
+                translate: 0 -5em;
+                scale: 1.25;
+            }
+
+            &>main {
+                animation-name: nav-main-scroll;
+                animation-timeline: --page-scroll;
+                animation-range-end: 9em;
+                animation-fill-mode: both;
+                transform-origin: top left;
+
+                translate: calc(-10em - var(--size-3)) 0;
+            }
+        }
+    }
+
+    @keyframes nav-host-scroll {
+        from {
+            background-color: var(--gray-1);
+        }
+
+        to {
+            background-color: var(--gray-2);
+        }
+    }
+
+    @keyframes nav-header-scroll {
+        from {
+            translate: 0 -5em;
+            scale: 1.25;
+        }
+
+        75% {
+            scale: 1;
+        }
+
+        to {
+            translate: 0 0;
+            scale: 1;
+        }
+    }
+
+    @keyframes nav-main-scroll {
+        from {
+            translate: calc(-10em - var(--size-3)) 0;
+        }
+
+        20% {
+            translate: -5em 0;
+        }
+
+        to {
+            translate: 0 0;
+        }
     }
 }

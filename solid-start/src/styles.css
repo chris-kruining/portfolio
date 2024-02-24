@@ -15,7 +15,9 @@
 }
 
 @layer reset {
-    html, body {
+
+    html,
+    body {
         margin: 0;
         padding: 0;
         inline-size: 100%;
@@ -29,18 +31,24 @@
         box-sizing: border-box;
     }
 
-    h1, h2, h3, h4, h5, h6, p {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
         margin: 0;
     }
 }
 
 @layer defaults {
     :root {
-        --grid: [full-start] minmax(5vw, 1fr) [main-start] repeat(12, minmax(0, calc(1368px / 12))) [main-end]  minmax(5vw, 1fr) [full-end];
+        --grid: [full-start] minmax(5vw, 1fr) [main-start] repeat(12, minmax(0, calc(1368px / 12))) [main-end] minmax(5vw, 1fr) [full-end];
         --main: main;
         --full: full;
     }
-    
+
     a[link] {
         text-decoration: none;
         color: var(--gray-5);

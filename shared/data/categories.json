@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "name": "automotive",
+        "image": ""
+    },
+    {
+        "id": 2,
+        "name": "fragrances",
+        "image": ""
+    },
+    {
+        "id": 3,
+        "name": "furniture",
+        "image": ""
+    },
+    {
+        "id": 4,
+        "name": "groceries",
+        "image": ""
+    },
+    {
+        "id": 5,
+        "name": "home-decoration",
+        "image": ""
+    },
+    {
+        "id": 6,
+        "name": "laptops",
+        "image": ""
+    },
+    {
+        "id": 7,
+        "name": "lighting",
+        "image": ""
+    },
+    {
+        "id": 8,
+        "name": "mens-shirts",
+        "image": ""
+    },
+    {
+        "id": 9,
+        "name": "mens-shoes",
+        "image": ""
+    },
+    {
+        "id": 10,
+        "name": "mens-watches",
+        "image": ""
+    },
+    {
+        "id": 11,
+        "name": "motorcycle",
+        "image": ""
+    },
+    {
+        "id": 12,
+        "name": "skincare",
+        "image": ""
+    },
+    {
+        "id": 13,
+        "name": "smartphones",
+        "image": ""
+    },
+    {
+        "id": 14,
+        "name": "sunglasses",
+        "image": ""
+    },
+    {
+        "id": 15,
+        "name": "tops",
+        "image": ""
+    },
+    {
+        "id": 16,
+        "name": "womens-bags",
+        "image": ""
+    },
+    {
+        "id": 17,
+        "name": "womens-dresses",
+        "image": ""
+    },
+    {
+        "id": 18,
+        "name": "womens-jewellery",
+        "image": ""
+    },
+    {
+        "id": 19,
+        "name": "womens-shoes",
+        "image": ""
+    },
+    {
+        "id": 20,
+        "name": "womens-watches",
+        "image": ""
+    }
+]

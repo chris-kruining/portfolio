@@ -4,14 +4,12 @@ export type PriceProps = {
     value: Price,
 };
 
-export default function Price(props: PriceProps) {
+export function Price(props: PriceProps) {
     const symbol = {
         'EUR': '€',
         'USD': '$',
         'JPY': '¥',
     }[props.value.currency];
 
-    return <>
-        {symbol} {props.value.value}
-    </>
+    return `${symbol} ${props.value.value}`
 }

@@ -1,7 +1,7 @@
-import p from '../../../shared/data/products.json';
-import props from '../../../shared/data/products/properties.json';
-import { brands, Brand } from './brands';
-import { categories, Category } from './categories';
+import p from '../../../../shared/data/products.json';
+import props from '../../../../shared/data/products/properties.json';
+import { brands, Brand } from './brand.service';
+import { categories, Category } from './category.service';
 
 const products = p.map(p => {
     const properties = p.properties.map(propId => props.find(p => p.id === propId)!);
