@@ -30,7 +30,7 @@ export const CartProvider = (props: ParentProps) => {
     const [dropped, setDropped] = createSignal<Product<any> | undefined>(undefined);
 
     function createDropzone<T extends ValidComponent>(component?: T) {
-        return (props: JSX.HTMLAttributes<T>) => {
+        return (props: DropzoneProps<T>) => {
             const activeClass = () => dragging() !== undefined ? 'active' : '';
 
             const onDragOver = (e: DragEvent) => {
@@ -55,7 +55,7 @@ export const CartProvider = (props: ParentProps) => {
                 }
 
                 setDropped(product);
-                
+
                 setDragging(undefined);
                 setDropped(undefined);
                 cart.add(product.id, 1, {});
@@ -74,7 +74,7 @@ export const CartProvider = (props: ParentProps) => {
     };
 
     function createDraggable<T extends ValidComponent>(component?: T) {
-        return (props: { product: Product<any> } & JSX.HTMLAttributes<T>) => {
+        return (props: DraggableProps<T>) => {
             const onDragStart = (event: DragEvent) => {
                 if (event.dataTransfer === null) {
                     return;
