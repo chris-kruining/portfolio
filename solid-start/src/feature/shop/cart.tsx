@@ -1,9 +1,9 @@
 import { A } from "@solidjs/router";
 import { For, JSX, Show, createEffect } from "solid-js";
 import ActionButton from '~/components/form/action-button';
-import { useCart, Price } from './';
-import styles from './cart.module.css';
 import type { Price as P } from '~/services/products';
+import { Price, useCart } from './';
+import styles from './cart.module.css';
 
 type CartProps = JSX.AnchorHTMLAttributes<HTMLDivElement>;
 
@@ -17,10 +17,17 @@ export function Cart(props: CartProps) {
     const totals = () => Object.entries(Object.groupBy(items(), i => i.product.price.currency))
         .map(([currency, items]) => ({ currency, value: items.reduce((t, i) => t + (i.product.price.value * i.quantity), 0) })) as P[];
 
-    createEffect(() => {
-        if (['adding', 'dragging'].includes(state())) {
+    createEffect((last) => {
+        const current = state();
+
+        if (['adding', 'dragging'].includes(current)) {
             popover.showPopover();
         }
+        else if (current === 'idle' && last === 'dragging') {
+            popover.hidePopover();
+        }
+
+        return current;
     });
 
     const Dropzone = createDropzone();

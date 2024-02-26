@@ -1,9 +1,9 @@
 import { Action, action, useSubmission } from '@solidjs/router';
 import { Accessor, Component, ComponentProps, JSX, ParentProps, ValidComponent, createContext, createMemo, createSignal, useContext } from 'solid-js';
-import { Product } from '~/services/products';
-import { CONTENT_TYPE } from './types';
 import { Dynamic } from 'solid-js/web';
+import { Product } from '~/services/products';
 import { CartItem, createCart } from './cart.service';
+import { CONTENT_TYPE } from './types';
 
 type DraggableProps<T extends ValidComponent, P = ComponentProps<T>> = {
     [K in keyof P]: P[K];
@@ -17,7 +17,7 @@ type DropzoneProps<T extends ValidComponent, P = ComponentProps<T>> = {
 
 const CartContext = createContext<{
     items: Accessor<CartItem[]>,
-    state: Accessor<'adding' | 'clearing' | 'idle' | 'dragging'>,
+    state: Accessor<'adding' | 'clearing' | 'idle' | 'dragging' | 'dropped'>,
     add: Action<[number, FormData], void>,
     clear: Action<[], void>,
     createDropzone: <T extends ValidComponent>(tag?: T) => Component<DropzoneProps<T>>,
@@ -27,6 +27,7 @@ const CartContext = createContext<{
 export const CartProvider = (props: ParentProps) => {
     const { items, ...cart } = createCart();
     const [dragging, setDragging] = createSignal<Product<any> | undefined>(undefined);
+    const [dropped, setDropped] = createSignal<Product<any> | undefined>(undefined);
 
     function createDropzone<T extends ValidComponent>(component?: T) {
         return (props: JSX.HTMLAttributes<T>) => {
@@ -53,7 +54,10 @@ export const CartProvider = (props: ParentProps) => {
                     return;
                 }
 
+                setDropped(product);
+                
                 setDragging(undefined);
+                setDropped(undefined);
                 cart.add(product.id, 1, {});
             };
 
@@ -82,6 +86,9 @@ export const CartProvider = (props: ParentProps) => {
 
                 setDragging(props.product);
             };
+            const onDragEnd = (event: DragEvent) => {
+                setDragging(undefined);
+            };
 
             return <Dynamic
                 component={component ?? ('div' as any)}
@@ -90,6 +97,7 @@ export const CartProvider = (props: ParentProps) => {
 
                 draggable="true"
                 onDragStart={onDragStart}
+                onDragEnd={onDragEnd}
             >
                 {props.children}
             </Dynamic>;
@@ -117,6 +125,10 @@ export const CartProvider = (props: ParentProps) => {
     const clearSubmission = useSubmission(clear);
 
     const state = createMemo(() => {
+        if (dropped() !== undefined) {
+            return 'dropped';
+        }
+
         if (dragging() !== undefined) {
             return 'dragging';
         }
