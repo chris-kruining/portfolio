@@ -31,7 +31,7 @@ export const CartProvider = (props: ParentProps) => {
 
     function createDropzone<T extends ValidComponent>(component?: T) {
         return (props: DropzoneProps<T>) => {
-            const activeClass = () => dragging() !== undefined ? 'active' : '';
+            const [ isActive, setIsActive ] = createSignal(0);
 
             const onDragOver = (e: DragEvent) => {
                 if (e.dataTransfer === null || e.dataTransfer.types.includes(CONTENT_TYPE.product) === false) {
@@ -41,6 +41,14 @@ export const CartProvider = (props: ParentProps) => {
                 e.preventDefault();
 
                 e.dataTransfer.effectAllowed = 'all';
+            };
+
+            const onDragEnter = (e: DragEvent) => {
+                setIsActive(i => i + 1);
+            };
+
+            const onDragLeave = (e: DragEvent) => {
+                setIsActive(i => i - 1);
             };
 
             const onDrop = (e: DragEvent) => {
@@ -54,6 +62,8 @@ export const CartProvider = (props: ParentProps) => {
                     return;
                 }
 
+                setIsActive(0);
+
                 setDropped(product);
 
                 setDragging(undefined);
@@ -61,11 +71,15 @@ export const CartProvider = (props: ParentProps) => {
                 cart.add(product.id, 1, {});
             };
 
+            const activeClass = () => isActive() === 1 ? 'active' : '';
+
             return <Dynamic
                 component={component ?? ('div' as any)}
                 {...props}
                 class={`${props.class ?? ''} dropzone ${activeClass()}`}
                 onDragOver={onDragOver}
+                onDragEnter={onDragEnter}
+                onDragLeave={onDragLeave}
                 onDrop={onDrop}
             >
                 {props.children}

@@ -4,8 +4,9 @@ import { JSX } from 'solid-js';
 import { Menu } from '~/feature/auth';
 import { Cart } from '~/feature/shop';
 
+import { Search } from '~/feature/search';
 import logo from '~/images/logo.svg';
-import { host, cart } from './nav.module.css'
+import { cart, host } from './nav.module.css'
 
 export function Nav(props: JSX.HTMLAttributes<HTMLElement>) {
     return <nav {...props} class={`${host} ${props.class ?? ''}`}>
@@ -20,6 +21,7 @@ export function Nav(props: JSX.HTMLAttributes<HTMLElement>) {
             <main>{props.children}</main>
 
             <aside>
+                <Search />
                 <Cart class={cart} />
                 <Menu />
             </aside>

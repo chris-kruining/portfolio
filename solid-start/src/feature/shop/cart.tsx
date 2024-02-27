@@ -30,7 +30,7 @@ export function Cart(props: CartProps) {
         return current;
     });
 
-    const Dropzone = createDropzone();
+    const Dropzone = createDropzone('main');
 
     const Fallback = () => <Show when={isPending() === false}>
         No items added yet
@@ -41,7 +41,7 @@ export function Cart(props: CartProps) {
 
         <Dropzone ref={popover} id={styles.cart} popover="auto" anchor={styles.btn}>
             <Show when={items().length > 0} fallback={<Fallback />} keyed>
-                <main>
+                <section>
                     <For each={items()}>
                         {item => <div>
                             <img src={item.product.thumbnail} />
@@ -60,12 +60,13 @@ export function Cart(props: CartProps) {
                             </Show>
                         </div>}
                     </For>
-                </main>
-                <div>
+                </section>
+                
+                <footer>
                     <For each={totals()}>
                         {total => <Price value={total} />}
                     </For>
-                </div>
+                </footer>
             </Show>
 
             <Show when={isPending() || items().length > 0}>

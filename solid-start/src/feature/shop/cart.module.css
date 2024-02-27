@@ -10,7 +10,7 @@
             display: grid;
         }
 
-        &>main {
+        &>section {
             display: grid;
             grid-template-columns: 3em auto auto;
 
@@ -46,7 +46,7 @@
         padding: var(--size-3);
         gap: var(--size-5);
 
-        &>main {
+        &>section {
             gap: var(--size-5);
             padding-block: var(--size-3);
 
@@ -91,8 +91,12 @@
 
 @layer component.theme {
     #cart {
-        border: none;
+        border: 1px solid transparent;
         border-radius: var(--radius-2);
         box-shadow: var(--shadow-3);
+
+        &:global(.active) {
+            border-color: var(--blue-5);
+        }
     }
 }
