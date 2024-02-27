@@ -12,7 +12,13 @@ const search = async (query: string) => {
 
     console.log({ query });
 
-    return [];
+    return [
+        { label: 'these' },
+        { label: 'are' },
+        { label: 'some' },
+        { label: 'search' },
+        { label: 'results' },
+    ];
 };
 
 export function SearchProvider(props: ParentProps) {
