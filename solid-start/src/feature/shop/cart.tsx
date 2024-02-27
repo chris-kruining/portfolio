@@ -1,13 +1,11 @@
 import { A } from "@solidjs/router";
-import { For, JSX, Show, createEffect } from "solid-js";
+import { For, Show, createEffect } from "solid-js";
 import ActionButton from '~/components/form/action-button';
 import type { Price as P } from '~/services/products';
 import { Price, useCart } from './';
 import styles from './cart.module.css';
 
-type CartProps = JSX.AnchorHTMLAttributes<HTMLDivElement>;
-
-export function Cart(props: CartProps) {
+export function Cart() {
     const { items, state, clear, createDropzone } = useCart();
 
     let popover!: HTMLDivElement;
@@ -36,7 +34,7 @@ export function Cart(props: CartProps) {
         No items added yet
     </Show>
 
-    return <div {...props}>
+    return <>
         <button type="button" popoverTarget={styles.cart} popoverTargetAction="toggle" id={styles.btn}>Cart {itemsInCart()}</button>
 
         <Dropzone ref={popover} id={styles.cart} popover="auto" anchor={styles.btn}>
@@ -61,7 +59,7 @@ export function Cart(props: CartProps) {
                         </div>}
                     </For>
                 </section>
-                
+
                 <footer>
                     <For each={totals()}>
                         {total => <Price value={total} />}
@@ -79,5 +77,5 @@ export function Cart(props: CartProps) {
 
             <A href="/checkout">To checkout</A>
         </Dropzone>
-    </div>
+    </>
 }

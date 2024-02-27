@@ -32,10 +32,6 @@
             &>aside {
                 display: grid;
                 grid-auto-flow: column;
-
-                &>.cart {
-                    justify-self: end;
-                }
             }
         }
     }

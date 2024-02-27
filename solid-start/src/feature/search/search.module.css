@@ -1,3 +1,113 @@
 @layer app.layout {
-    
+    .host {
+        &:not(:popover-open) {
+            display: contents;
+
+            &>main {
+                display: none;
+            }
+        }
+
+        &>form {
+            display: grid;
+            grid: 1fr / 1fr auto;
+        }
+
+        &:popover-open {
+            display: grid;
+            grid-template-columns: 100%;
+            align-content: start;
+            inline-size: 60%;
+            block-size: 60%;
+        }
+    }
+}
+
+@layer app.spacing {
+    .host {
+        gap: var(--size-5);
+
+        &>form {
+            &>input {
+                padding-inline-start: var(--size-3);
+                padding-block: var(--size-2);
+            }
+        }
+
+        &:popover-open {
+            padding: var(--size-3);
+        }
+    }
+}
+
+@layer app.theme {
+    .host {
+        background-color: transparent;
+        border: none;
+
+        &:popover-open {
+            backdrop-filter: blur(15px);
+            background-color: #fff9;
+            border: 2px solid var(--gray-0);
+            border-radius: var(--radius-3);
+            box-shadow: 0 0 40em #0003;
+
+            &>form {
+                &>input {
+                    background-color: #0003;
+                    color: var(--gray-3);
+
+                    font-size: 1.5rem;
+
+                    border: none;
+                    border-radius: var(--radius-3) 0 0 var(--radius-3);
+                }
+
+                &>button {
+                    background-color: #0003;
+                    color: var(--gray-3);
+
+                    font-size: 1.5rem;
+
+                    border: none;
+                    border-radius: 0 var(--radius-3) var(--radius-3) 0;
+                }
+            }
+
+            &::backdrop {}
+        }
+
+        &:not(:popover-open) {
+            &>form {
+                border: 1px solid transparent;
+                border-radius: var(--radius-2);
+
+                &>input {
+                    background-color: var(--gray-2);
+                    color: var(--gray-10);
+
+                    border: none;
+                    border-inline-end: 1px solid transparent;
+                    border-radius: var(--radius-2) 0 0 var(--radius-2);
+                }
+
+                &>button {
+                    background-color: var(--gray-2);
+                    color: var(--gray-10);
+
+                    border: none;
+                    border-radius: 0 var(--radius-2) var(--radius-2) 0;
+                }
+
+                &:focus-within {
+                    border-color: var(--gray-10);
+
+                    &>:focus-visible {
+                        border-color: var(--gray-10);
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
 }
