@@ -39,20 +39,16 @@ export const createCart = () => {
 }
 
 const merge = (items: CartItem[], toMerge: CartItem) => {
-    console.log(items, toMerge);
-
     const existing = items.find(i => i.product.id === toMerge.product.id && equals(i.variation, toMerge.variation));
 
-    if (existing) {
-        const index = items.indexOf(existing);
-
-        items[index] = { ...existing, quantity: existing.quantity + toMerge.quantity };
-    }
-    else {
-        items.push(toMerge);
+    if (existing === undefined) {
+        return [...items, toMerge];
     }
 
-    return [...items];
+    return items.with(
+        items.indexOf(existing), 
+        { ...existing, quantity: existing.quantity + toMerge.quantity }
+    );
 }
 
 function createLocalStore<T extends object>(initState: T, version: number): [Accessor<T>, Setter<T>] {
