@@ -6,7 +6,7 @@ import { Cart } from '~/feature/shop';
 
 import { Search } from '~/feature/search';
 import logo from '~/images/logo.svg';
-import { cart, host } from './nav.module.css'
+import { host } from './nav.module.css'
 
 export function Nav(props: JSX.HTMLAttributes<HTMLElement>) {
     return <nav {...props} class={`${host} ${props.class ?? ''}`}>
@@ -22,7 +22,7 @@ export function Nav(props: JSX.HTMLAttributes<HTMLElement>) {
 
             <aside>
                 <Search />
-                <Cart class={cart} />
+                <Cart />
                 <Menu />
             </aside>
         </div>

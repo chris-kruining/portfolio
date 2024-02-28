@@ -1,32 +1,31 @@
-import { Action, action } from "@solidjs/router";
-import { ParentProps, createContext, useContext } from "solid-js";
+import { Action, action, cache, createAsync } from "@solidjs/router";
+import { Accessor, ParentProps, createContext, createSignal, useContext } from "solid-js";
+import { query } from './search.service';
 
 type SearchContext = {
-    searchAction: Action<[data: FormData], string[]>
+    results: Accessor<SearchResultEntry[]>,
+    searchAction: Action<[data: FormData], void>
+};
+
+type SearchResultEntry = {
+    url: string,
+    label: string,
 };
 
 const Context = createContext<SearchContext>();
 
-const search = async (query: string) => {
-    'use server';
-
-    console.log({ query });
-
-    return [
-        { label: 'these' },
-        { label: 'are' },
-        { label: 'some' },
-        { label: 'search' },
-        { label: 'results' },
-    ];
-};
+const search = cache(query, 'search');
 
 export function SearchProvider(props: ParentProps) {
-    const searchAction = action(async (data: FormData) => {
-        return await search(String(data.get('query') ?? ''));
-    }, 'search')
+    const [query, setQuery] = createSignal('');
 
-    return <Context.Provider value={{ searchAction }}>
+    const results = createAsync(() => search(query()), { initialValue: [] });
+
+    const searchAction = action(async (data: FormData) => {
+        setQuery(String(data.get('query') ?? ''));
+    }, 'search');
+
+    return <Context.Provider value={{ results, searchAction }}>
         {props.children}
     </Context.Provider>
 }
