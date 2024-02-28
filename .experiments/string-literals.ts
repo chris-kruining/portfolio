@@ -18,16 +18,22 @@ type TrimRight<T extends string> = T extends `${infer R}${Whitespace}` ? TrimRig
 type Trim<T extends string> = TrimLeft<TrimRight<T>>;
 
 type Rule<T extends string> = T extends `${infer Property}:${Whitespace|''}${infer Value};` 
-    ? { property: Trim<Property>, value: Value }
+    ? { property: Trim<Property>, value: Trim<Value> }
     : never
 ;
 
-type RuleList<T extends string[]> = {
-    [R in Rule<T[number]> as R['property'] ]: R['value'];
+type RuleList<T extends string> = {
+    [R in Rule<Split<Trim<T>, '\n'>[number]> as R['property'] ]: R['value']; 
 };
 
 type Class<T extends string> = T extends `.${infer Class}${Whitespace}{${infer Rules}}` 
-    ? { class: Class, rules: RuleList<Split<Trim<Rules>, '\n'>> }
+    ? { 
+        class: Class,
+        rules: {
+            [R in Rule<Split<Trim<Rules>, '\n'>[number]> as R['property'] ]: R['value']; 
+        },
+        kaas: RuleList<Rules>,
+    }
     : T;
 
 type Style<T extends string> = Class<Trim<T>>;
@@ -39,9 +45,13 @@ type MyStyle = Style<`
     }
 `>;
 
-const myStyle: MyStyle = {
+const myAwesomeStyle: MyStyle = {
     class: 'my-aweome-class',
     rules: {
+        'inline-size': '10em',
+        'block-size': '10em',
+    },
+    kaas: {
         'inline-size': '10em',
         'block-size': '10em',
     },
