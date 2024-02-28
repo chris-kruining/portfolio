@@ -3,9 +3,10 @@
     "explorer.fileNesting.enabled": true,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "quickfix.biome": "explicit",
-        "source.organizeImports.biome": "explicit"
+        // "quickfix.biome": "explicit",
+        // "source.organizeImports.biome": "explicit"
     },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "cssvar.files": [
         "**/node_modules/open-props/open-props.min.css",
         "**/*.css"
@@ -14,6 +15,9 @@
         "**/node_modules/**"
     ],
     "cssvar.extensions": [
-      "css", "postcss", "jsx", "tsx"
+        "css",
+        "postcss",
+        "jsx",
+        "tsx"
     ]
 }
