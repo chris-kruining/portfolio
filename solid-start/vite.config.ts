@@ -1,4 +1,4 @@
-import { defineConfig } from "@solidjs/start/config";
+import { defineConfig } from '@solidjs/start/config';
 import mkcert from 'vite-plugin-mkcert';
 
 export default defineConfig({
@@ -7,16 +7,16 @@ export default defineConfig({
         server: {
             // baseURL: process.env.BASE_PATH,
             preset: 'cloudflare-pages',
-            // prerender: {
-            //     routes: ['/', '/sales'],
-            // },
+            prerender: {
+                routes: ['/', '/sales'],
+            },
         },
     },
     css: {
         transformer: 'lightningcss',
     },
     build: {
-        cssMinify: 'lightningcss'
+        cssMinify: 'lightningcss',
     },
     plugins: [mkcert()],
 });
