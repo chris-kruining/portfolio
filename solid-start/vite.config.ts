@@ -1,5 +1,5 @@
 import { defineConfig } from '@solidjs/start/config';
-import mkcert from 'vite-plugin-mkcert';
+// import mkcert from 'vite-plugin-mkcert';
 
 export default defineConfig({
     start: {
@@ -18,5 +18,5 @@ export default defineConfig({
     build: {
         cssMinify: 'lightningcss',
     },
-    plugins: [mkcert()],
+    // plugins: [mkcert()],
 });
