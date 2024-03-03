@@ -1,138 +1,52 @@
 import { Action, action, useSubmission } from '@solidjs/router';
-import { Accessor, Component, ComponentProps, JSX, ParentProps, ValidComponent, createContext, createMemo, createSignal, useContext } from 'solid-js';
-import { Dynamic } from 'solid-js/web';
+import { Accessor, Component, JSX, ParentProps, ValidComponent, createContext, createMemo, useContext } from 'solid-js';
 import { Product } from '~/services/products';
 import { CartItem, createCart } from './cart.service';
-import { CONTENT_TYPE } from './types';
+import { INTENT } from './types';
+import { DropzoneProps, DraggableProps, createDragDropContext } from '../drag-drop/drap-drop.context';
 
-type DraggableProps<T extends ValidComponent, P = ComponentProps<T>> = {
-    [K in keyof P]: P[K];
-} & {
-    product: Product<any>;
-};
-
-type DropzoneProps<T extends ValidComponent, P = ComponentProps<T>> = {
-    [K in keyof P]: P[K];
-};
+const [DragDropProvider, useDragDropContext, createValue] = createDragDropContext<Product<any>>();
 
 const CartContext = createContext<{
-    items: Accessor<CartItem[]>,
-    state: Accessor<'adding' | 'clearing' | 'idle' | 'dragging' | 'dropped'>,
-    add: Action<[number, FormData], void>,
-    clear: Action<[], void>,
-    createDropzone: <T extends ValidComponent>(tag?: T) => Component<DropzoneProps<T>>,
-    createDraggable: <T extends ValidComponent>(tag?: T) => Component<DraggableProps<T>>,
+    items: Accessor<CartItem[]>;
+    state: Accessor<'adding' | 'clearing' | 'idle' | 'dragging' | 'dropped'>;
+    add: Action<[number, FormData], void>;
+    clear: Action<[], void>;
+    createDropzone: <T extends ValidComponent>(tag?: T) => Component<DropzoneProps<Product<any>, T>>;
+    createDraggable: <T extends ValidComponent>(tag?: T) => Component<DraggableProps<Product<any>, T>>;
 }>();
 
 export const CartProvider = (props: ParentProps) => {
     const { items, ...cart } = createCart();
-    const [dragging, setDragging] = createSignal<Product<any> | undefined>(undefined);
-    const [dropped, setDropped] = createSignal<Product<any> | undefined>(undefined);
+    const { dragging, dropped, createDraggable, createDropzone: baseCreateDropzone } = createValue(INTENT.addToCard);
 
-    function createDropzone<T extends ValidComponent>(component?: T) {
-        return (props: DropzoneProps<T>) => {
-            const [ isActive, setIsActive ] = createSignal(0);
+    function createDropzone<Component extends ValidComponent>(component?: Component) {
+        return baseCreateDropzone(component, {
+            onDrop: (product: Product<any>) => {
+                console.log(product);
 
-            const onDragOver = (e: DragEvent) => {
-                if (e.dataTransfer === null || e.dataTransfer.types.includes(CONTENT_TYPE.product) === false) {
-                    return;
-                }
-
-                e.preventDefault();
-
-                e.dataTransfer.effectAllowed = 'all';
-            };
-
-            const onDragEnter = (e: DragEvent) => {
-                setIsActive(i => i + 1);
-            };
-
-            const onDragLeave = (e: DragEvent) => {
-                setIsActive(i => i - 1);
-            };
-
-            const onDrop = (e: DragEvent) => {
-                if (e.dataTransfer?.types.includes(CONTENT_TYPE.product) !== true) {
-                    return;
-                }
-
-                const product = dragging();
-
-                if (product === undefined) {
-                    return;
-                }
-
-                setIsActive(0);
-
-                setDropped(product);
-
-                setDragging(undefined);
-                setDropped(undefined);
-                cart.add(product.id, 1, {});
-            };
-
-            const activeClass = () => isActive() === 1 ? 'active' : '';
-
-            return <Dynamic
-                component={component ?? ('div' as any)}
-                {...props}
-                class={`${props.class ?? ''} dropzone ${activeClass()}`}
-                onDragOver={onDragOver}
-                onDragEnter={onDragEnter}
-                onDragLeave={onDragLeave}
-                onDrop={onDrop}
-            >
-                {props.children}
-            </Dynamic>;
-        }
-    };
-
-    function createDraggable<T extends ValidComponent>(component?: T) {
-        return (props: DraggableProps<T>) => {
-            const onDragStart = (event: DragEvent) => {
-                if (event.dataTransfer === null) {
-                    return;
-                }
-
-                event.dataTransfer.dropEffect = 'move';
-                event.dataTransfer.setData('text/plain', props.product.title);
-                event.dataTransfer.setData(CONTENT_TYPE.product, '');
-
-                setDragging(props.product);
-            };
-            const onDragEnd = (event: DragEvent) => {
-                setDragging(undefined);
-            };
-
-            return <Dynamic
-                component={component ?? ('div' as any)}
-                {...props}
-                class={`${props.class ?? ''} isDraggable`}
-
-                draggable="true"
-                onDragStart={onDragStart}
-                onDragEnd={onDragEnd}
-            >
-                {props.children}
-            </Dynamic>;
-        }
-    };
+                cart.add(product.id, 1, product.variations[0] ?? {});
+            },
+        });
+    }
 
     const add = action(async (id: number, data: FormData) => {
         const quantity = Number(data.get('quantity'));
-        const variation = Object.fromEntries(Array.from(data.keys()).filter(k => k.startsWith('p_')).map(p => [p.slice(2), data.get(p)]));
-
-        console.log(variation);
+        const variation = Object.fromEntries(
+            Array.from(data.keys())
+                .filter((k) => k.startsWith('p_'))
+                .map((p) => [p.slice(2), data.get(p)]),
+        );
 
         await cart.add(id, quantity, variation);
 
-        await new Promise(res => setTimeout(res, 1000));
+        await new Promise((res) => setTimeout(res, 1000));
     }, 'add');
 
     const clear = action(async () => {
         await cart.clear();
 
-        await new Promise(res => setTimeout(res, 1000));
+        await new Promise((res) => setTimeout(res, 1000));
     }, 'clear');
 
     const addSubmission = useSubmission(add);
@@ -148,20 +62,24 @@ export const CartProvider = (props: ParentProps) => {
         }
 
         if (addSubmission.pending === true) {
-            return 'adding'
+            return 'adding';
         }
 
         if (clearSubmission.pending === true) {
-            return 'clearing'
+            return 'clearing';
         }
 
         return 'idle';
     });
 
-    return <CartContext.Provider value={{ items, state, add, clear, createDraggable, createDropzone }}>
-        {props.children}
-    </CartContext.Provider>
-}
+    return (
+        <DragDropProvider intent={INTENT.addToCard}>
+            <CartContext.Provider value={{ items, state, add, clear, createDraggable, createDropzone }}>
+                {props.children}
+            </CartContext.Provider>
+        </DragDropProvider>
+    );
+};
 
 export const useCart = () => {
     const context = useContext(CartContext);

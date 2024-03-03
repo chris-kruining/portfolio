@@ -1,5 +1,6 @@
 
 dist
+tmp
 .solid
 .output
 .vercel

@@ -4,7 +4,7 @@ import logo from '~/images/logo.svg';
 import styles from './(admin).module.css';
 
 export default function Admin(props: RouteSectionProps) {
-    return withAuthGuard(() =>
+    return withAuthGuard(() => (
         <div class={styles.host}>
             <nav>
                 <header>
@@ -16,6 +16,7 @@ export default function Admin(props: RouteSectionProps) {
 
                 <section>
                     <A href="/accounts">Accounts</A>
+                    <A href="/planning">Planning</A>
                     <A href="/sales">Sales</A>
                     <A href="/expenses">Expenses</A>
                     <A href="/reports">Reports</A>
@@ -27,9 +28,7 @@ export default function Admin(props: RouteSectionProps) {
                 </footer>
             </nav>
 
-            <main>
-                {props.children}
-            </main>
+            <main>{props.children}</main>
         </div>
-    );
+    ));
 }

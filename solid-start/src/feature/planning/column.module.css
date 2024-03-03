@@ -1,0 +1,86 @@
+@layer feature.layout {
+    .host {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-content: start;
+        place-items: center start;
+
+        & > main {
+            grid-column: span 2;
+            grid-template-columns: subgrid;
+            display: grid;
+
+            & > * {
+                grid-column: span 2;
+            }
+
+            & > form {
+                display: grid;
+                grid-template-columns: subgrid;
+            }
+        }
+    }
+
+    .popoverButton {
+        display: block;
+    }
+
+    .popoverHost {
+        position: absolute;
+        inset-inline-start: auto;
+        inset-inline-end: auto;
+
+        position-fallback: --fallback;
+
+        @position-fallback --fallback {
+            @try {
+                inset-block-start: anchor(end);
+                inset-inline-end: anchor(end);
+            }
+        }
+    }
+}
+
+@layer feature.spacing {
+    .host {
+        gap: var(--size-3);
+
+        & > main {
+            margin: unset;
+            padding: unset;
+            gap: var(--size-3);
+        }
+    }
+}
+
+@layer feature.theme {
+    .host {
+        border-radius: var(--radius-1);
+        outline: 1px solid transparent;
+        outline-offset: var(--size-1);
+
+        & > main {
+            & > form {
+                border-block-end: 1px solid var(--gray-7);
+
+                & > input {
+                    background: transparent;
+                    border: none;
+
+                    &::placeholder {
+                        color: var(--gray-5);
+                    }
+                }
+
+                & > button {
+                    background: transparent;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        &:has(> main:global(.active)) {
+            outline-color: var(--red-6);
+        }
+    }
+}

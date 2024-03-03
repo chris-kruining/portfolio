@@ -1,0 +1,44 @@
+@layer feature.layout {
+    .host {
+        display: grid;
+        grid: auto 1fr / 100%;
+
+        & > main {
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: start;
+            align-items: start;
+            overflow-x: auto;
+            scrollbar-gutter: stable;
+        }
+    }
+}
+
+@layer feature.spacing {
+    .host {
+        gap: var(--size-5);
+
+        & > main {
+            padding-block: var(--size-3);
+            gap: var(--size-7);
+        }
+    }
+}
+
+@layer feature.spacing {
+    .host {
+        & > main {
+            & > *:not(:last-child) {
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    inset-inline-end: calc(-0.5 * var(--size-7));
+                    block-size: 100%;
+                    border-inline-end: 1px solid var(--gray-2);
+                }
+            }
+        }
+    }
+}
