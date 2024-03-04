@@ -31,8 +31,8 @@ export const getByBoardId = async (boardId: number): Promise<Column[]> => {
 };
 
 export const create = async (column: Omit<Column, 'id'>) => {
-    const columns = await list();
-    const id = columns.length;
+    const items = await storage.list();
+    const id = items.reduce((max, i) => Math.max(max, i.id), -1) + 1;
 
     await delay(1000);
 

@@ -34,7 +34,7 @@ export const getByColumnId = async (columnId: number): Promise<Card[]> => {
 
 export const create = async (card: Omit<Card, 'id'>): Promise<Card> => {
     const items = await storage.list();
-    const id = items.length;
+    const id = items.reduce((max, i) => Math.max(max, i.id), -1) + 1;
 
     return await storage.create({ ...card, id });
 };

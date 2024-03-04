@@ -108,7 +108,14 @@ export function Board(props: BoardProps) {
             <Show when={board()}>
                 {(board) => (
                     <div class={host}>
-                        <h1>{board().title}</h1>
+                        <header>
+                            <h1>{board().title}</h1>
+
+                            <form action={createColumnAction.with(board().id)} method="post">
+                                <input type="text" name="title" required placeholder="New column" />
+                                <button type="submit">Add</button>
+                            </form>
+                        </header>
 
                         <main>
                             <For each={columns()}>
@@ -140,14 +147,6 @@ export function Board(props: BoardProps) {
                                 )}
                             </For>
                         </main>
-
-                        <form action={createColumnAction.with(board().id)} method="post">
-                            <label>
-                                <span>New column</span>
-                                <input type="text" name="title" required />
-                            </label>
-                            <button type="submit">Add</button>
-                        </form>
                     </div>
                 )}
             </Show>

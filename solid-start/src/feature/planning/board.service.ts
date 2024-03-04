@@ -24,8 +24,8 @@ export const get = async (id: number): Promise<Board | undefined> => {
 };
 
 export const create = async (board: Omit<Board, 'id'>) => {
-    const boards = await list();
-    const id = boards.length;
+    const items = await list();
+    const id = items.reduce((max, i) => Math.max(max, i.id), -1) + 1;
 
     await delay(4000);
 
