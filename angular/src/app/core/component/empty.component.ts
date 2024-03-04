@@ -1,10 +1,10 @@
-import { Component, Injectable, inject, signal } from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
     standalone: true,
     selector: 'nav-link',
-    template: ``,
-    styles: ``,
+    template: '',
+    styles: '',
 })
 export default class Empty {
 }
