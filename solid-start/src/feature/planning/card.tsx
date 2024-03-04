@@ -1,8 +1,8 @@
 import { ParentProps } from 'solid-js';
-import type { Card } from './card.service';
+import type { Card as CardModel } from './card.service';
 import { usePlanningContext } from './planning.context';
 
-export type CardProps = { card: Card } & ParentProps;
+export type CardProps = { class?: string | undefined; card: CardModel } & ParentProps;
 
 export function Card(props: CardProps) {
     const { createDraggable } = usePlanningContext();
@@ -10,8 +10,8 @@ export function Card(props: CardProps) {
     const Draggable = createDraggable();
 
     return (
-        <Draggable value={props.card}>
-            <strong>{props.card.title}</strong>
+        <Draggable class={props.class ?? ''} value={props.card}>
+            <strong class="text-xl font-bold underline">{props.card.title}</strong>
         </Draggable>
     );
 }

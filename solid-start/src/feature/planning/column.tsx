@@ -1,7 +1,7 @@
 import { ParentProps, createUniqueId } from 'solid-js';
 import type { Column } from './column.service';
 import { action, useAction } from '@solidjs/router';
-import { host, popoverButton, popoverHost } from './column.module.css';
+import { popoverHost } from './column.module.css';
 import { usePlanningContext } from './planning.context';
 import { cards, columns } from './';
 import type { Card } from './card.service';
@@ -26,7 +26,7 @@ const updateCardAction = action(async (card: Card, columnId: number) => {
     await cards.update(card.id, { ...card, columnId });
 }, 'updateCard');
 
-export type ColumnProps = { column: Column } & ParentProps;
+export type ColumnProps = { class?: string | undefined; column: Column } & ParentProps;
 
 export function Column(props: ColumnProps) {
     const { createDropzone } = usePlanningContext();
@@ -37,20 +37,23 @@ export function Column(props: ColumnProps) {
     const Dropzone = createDropzone('main');
 
     return (
-        <div class={host}>
+        <div
+            class={`relative grid grid-cols-[1fr_auto] content-start items-center justify-items-start gap-4 rounded outline outline-offset-2 outline-transparent has-[main.active]:outline-pink-500 ${
+                props.class ?? ''
+            }`}
+        >
             <h2>{props.column.title}</h2>
 
-            <button
-                type="button"
-                id={`button-${id}`}
-                class={popoverButton}
-                popoverTarget={`popover-${id}`}
-                popoverTargetAction="show"
-            >
+            <button type="button" id={`button-${id}`} popoverTarget={`popover-${id}`} popoverTargetAction="show">
                 ...
             </button>
 
-            <div id={`popover-${id}`} class={popoverHost} anchor={`button-${id}`} popover="auto">
+            <div
+                id={`popover-${id}`}
+                class={`absolute inset-none end-0 top-6 anchor-end kaas ${popoverHost}`}
+                anchor={`button-${id}`}
+                popover="auto"
+            >
                 <form action={updateColumnAction.with(props.column.id)} method="post">
                     <input type="text" name="title" value={props.column.title} required />
                     <button type="submit">Update</button>
@@ -66,6 +69,7 @@ export function Column(props: ColumnProps) {
                 onDropped={(card) => {
                     update(card, props.column.id);
                 }}
+                class="col-span-2 grid grid-cols-subgrid gap-4"
             >
                 {props.children}
             </Dropzone>

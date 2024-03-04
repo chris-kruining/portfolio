@@ -6,8 +6,8 @@ import { boards, cards, columns as columnService } from './';
 import type { Board } from './board.service';
 import type { Column } from './column.service';
 import type { Card } from './card.service';
-import { host } from './board.module.css';
 import { PlanningProvider } from './planning.context';
+import { clsx } from 'clsx';
 
 const getBoard = cache(async (id: number) => {
     'use server';
@@ -107,27 +107,51 @@ export function Board(props: BoardProps) {
         <PlanningProvider intent="intent">
             <Show when={board()}>
                 {(board) => (
-                    <div class={host}>
-                        <header>
+                    <div class="grid grid-rows-[auto_1fr] grid-cols-[100%] gap-6">
+                        <header class="sticky top-0 grid grid-flow-col justify-between z-1 gap-4 bg-slate-50">
                             <h1>{board().title}</h1>
 
-                            <form action={createColumnAction.with(board().id)} method="post">
-                                <input type="text" name="title" required placeholder="New column" />
+                            <form
+                                class="grid grid-flow-col items-center gap-2"
+                                action={createColumnAction.with(board().id)}
+                                method="post"
+                            >
+                                <input class="py-1 px-2" type="text" name="title" required placeholder="New column" />
                                 <button type="submit">Add</button>
                             </form>
                         </header>
 
-                        <main>
+                        <main class="grid grid-flow-col justify-start items-start overflow-hidden overflow-x-auto gap-8 py-4">
                             <For each={columns()}>
                                 {(column) => (
-                                    <ColumnComponent column={column}>
+                                    <ColumnComponent
+                                        column={column}
+                                        class="
+                                            [&:not(:last-child)]:relative
+                                            [&:not(:last-child)::after]:content-['']
+                                            [&:not(:last-child)::after]:absolute
+                                            [&:not(:last-child)::after]:top-0
+                                            [&:not(:last-child)::after]:-end-4
+                                            [&:not(:last-child)::after]:h-full
+                                            [&:not(:last-child)::after]:border-e
+                                            [&:not(:last-child)::after]:border-e-slate-200
+                                            [&:not(:last-child)::after]:border-solid
+                                        "
+                                    >
                                         <Show when={cards().filter((c) => c.columnId === column.id)}>
                                             {(cards) => (
                                                 <>
-                                                    <For each={cards()}>{(card) => <CardComponent card={card} />}</For>
+                                                    <For each={cards()}>
+                                                        {(card) => <CardComponent card={card} class="col-span-2" />}
+                                                    </For>
 
-                                                    <form action={createCardAction.with(column.id)} method="post">
+                                                    <form
+                                                        class="col-span-2 grid grid-cols-subgrid border-solid border-b border-b-slate-500 placeholder:text-slate-300"
+                                                        action={createCardAction.with(column.id)}
+                                                        method="post"
+                                                    >
                                                         <input
+                                                            class="bg-transparent"
                                                             type="text"
                                                             name="title"
                                                             required
@@ -138,7 +162,9 @@ export function Board(props: BoardProps) {
                                                             }
                                                         />
 
-                                                        <button type="submit">+</button>
+                                                        <button class="text-slate-500" type="submit">
+                                                            +
+                                                        </button>
                                                     </form>
                                                 </>
                                             )}

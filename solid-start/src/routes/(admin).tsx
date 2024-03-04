@@ -28,7 +28,7 @@ export default function Admin(props: RouteSectionProps) {
                 </footer>
             </nav>
 
-            <main>{props.children}</main>
+            <main class="bg-slate-50">{props.children}</main>
         </div>
     ));
 }
