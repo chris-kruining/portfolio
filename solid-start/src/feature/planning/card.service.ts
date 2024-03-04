@@ -13,10 +13,10 @@ const storage = await createStorage<Card>({
     seed: [
         { id: 1, title: 'feature: Login', columnId: 1 },
         { id: 2, title: 'feature: Ecommerce', columnId: 1 },
-        { id: 2, title: 'bug: User avatar', columnId: 1 },
-        { id: 3, title: 'bug: Product variations', columnId: 2 },
+        { id: 3, title: 'bug: User avatar', columnId: 1 },
+        { id: 4, title: 'bug: Product variations', columnId: 2 },
         { id: 5, title: 'feature: Admin dashboard', columnId: 3 },
-        { id: 4, title: 'bug: Invoice summary', columnId: 3 },
+        { id: 6, title: 'bug: Invoice summary', columnId: 3 },
     ],
 });
 
