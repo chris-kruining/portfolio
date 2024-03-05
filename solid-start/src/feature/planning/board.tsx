@@ -8,6 +8,7 @@ import type { Column } from './column.service';
 import type { Card } from './card.service';
 import { PlanningProvider } from './planning.context';
 import { clsx } from 'clsx';
+import { useI18n } from '../i18n';
 
 const getBoard = cache(async (id: number) => {
     'use server';
@@ -47,6 +48,7 @@ const createCardAction = action(async (columnId: number, data: FormData) => {
 export type BoardProps = { id: Board['id'] } & ParentProps;
 
 export function Board(props: BoardProps) {
+    const { t } = useI18n();
     const board = createAsync(async () => getBoard(props.id));
 
     const createColumnSubmission = useSubmission(createColumnAction);
@@ -117,7 +119,7 @@ export function Board(props: BoardProps) {
                                 method="post"
                             >
                                 <input class="py-1 px-2" type="text" name="title" required placeholder="New column" />
-                                <button type="submit">Add</button>
+                                <button type="submit">{t('Add')}</button>
                             </form>
                         </header>
 
