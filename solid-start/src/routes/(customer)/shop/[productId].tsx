@@ -33,7 +33,7 @@ export default function Details(props: RouteSectionProps<ReturnType<(typeof rout
                         <meta name="og:title" content={product().title} />
                         <meta name="og:description" content={product().description} />
 
-                        <img src={product().images[0]} />
+                        <img src={product().images[0]} alt="Product image" />
 
                         <form action={add.with(product().id)} method="post">
                             <h1>{product().title}</h1>

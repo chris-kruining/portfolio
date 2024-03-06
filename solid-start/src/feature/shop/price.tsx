@@ -1,15 +1,11 @@
 import type { Price } from '~/services/products';
+import { Number } from '../i18n/number';
 
 export type PriceProps = {
-    value: Price,
+    value: Price;
 };
 
 export function Price(props: PriceProps) {
-    const symbol = {
-        'EUR': '€',
-        'USD': '$',
-        'JPY': '¥',
-    }[props.value.currency];
-
-    return `${symbol} ${props.value.value}`
+    return <Number value={props.value.value} />;
+    // return `${symbol} ${props.value.value}`
 }

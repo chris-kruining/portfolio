@@ -1,8 +1,16 @@
+import type { Branch, Context } from "./types";
 
-type Context = {
-    language: string;
-};
+export const createDefaultProvider = <Definition extends Branch>() => ({
+    translate: (key: string, context: Context<Definition>) => {
+        const entry = context.dictionary.items[key];
 
-export const translate = (key: string, context: Context) => {
-    return `"${key}" ${context.language}`;
-};
+        if(typeof entry === 'string') {
+            return entry;
+        }
+        else if (typeof entry === 'function') {
+            return entry();
+        }
+    
+        return `"${key}" ${context.locale}`;
+    }
+});

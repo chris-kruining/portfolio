@@ -1,6 +1,13 @@
-import { createSignal } from 'solid-js';
+import { JSX, createSignal } from 'solid-js';
 import Rating from '~/components/form/rating';
-import { useI18n } from '~/feature/i18n';
+import { Picker, useI18n, Number } from '~/feature/i18n';
+import {
+    FaSolidFaceSmileBeam,
+    FaSolidFaceSmile,
+    FaSolidFaceGrinHearts,
+    FaSolidFaceAngry,
+    FaSolidFaceFrown,
+} from 'solid-icons/fa';
 
 export default function Index() {
     const { t } = useI18n();
@@ -10,13 +17,47 @@ export default function Index() {
         next((last) => !last);
     }, 2000);
 
-    const key = () => (flipFlop() ? 'inital key' : 'another key!');
+    const key = () => (flipFlop() ? 'initial' : 'another');
 
     return (
-        <section class="col-start-[main] col-end-[main] grid gap-4">
-            home page
+        <section class="col-start-[main] col-end-[main] grid gap-10">
+            <Picker />
             <span>{t(key())}</span>
-            <Rating name="Rating" />
+
+            <Number key="price" value={10} />
+
+            <Happiness />
         </section>
+    );
+}
+
+const options = ['angry', 'unhappy', 'ok', 'happy', 'in love'] as const;
+type HappinessOption = (typeof options)[number];
+
+const items: Record<HappinessOption, JSX.Element> = {
+    angry: <FaSolidFaceAngry />,
+    unhappy: <FaSolidFaceFrown />,
+    ok: <FaSolidFaceSmile />,
+    happy: <FaSolidFaceSmileBeam />,
+    'in love': <FaSolidFaceGrinHearts />,
+} as const;
+
+function Happiness() {
+    const [happiness, setHappiness] = createSignal<HappinessOption>('ok');
+
+    return (
+        <>
+            <Rating
+                name="Rating"
+                label="What is your mood?"
+                options={options}
+                value={happiness()}
+                onChange={(v) => setHappiness(v)}
+            >
+                {(option) => items[option]}
+            </Rating>
+
+            <span>I am {happiness()}</span>
+        </>
     );
 }
