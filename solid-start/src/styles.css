@@ -56,7 +56,7 @@
         --full: full;
     }
 
-    a[link] {
+    /* a[link] {
         text-decoration: none;
         color: var(--gray-5);
 
@@ -94,5 +94,5 @@
             text-decoration: underline;
             color: var(--blue-5);
         }
-    }
+    } */
 }

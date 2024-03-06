@@ -1,5 +1,5 @@
 import type { Price } from '~/services/products';
-import { Number } from '../i18n/number';
+import { Number } from '../../components/number';
 
 export type PriceProps = {
     value: Price;

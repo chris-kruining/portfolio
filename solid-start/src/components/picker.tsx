@@ -1,7 +1,8 @@
 import { Select } from '@kobalte/core';
-import { Locale, useI18n } from './i18n.context';
+import { useI18n } from '~/i18n.context';
 import { createMemo } from 'solid-js';
 import { FaSolidCheck, FaSolidCaretDown } from 'solid-icons/fa';
+import { Locale } from '~/feature/i18n';
 
 interface LocateOption {
     value: Locale;

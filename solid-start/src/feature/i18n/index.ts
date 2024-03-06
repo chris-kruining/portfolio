@@ -1,6 +1,5 @@
-
-export * from './picker';
-export * from './number';
+export * from '../../components/picker';
+export * from '../../components/number';
 
 export * from './i18n.context';
 

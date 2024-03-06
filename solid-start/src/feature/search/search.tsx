@@ -1,7 +1,7 @@
 import { For, Show, createEffect, onMount } from 'solid-js';
 import { useSearch } from './search.context';
 import { form, host } from './search.module.css';
-import { useI18n } from '../i18n';
+import { useI18n } from '~/i18n.context';
 
 export function Search() {
     const { t } = useI18n();
@@ -20,7 +20,7 @@ export function Search() {
         <>
             <form class={form} action={searchAction} method="post" role="search">
                 <input type="search" name="query" placeholder="Search for ..." value="bl" />
-                <button type="submit">{t('Go!')}</button>
+                <button type="submit">{t('search.submit')}</button>
             </form>
 
             <search class={host} popover="auto" ref={resultsContainer}>
