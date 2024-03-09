@@ -3,9 +3,10 @@ import { Translation as T, createI18nContext } from './feature/i18n';
 export type Definition = {
     initial: T;
     another: T;
-    price: T;
+    price: T<(value: number) => string>;
     search: {
-        submit: (value: number) => string;
+        submit: T;
+        placeholder: T;
     };
 };
 

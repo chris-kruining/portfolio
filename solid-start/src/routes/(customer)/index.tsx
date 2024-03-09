@@ -1,7 +1,6 @@
 import { JSX, createSignal } from 'solid-js';
 import Rating from '~/components/form/rating';
 import { useI18n } from '~/i18n.context';
-import { Picker, Number } from '~/feature/i18n';
 import {
     FaSolidFaceSmileBeam,
     FaSolidFaceSmile,
@@ -9,6 +8,7 @@ import {
     FaSolidFaceAngry,
     FaSolidFaceFrown,
 } from 'solid-icons/fa';
+import { Picker } from '~/components/picker';
 
 export default function Index() {
     const { t } = useI18n();
@@ -23,11 +23,10 @@ export default function Index() {
     return (
         <section class="col-start-[main] col-end-[main] grid gap-10">
             <Picker />
+
             <span>{t(key())}</span>
 
-            <span>{t('price', { value: 10 })}</span>
-
-            <Number key="price" value={10} />
+            <span>{t('price', 10)}</span>
 
             <Happiness />
         </section>

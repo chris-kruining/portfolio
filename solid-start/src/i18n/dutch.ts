@@ -1,12 +1,17 @@
 import { Dictionary } from '~/feature/i18n';
+import type { Definition } from '~/i18n.context';
 
-const dictionary = {
+const dictionary: Dictionary<Definition> = {
     locale: 'nl-NL',
     items: {
         initial: 'Initiële vertaling',
         another: 'Een andere vertaling',
-        price: (value: number) => `${value} pleuro`,
+        search: {
+            submit: 'Zoeken',
+            placeholder: 'Zoek voor ___',
+        },
+        price: ({ number }, value: number) => `Prijs ${number(value, { style: 'currency', currency: 'EUR' })}`,
     },
 } as const;
 
-export default dictionary satisfies Dictionary<(typeof dictionary)['items']>;
+export default dictionary;

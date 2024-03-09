@@ -1,11 +1,12 @@
 import type { Price } from '~/services/products';
-import { Number } from '../../components/number';
+import { useI18n } from '~/i18n.context';
 
 export type PriceProps = {
     value: Price;
 };
 
 export function Price(props: PriceProps) {
-    return <Number value={props.value.value} />;
-    // return `${symbol} ${props.value.value}`
+    const { t } = useI18n();
+
+    return t('price', { value: props.value });
 }

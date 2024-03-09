@@ -4,6 +4,7 @@ import { AuthProvider } from './feature/auth';
 import { createDefaultProvider, Dictionary } from './feature/i18n';
 import english from '~/i18n/english';
 import dutch from '~/i18n/dutch';
+import { createProvider } from './feature/i18n/provider/intl';
 
 export default function Root(props: ParentProps) {
     const [flipFlop, next] = createSignal(false);
@@ -22,7 +23,7 @@ export default function Root(props: ParentProps) {
     return (
         <>
             <Suspense>
-                <I18nProvider locale={locale()} dictionaries={dictionaries} provider={createDefaultProvider()}>
+                <I18nProvider locale={locale()} dictionaries={dictionaries} provider={createProvider}>
                     <AuthProvider>{props.children}</AuthProvider>
                 </I18nProvider>
             </Suspense>

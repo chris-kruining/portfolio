@@ -7,14 +7,14 @@ type ContextProps<Definition extends Branch> = {
     supportedLocales: Accessor<Locale[]>;
     changeLocale: (nextLocale: Locale) => void;
     direction: Accessor<Direction>;
-    t: (key: Key<Definition>, args?: Record<string, any>) => string;
+    t: (key: Key<Definition>, ...args: (string | number)[]) => string;
 };
 
 type ProviderProps<Definition extends Branch> = ParentProps & {
     locale: Locale;
     direction?: Direction;
     dictionaries: Dictionary<Definition>[];
-    provider: Provider<Definition>;
+    provider: (locale: Accessor<Locale>) => Provider<Definition>;
 };
 
 export const createI18nContext = <Definition extends Branch>() => {
@@ -23,6 +23,7 @@ export const createI18nContext = <Definition extends Branch>() => {
     function I18nProvider<Definition extends Branch>(props: ProviderProps<Definition>) {
         const [locale, setLocale] = createSignal<Locale>(props.locale);
         const [direction, setDirection] = createSignal<Direction>(props.direction ?? 'ltr');
+        const provider = props.provider(locale);
 
         const supportedLocales = createMemo(() => {
             return props.dictionaries.map((d) => d.locale);
@@ -45,7 +46,7 @@ export const createI18nContext = <Definition extends Branch>() => {
             document.documentElement.setAttribute('dir', direction());
         });
 
-        const t = (key: Key<Definition>, args?: Record<string, any>) => {
+        const t = (key: Key<Definition>, ...args: (string | number)[]) => {
             const l = locale();
             const dictionary = props.dictionaries.find((d) => d.locale === l);
 
@@ -53,7 +54,7 @@ export const createI18nContext = <Definition extends Branch>() => {
                 throw new Error(`There is no dictionary found for locale '${l}'`);
             }
 
-            return props.provider.translate(key, { locale: l, dictionary });
+            return provider.translate(key, { locale: l, dictionary, args: args ?? [] });
         };
 
         return (

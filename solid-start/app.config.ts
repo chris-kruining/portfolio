@@ -1,7 +1,7 @@
 import { defineConfig } from '@solidjs/start/config';
-import { config } from "vinxi/plugins/config";
-import tailwindcss from "tailwindcss";
-import tailwindNesting from "tailwindcss/nesting/index.js";
+import { config } from 'vinxi/plugins/config';
+import tailwindcss from 'tailwindcss';
+import tailwindNesting from 'tailwindcss/nesting/index.js';
 import mkcert from 'vite-plugin-mkcert';
 
 export default defineConfig({
@@ -16,16 +16,13 @@ export default defineConfig({
     vite: {
         plugins: [
             config('tailwind', {
-              css: {
-                postcss: {
-                  plugins: [
-                    tailwindNesting,
-                    tailwindcss,
-                  ]
-                }
-              }
+                css: {
+                    postcss: {
+                        plugins: [tailwindNesting, tailwindcss],
+                    },
+                },
             }),
-            mkcert()
+            mkcert(),
         ],
     },
 });
