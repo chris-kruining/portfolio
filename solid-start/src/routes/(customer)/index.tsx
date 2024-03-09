@@ -8,7 +8,6 @@ import {
     FaSolidFaceAngry,
     FaSolidFaceFrown,
 } from 'solid-icons/fa';
-import { Picker } from '~/components/picker';
 
 export default function Index() {
     const { t } = useI18n();
