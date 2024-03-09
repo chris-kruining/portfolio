@@ -13,4 +13,4 @@ type Either<T, U> = T | U extends object ? (Without<T, U> & U) | (Without<U, T> 
 
 type Leaves<T> = T extends object ? { [K in keyof T]:
     `${Exclude<K, symbol>}${Leaves<T[K]> extends never ? "" : `.${Leaves<T[K]>}`}`
-}[keyof T] : never
+}[keyof T] : never;

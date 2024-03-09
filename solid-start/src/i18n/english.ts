@@ -10,7 +10,7 @@ const dictionary: Dictionary<Definition> = {
             submit: 'Search',
             placeholder: 'Search for ___',
         },
-        price: (value: number) => `Price: ${value}`,
+        price: ({ number }, value: number) => `Price: ${number(value, { style: 'currency', currency: 'EUR' })}`,
     },
 } as const;
 

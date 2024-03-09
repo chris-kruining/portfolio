@@ -1,14 +1,14 @@
-import { Translation as T, createI18nContext } from './feature/i18n';
+import { Branch, Translation as T, createI18nContext } from './feature/i18n';
 
-export type Definition = {
-    initial: T;
-    another: T;
-    price: T<(value: number) => string>;
+export type Definition = Branch<{
+    initial: string;
+    another: string;
+    price: (value: number) => string;
     search: {
-        submit: T;
-        placeholder: T;
+        submit: string;
+        placeholder: string;
     };
-};
+}>;
 
 const [Provider, use] = createI18nContext<Definition>();
 
