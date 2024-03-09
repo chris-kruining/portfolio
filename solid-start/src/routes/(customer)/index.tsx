@@ -16,24 +16,22 @@ export default function Index() {
 
     setInterval(() => {
         next((last) => !last);
-    }, 2000);
+    }, 1000);
 
     const key = () => (flipFlop() ? 'initial' : 'another');
 
     return (
         <section class="col-start-[main] col-end-[main] grid gap-10">
-            <Picker />
+            <span>Key is signal: {t(key())}</span>
 
-            <span>{t(key())}</span>
-
-            <span>{t('price', 10)}</span>
+            <span>numerical formatting: {t('price', 10)}</span>
 
             <Happiness />
         </section>
     );
 }
 
-const options = ['angry', 'unhappy', 'ok', 'happy', 'in love'] as const;
+const options = ['angry', 'unhappy', 'ok', 'happy', 'inLove'] as const;
 type HappinessOption = (typeof options)[number];
 
 const items: Record<HappinessOption, JSX.Element> = {
@@ -41,17 +39,18 @@ const items: Record<HappinessOption, JSX.Element> = {
     unhappy: <FaSolidFaceFrown />,
     ok: <FaSolidFaceSmile />,
     happy: <FaSolidFaceSmileBeam />,
-    'in love': <FaSolidFaceGrinHearts />,
+    inLove: <FaSolidFaceGrinHearts />,
 } as const;
 
 function Happiness() {
     const [happiness, setHappiness] = createSignal<HappinessOption>('ok');
+    const { t } = useI18n();
 
     return (
         <>
             <Rating
                 name="Rating"
-                label="What is your mood?"
+                label={t('mood.prompt')}
                 options={options}
                 value={happiness()}
                 onChange={(v) => setHappiness(v)}
@@ -59,7 +58,7 @@ function Happiness() {
                 {(option) => items[option]}
             </Rating>
 
-            <span>I am {happiness()}</span>
+            <span>{t('mood.statement', happiness())}</span>
         </>
     );
 }

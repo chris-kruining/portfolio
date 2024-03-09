@@ -8,6 +8,15 @@ export type Definition = Branch<{
         submit: string;
         placeholder: string;
     };
+    mood: {
+        prompt: string;
+        statement: (mood: 'angry' | 'unhappy' | 'ok' | 'happy' | 'inLove') => string;
+        angry: string;
+        unhappy: string;
+        ok: string;
+        happy: string;
+        inLove: string;
+    };
 }>;
 
 const [Provider, use] = createI18nContext<Definition>();

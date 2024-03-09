@@ -4,14 +4,14 @@ import { createMemo } from 'solid-js';
 import { FaSolidCheck, FaSolidCaretDown } from 'solid-icons/fa';
 import { Locale } from '~/feature/i18n';
 
-interface LocateOption {
-    value: Locale;
-    label: string;
-}
+type LocateOption = { [K in Locale]: { value: K; label: string } }[Locale];
 
 const locales: LocateOption[] = [
     { value: 'en-GB', label: 'English' },
     { value: 'nl-NL', label: 'Nederlands' },
+    { value: 'de-DE', label: 'Deutch' },
+    { value: 'ar-EG', label: 'عربي' },
+    { value: 'jp-JP', label: '日本語' },
 ];
 
 type PickerProps = {};
@@ -53,7 +53,7 @@ export function Picker(props: PickerProps) {
                 </Select.Trigger>
 
                 <Select.Portal>
-                    <Select.Content>
+                    <Select.Content class="z-1">
                         <Select.Listbox class="grid p-2 gap-2 bg-neutral-50" />
                     </Select.Content>
                 </Select.Portal>

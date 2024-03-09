@@ -1,8 +1,11 @@
-export type Locale = 'en-GB' | 'nl-NL';
+export type Locale = 'en-GB' | 'nl-NL' | 'de-DE' | 'ar-EG' | 'jp-JP';
 export type Direction = 'ltr' | 'rtl';
+export type WritingMode = 'horizontal-tb' | 'vertical-rl' | 'vertical-lr';
 
 export type Dictionary<Definition extends Branch<AnyTranslation>> = Readonly<{
     locale: Locale;
+    direction: Direction;
+    writingMode: WritingMode;
     items: Definition;
 }>;
 
@@ -38,7 +41,7 @@ type Leaf<T extends AnyTranslation = string> =
       }>;
 
 type TemplateCallback<Args extends ValidArg[]> = (
-    ctx: { number: (value: number, options?: NumberFormatOptions) => string },
+    ctx: { number: (value: number, options?: NumberFormatOptions) => string; t: (key: Key<AnyBranch>) => string },
     ...args: Args
 ) => string;
 
@@ -55,9 +58,18 @@ type Translation<T extends AnyTranslation = string> = T extends string
 
 type Key<Definition extends AnyBranch> = Leaves<Definition>;
 
-type Leaves<T> = T extends object ? { [K in keyof T]:
-    `${Exclude<K, symbol>}${Leaves<T[K]> extends never ? "" : `.${Leaves<T[K]>}`}`
-}[keyof T] : never
+type DepthLimit = [never, 0, 1, 2, 3, 4];
+export type Leaves<T, Depth extends number = 5> = DepthLimit[Depth] extends never
+    ? never
+    : T extends AnyTranslation
+    ? never
+    : T extends object
+    ? {
+          [K in keyof T]: `${Exclude<K, symbol>}${Leaves<T[K], DepthLimit[Depth]> extends never
+              ? ''
+              : `.${Leaves<T[K], DepthLimit[Depth]>}`}`;
+      }[keyof T]
+    : never;
 
 export type Context<Definition extends AnyBranch> = {
     locale: Locale;
@@ -66,5 +78,5 @@ export type Context<Definition extends AnyBranch> = {
 };
 
 export type Provider<Definition extends AnyBranch> = {
-    translate(key: Key<Definition>, context: Context<Definition>): string;
+    t(key: Key<Definition>, context: Context<Definition>): string;
 };

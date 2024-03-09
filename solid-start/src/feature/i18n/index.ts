@@ -1,5 +1,5 @@
 export * from './i18n.context';
 
-export * from './i18n.service';
+export { createProvider as createDefaultProvider } from './provider/intl';
 
 export type * from './types';
