@@ -1,6 +1,6 @@
 // @refresh reload
 import { Router } from '@solidjs/router';
-import { FileRoutes } from '@solidjs/start';
+import { FileRoutes } from '@solidjs/start/router';
 import './index.css';
 import Root from './root';
 
