@@ -8,5 +8,5 @@ export type PriceProps = {
 export function Price(props: PriceProps) {
     const { t } = useI18n();
 
-    return t('price', { value: props.value });
+    return t('price', props.value.value, props.value.currency);
 }

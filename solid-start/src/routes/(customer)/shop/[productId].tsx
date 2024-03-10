@@ -26,28 +26,30 @@ export default function Details(props: RouteSectionProps<ReturnType<(typeof rout
     );
 
     return (
-        <div class={styles.host}>
+        <div class="grid grid-rows-[100%] grid-cols-[30rem_1fr] gap-4 py-4">
             <Show when={product()} fallback={<NotFound />}>
                 {(product) => (
                     <>
                         <meta name="og:title" content={product().title} />
                         <meta name="og:description" content={product().description} />
 
-                        <img src={product().images[0]} alt="Product image" />
+                        <img class="w-full h-full object-contain" src={product().images[0]} alt="Product image" />
 
-                        <form action={add.with(product().id)} method="post">
-                            <h1>{product().title}</h1>
-                            <A href={`/brand/${product().brand.id}`} class={styles.brand}>
+                        <form
+                            class="grid content-start gap-4 w-full h-full"
+                            action={add.with(product().id)}
+                            method="post"
+                        >
+                            <h1 class="grid grid-cols-[auto_auto] justify-between font-bold text-xl">
+                                <span>{product().title}</span>
+                                <span>
+                                    <Price value={product().price} />
+                                </span>
+                            </h1>
+
+                            <A href={`/brand/${product().brand.id}`} class="text-blue-500 underline -mt-4">
                                 {product().brand.name}
                             </A>
-
-                            <h2>
-                                <Price value={product().price} />
-                            </h2>
-
-                            <article>{product().description}</article>
-
-                            <hr />
 
                             <For each={variations()}>
                                 {([property, values]) => (
@@ -89,9 +91,17 @@ export default function Details(props: RouteSectionProps<ReturnType<(typeof rout
                                 <input type="number" name="quantity" min="1" max="100" value="1" />
                             </label>
 
-                            <button type="submit" disabled={state() !== 'idle'}>
+                            <button
+                                type="submit"
+                                disabled={state() !== 'idle'}
+                                class="bg-blue-500 text-blue-50 rounded p-4"
+                            >
                                 Add to cart
                             </button>
+
+                            <hr />
+
+                            <article>{product().description}</article>
                         </form>
                     </>
                 )}

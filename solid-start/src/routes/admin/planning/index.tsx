@@ -1,5 +1,4 @@
-import { RouteDefinition, RouteSectionProps, cache, createAsync } from '@solidjs/router';
-import { Show } from 'solid-js';
+import { RouteDefinition, RouteSectionProps } from '@solidjs/router';
 import { Board } from '~/feature/planning';
 
 export const route = {

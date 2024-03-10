@@ -1,7 +1,8 @@
 import { Accessor, Show } from 'solid-js';
 import { User, useAuth } from '~/feature/auth/auth.context';
 import ActionButton from '../../components/form/action-button';
-import { As, DropdownMenu } from '@kobalte/core';
+import { DropdownMenu } from '@kobalte/core';
+import { A } from '@solidjs/router';
 
 export function Menu() {
     const { user, login, logout } = useAuth();
@@ -13,18 +14,9 @@ export function Menu() {
             </DropdownMenu.Trigger>
 
             <DropdownMenu.Portal>
-                <DropdownMenu.Content class="p-4 gap-4 z-10 grid">
-                    <DropdownMenu.Item asChild>
-                        <As component="a" href="/dashboard">
-                            Admin
-                        </As>
-                    </DropdownMenu.Item>
-
-                    <DropdownMenu.Item asChild>
-                        <As component="a" href="/sales/invoices">
-                            Invoices
-                        </As>
-                    </DropdownMenu.Item>
+                <DropdownMenu.Content class="p-4 gap-4 z-10 grid bg-neutral-50">
+                    <A href="/admin/dashboard">Admin</A>
+                    <A href="/admin/sales/invoices">Invoices</A>
 
                     <ActionButton action={logout}>logout</ActionButton>
                 </DropdownMenu.Content>

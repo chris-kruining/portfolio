@@ -16,11 +16,11 @@ export function Nav(props: ParentProps) {
             [animation-name:nav-host-scroll] [animation-timeline:--page-scroll] [animation-range-end:9em] [animation-fill-mode:both]
         "
         >
-            <div class="grid grid-rows-[100%] grid-cols-[1em_1fr_auto] gap-4 py-4">
-                <header class="grid grid-flow-col place-items-center">
+            <div class="grid grid-rows-[100%] grid-cols-[10em_1fr_auto] gap-4 py-4">
+                <header class="grid grid-flow-col place-items-center justify-start gap-2">
                     <A class="contents" href="/">
                         <img width="40" alt="SolidStart Logo" src={logo} />
-                        <span>SolidStart</span>
+                        <span class="font-bold text-xl">SolidStart</span>
                     </A>
                 </header>
 

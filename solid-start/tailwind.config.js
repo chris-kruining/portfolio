@@ -1,4 +1,5 @@
 // import plugin from 'tailwindcss/plugin';
+import containerQueries from '@tailwindcss/container-queries';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -52,6 +53,7 @@ export default {
         },
     },
     plugins: [
+        containerQueries,
         // plugin(({ addUtilities }) => {
         //     addUtilities({
         //         '.anchor-end': {

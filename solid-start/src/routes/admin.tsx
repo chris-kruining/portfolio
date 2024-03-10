@@ -21,7 +21,7 @@ export default function Admin(props: RouteSectionProps) {
         >
             <nav class="row-start-1 row-span-1 col-start-1 col-span-1 grid grid-cols-[100%] grid-rows-[auto_1fr_auto] gap-4 p-4">
                 <header class="grid grid-cols-[auto_1fr] grid-rows-[100%] items-center gap-2">
-                    <A href="/dashboard" end class="contents">
+                    <A href="/admin/dashboard" end class="contents">
                         <img class="w-10 aspect-square" width="40" alt="Analog Logo" src={logo} />
                         <span class="font-bold text-2xl text-neutral-700">SolidStart</span>
                     </A>

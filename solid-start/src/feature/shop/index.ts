@@ -1,5 +1,4 @@
 export * from './price';
-export * from './tile';
 export * from './types';
 
 export * from './cart';
