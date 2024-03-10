@@ -12,8 +12,8 @@ dependencies:
     specifier: 0.12.4
     version: 0.12.4(solid-js@1.8.15)
   '@solidjs/start':
-    specifier: 0.6.0
-    version: 0.6.0(solid-js@1.8.15)(vinxi@0.3.10)(vite@5.1.5)
+    specifier: 0.7.4
+    version: 0.7.4(solid-js@1.8.15)(vinxi@0.3.10)(vite@5.1.5)
   '@tailwindcss/container-queries':
     specifier: ^0.1.1
     version: 0.1.1(tailwindcss@3.4.1)
@@ -1691,14 +1691,15 @@ packages:
       solid-js: 1.8.15
     dev: false
 
-  /@solidjs/start@0.6.0(solid-js@1.8.15)(vinxi@0.3.10)(vite@5.1.5):
-    resolution: {integrity: sha512-djHVrUCv7AH8q5HOXX+EZ3zdXOibMCQmCG8xNRkOgEbyhB/vp+MtbhCpvoLROgnHm/5pHDLwVKVkYiTsDBUsOA==}
+  /@solidjs/start@0.7.4(solid-js@1.8.15)(vinxi@0.3.10)(vite@5.1.5):
+    resolution: {integrity: sha512-SBFCpLo0yGUFPKNyneZ7g8cHchQKm0+G/Gr19SEtGzCn0KE4/YmDCtuDUk4ANxm6XTFrdcDPjdLgYXHDrWxVLA==}
     dependencies:
       '@vinxi/plugin-directives': 0.3.1(vinxi@0.3.10)
       '@vinxi/server-components': 0.3.3(vinxi@0.3.10)
       '@vinxi/server-functions': 0.3.2(vinxi@0.3.10)
       defu: 6.1.4
       error-stack-parser: 2.1.4
+      glob: 10.3.10
       html-to-image: 1.11.11
       radix3: 1.1.1
       seroval: 1.0.4
