@@ -1,10 +1,12 @@
-import { ParentProps, createUniqueId } from 'solid-js';
+import { ParentProps } from 'solid-js';
 import type { Column } from './column.service';
 import { action, useAction } from '@solidjs/router';
-import { popoverHost } from './column.module.css';
 import { usePlanningContext } from './planning.context';
 import { cards, columns } from './';
 import type { Card } from './card.service';
+import { DropdownMenu } from '@kobalte/core';
+import { FaSolidEllipsisVertical } from 'solid-icons/fa';
+import ActionButton from '~/components/form/action-button';
 
 const removeAction = action(async (id: number) => {
     'use server';
@@ -30,7 +32,6 @@ export type ColumnProps = { class?: string | undefined; column: Column } & Paren
 
 export function Column(props: ColumnProps) {
     const { createDropzone } = usePlanningContext();
-    const id = createUniqueId();
 
     const update = useAction(updateCardAction);
 
@@ -44,25 +45,22 @@ export function Column(props: ColumnProps) {
         >
             <h2>{props.column.title}</h2>
 
-            <button type="button" id={`button-${id}`} popoverTarget={`popover-${id}`} popoverTargetAction="show">
-                ...
-            </button>
+            <DropdownMenu.Root placement="bottom-end">
+                <DropdownMenu.Trigger>
+                    <FaSolidEllipsisVertical />
+                </DropdownMenu.Trigger>
 
-            <div
-                id={`popover-${id}`}
-                class={`absolute inset-none end-0 top-6 anchor-end kaas ${popoverHost}`}
-                anchor={`button-${id}`}
-                popover="auto"
-            >
-                <form action={updateColumnAction.with(props.column.id)} method="post">
-                    <input type="text" name="title" value={props.column.title} required />
-                    <button type="submit">Update</button>
-                </form>
+                <DropdownMenu.Portal>
+                    <DropdownMenu.Content class="grid bg-neutral-50 p-2 gap-2 shadow">
+                        <form action={updateColumnAction.with(props.column.id)} method="post">
+                            <input type="text" name="title" value={props.column.title} required />
+                            <button type="submit">Update</button>
+                        </form>
 
-                <form action={removeAction.with(props.column.id)} method="post">
-                    <button type="submit">Remove</button>
-                </form>
-            </div>
+                        <ActionButton action={removeAction.with(props.column.id)}></ActionButton>
+                    </DropdownMenu.Content>
+                </DropdownMenu.Portal>
+            </DropdownMenu.Root>
 
             <Dropzone
                 isDropAllowed={(card) => card.columnId !== props.column.id}

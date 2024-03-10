@@ -12,8 +12,7 @@ const dictionary: Dictionary<Definition> = {
             submit: 'يبحث',
             placeholder: 'بحث عن ___',
         },
-        price: ({ number }, value: number, currency: Currency) =>
-            `يورو ${number(value, { style: 'currency', currency })} :السعر`,
+        price: ({ number }, value: number, currency: Currency) => number(value, { style: 'currency', currency }),
         mood: {
             prompt: 'ما هو مزاجك؟',
             statement: ({ t }, mood: 'angry' | 'unhappy' | 'ok' | 'happy' | 'inLove') => `أنا ${t(`mood.${mood}`)}`,
@@ -22,6 +21,11 @@ const dictionary: Dictionary<Definition> = {
             ok: 'نعم',
             happy: 'سعيد',
             inLove: 'يعشق',
+        },
+        planning: {
+            board: {
+                add: 'يضيف',
+            },
         },
     },
 } as const;

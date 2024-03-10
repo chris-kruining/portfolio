@@ -12,8 +12,7 @@ const dictionary: Dictionary<Definition> = {
             submit: 'Zoeken',
             placeholder: 'Zoek voor ___',
         },
-        price: ({ number }, value: number, currency: Currency) =>
-            `Prijs: ${number(value, { style: 'currency', currency })}`,
+        price: ({ number }, value: number, currency: Currency) => number(value, { style: 'currency', currency }),
         mood: {
             prompt: 'Wat is je stemming?',
             statement: ({ t }, mood: 'angry' | 'unhappy' | 'ok' | 'happy' | 'inLove') => `Ik ben ${t(`mood.${mood}`)}`,
@@ -22,6 +21,11 @@ const dictionary: Dictionary<Definition> = {
             ok: 'oke',
             happy: 'blij',
             inLove: 'verliefd',
+        },
+        planning: {
+            board: {
+                add: 'Toevoegen',
+            },
         },
     },
 } as const;

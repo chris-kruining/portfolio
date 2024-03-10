@@ -5,19 +5,19 @@ import logo from '~/images/logo.svg';
 
 export default function Admin(props: RouteSectionProps) {
     const menuItems = [
-        ['/accounts', 'Accounts'],
-        ['/planning', 'Planning'],
-        ['/sales', 'Sales'],
-        ['/expenses', 'Expenses'],
-        ['/reports', 'Reports'],
+        ['/admin/accounts', 'Accounts'],
+        ['/admin/planning', 'Planning'],
+        ['/admin/sales', 'Sales'],
+        ['/admin/expenses', 'Expenses'],
+        ['/admin/reports', 'Reports'],
     ];
 
     return withAuthGuard(() => (
         <div
             class="
-            grid grid-cols-[12.5em_1fr] grid-rows-[100%] w-full h-full pt-6 bg-neutral-100
-            after:row-start-1 after:row-span-1 after:col-start-2 after:col-span-1 after:content-[''] after:block after:w-full after:start-0 after:[inset-block-start: 0] after:bg-neutral-50 after:rounded-tl-2xl
-        "
+                grid grid-cols-[12.5em_1fr] grid-rows-[100%] w-full h-full pt-6 bg-neutral-100
+                before:row-start-1 before:row-span-1 before:col-start-2 before:col-span-1 before:content-[''] before:block before:w-full before:start-0 before:[inset-block-start: 0] before:bg-neutral-50 before:rounded-tl-2xl
+            "
         >
             <nav class="row-start-1 row-span-1 col-start-1 col-span-1 grid grid-cols-[100%] grid-rows-[auto_1fr_auto] gap-4 p-4">
                 <header class="grid grid-cols-[auto_1fr] grid-rows-[100%] items-center gap-2">
@@ -31,7 +31,7 @@ export default function Admin(props: RouteSectionProps) {
                     <For each={menuItems}>
                         {([url, text]) => (
                             <A
-                                class="p-2 no-underline text-neutral-700 rounded-lg [.active]:font-bold [.active]:text-neutral-300 [.active]:bg-neutral-300"
+                                class="p-2 no-underline text-neutral-700 rounded-lg [&.active]:font-bold [&.active]:text-neutral-800 [&.active]:bg-neutral-200"
                                 href={url}
                             >
                                 {text}

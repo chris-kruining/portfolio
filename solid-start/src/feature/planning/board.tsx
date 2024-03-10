@@ -7,8 +7,7 @@ import type { Board } from './board.service';
 import type { Column } from './column.service';
 import type { Card } from './card.service';
 import { PlanningProvider } from './planning.context';
-import { clsx } from 'clsx';
-import { useI18n } from '../i18n';
+import { useI18n } from '~/i18n.context';
 
 const getBoard = cache(async (id: number) => {
     'use server';
@@ -119,7 +118,7 @@ export function Board(props: BoardProps) {
                                 method="post"
                             >
                                 <input class="py-1 px-2" type="text" name="title" required placeholder="New column" />
-                                <button type="submit">{t('Add')}</button>
+                                <button type="submit">{t('planning.board.add')}</button>
                             </form>
                         </header>
 
