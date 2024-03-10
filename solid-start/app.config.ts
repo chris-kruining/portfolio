@@ -8,7 +8,7 @@ export default defineConfig({
     ssr: true,
     server: {
         // baseURL: process.env.BASE_PATH,
-        preset: 'cloudflare-pages',
+        // preset: 'cloudflare-pages',
         prerender: {
             routes: ['/', '/sales'],
         },

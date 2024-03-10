@@ -12,7 +12,8 @@ const dictionary: Dictionary<Definition> = {
             submit: 'يبحث',
             placeholder: 'بحث عن ___',
         },
-        price: ({ number }, value: number) => `يورو ${number(value, { style: 'currency', currency: 'EUR' })} :السعر`,
+        price: ({ number }, value: number, currency: Currency) =>
+            `يورو ${number(value, { style: 'currency', currency })} :السعر`,
         mood: {
             prompt: 'ما هو مزاجك؟',
             statement: ({ t }, mood: 'angry' | 'unhappy' | 'ok' | 'happy' | 'inLove') => `أنا ${t(`mood.${mood}`)}`,

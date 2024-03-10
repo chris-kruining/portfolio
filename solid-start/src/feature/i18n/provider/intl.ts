@@ -2,12 +2,12 @@ import { Accessor, createMemo } from 'solid-js';
 import { Key, Context, Locale, Dictionary, AnyBranch, AnyEntry, AnyTranslation } from '../types';
 
 export const createProvider = <Definition extends AnyBranch>(locale: Accessor<Locale>) => {
-    const formatter = createMemo(() => {
-        return Intl.NumberFormat(locale(), { style: 'currency', currency: 'EUR' });
-    });
+    const formatter = (options?: NumberFormatOptions) => {
+        return Intl.NumberFormat(locale(), options as any);
+    };
 
     const number = (value: number, options?: NumberFormatOptions) => {
-        return formatter().format(value);
+        return formatter(options).format(value);
     };
 
     const access = (key: Key<Definition>, dictionary: Dictionary<Definition>): AnyTranslation => {

@@ -5,17 +5,15 @@ export default createHandler(() => (
     <StartServer
         document={({ assets, children, scripts }) => {
             return (
-                <html lang="en">
+                <html lang="en" class="m-0 p-0 w-full h-full">
                     <head>
                         <meta charset="utf-8" />
                         <meta name="viewport" content="width=device-width, initial-scale=1" />
                         <link rel="icon" href={favicon} />
                         {assets}
                     </head>
-                    <body>
-                        <div id="app" class="z-0 w-full h-full">
-                            {children}
-                        </div>
+                    <body class="m-0 p-0 w-full h-full">
+                        {children}
                         {scripts}
                     </body>
                 </html>

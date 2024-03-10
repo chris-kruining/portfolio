@@ -23,22 +23,15 @@ type AnyTranslation = AnySimpleTranslation | AnyComplexTranslation | AnyFunction
 type AnyBranch = { [key: string]: Entry<AnyEntry> };
 type AnyEntry = AnyTranslation | AnyBranch;
 
-type Entry<T extends AnyEntry = string> = T extends AnyBranch ? Branch<T> : T extends AnyTranslation ? Leaf<T> : never;
+type Entry<T extends AnyEntry = string> = T extends AnyBranch
+    ? Branch<T>
+    : T extends AnyTranslation
+    ? Translation<T>
+    : never;
 
 type Branch<T extends AnyBranch> = {
     readonly [K in keyof T]: Entry<T[K]>;
 };
-
-type Leaf<T extends AnyTranslation = string> =
-    | Translation<T>
-    | Readonly<{
-          other: Translation<T>;
-          few?: Translation<T>;
-          many?: Translation<T>;
-          zero?: Translation<T>;
-          one?: Translation<T>;
-          two?: Translation<T>;
-      }>;
 
 type TemplateCallback<Args extends ValidArg[]> = (
     ctx: { number: (value: number, options?: NumberFormatOptions) => string; t: (key: Key<AnyBranch>) => string },

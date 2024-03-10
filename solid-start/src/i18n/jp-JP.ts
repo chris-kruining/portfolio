@@ -13,7 +13,8 @@ const dictionary: Dictionary<Definition> = {
             submit: '検索',
             placeholder: '検索する ___',
         },
-        price: ({ number }, value: number) => `価格: ${number(value, { style: 'currency', currency: 'EUR' })}`,
+        price: ({ number }, value: number, currency: Currency) =>
+            `価格: ${number(value, { style: 'currency', currency })}`,
         mood: {
             prompt: 'あなたの気分は何ですか',
             statement: ({ t }, mood: 'angry' | 'unhappy' | 'ok' | 'happy' | 'inLove') => `私は ${t(`mood.${mood}`)}`,

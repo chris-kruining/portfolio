@@ -53,7 +53,7 @@ export function Picker(props: PickerProps) {
                 </Select.Trigger>
 
                 <Select.Portal>
-                    <Select.Content class="z-1">
+                    <Select.Content class="z-10">
                         <Select.Listbox class="grid p-2 gap-2 bg-neutral-50" />
                     </Select.Content>
                 </Select.Portal>

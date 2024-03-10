@@ -23,7 +23,7 @@ export default function Index() {
         <section class="col-start-[main] col-end-[main] grid gap-10">
             <span>Key is signal: {t(key())}</span>
 
-            <span>numerical formatting: {t('price', 10)}</span>
+            <span>numerical formatting: {t('price', 10, 'EUR')}</span>
 
             <Happiness />
         </section>
@@ -33,17 +33,17 @@ export default function Index() {
 const options = ['angry', 'unhappy', 'ok', 'happy', 'inLove'] as const;
 type HappinessOption = (typeof options)[number];
 
-const items: Record<HappinessOption, JSX.Element> = {
-    angry: <FaSolidFaceAngry />,
-    unhappy: <FaSolidFaceFrown />,
-    ok: <FaSolidFaceSmile />,
-    happy: <FaSolidFaceSmileBeam />,
-    inLove: <FaSolidFaceGrinHearts />,
-} as const;
-
 function Happiness() {
     const [happiness, setHappiness] = createSignal<HappinessOption>('ok');
     const { t } = useI18n();
+
+    const items: Record<HappinessOption, JSX.Element> = {
+        angry: <FaSolidFaceAngry />,
+        unhappy: <FaSolidFaceFrown />,
+        ok: <FaSolidFaceSmile />,
+        happy: <FaSolidFaceSmileBeam />,
+        inLove: <FaSolidFaceGrinHearts />,
+    } as const;
 
     return (
         <>

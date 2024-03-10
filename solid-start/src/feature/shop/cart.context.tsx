@@ -22,7 +22,7 @@ export const CartProvider = (props: ParentProps) => {
 
     function createDropzone<Component extends ValidComponent>(component?: Component) {
         return baseCreateDropzone(component, {
-            onDrop: (product: Product<any>) => {
+            onDropped: (product: Product<any>) => {
                 console.log(product);
 
                 cart.add(product.id, 1, product.variations[0] ?? {});

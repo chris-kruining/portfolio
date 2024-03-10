@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .grid-layout {
+        grid-template-columns:
+            [full-start] minmax(5vw, 1fr) [main-start] repeat(12, minmax(0, calc(1368px / 12))) [main-end]
+            minmax(5vw, 1fr) [full-end];
+
+        :where(& > *) {
+            grid-column: main;
+        }
+    }
+}

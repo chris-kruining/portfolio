@@ -1,9 +1,8 @@
-import { Branch, Translation as T, createI18nContext } from './feature/i18n';
+import { Branch, createI18nContext } from './feature/i18n';
 
 export type Definition = Branch<{
     initial: string;
-    another: string;
-    price: (value: number) => string;
+    price: (value: number, currency: Currency) => string;
     search: {
         submit: string;
         placeholder: string;
