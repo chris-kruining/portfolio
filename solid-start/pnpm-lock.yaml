@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@kobalte/core':
     specifier: ^0.12.4
-    version: 0.12.5(solid-js@1.8.15)
+    version: 0.12.6(solid-js@1.8.15)
   '@solidjs/router':
     specifier: 0.13.0
     version: 0.13.0(solid-js@1.8.15)
@@ -294,8 +294,8 @@ packages:
       mime: 3.0.0
     dev: false
 
-  /@corvu/utils@0.1.0(solid-js@1.8.15):
-    resolution: {integrity: sha512-9pqt77fiDiqUkW7gH+tRYyNCagQPTco7ljBAkbF23wIuJYrEWyr8KpX8rlPiz4x0ll6pqTYpiif8betkhpkOLQ==}
+  /@corvu/utils@0.1.1(solid-js@1.8.15):
+    resolution: {integrity: sha512-NY6s6ZvOJKQw3gI6Ra9CixHslKeGTQJsaGCPBVX/K5DtDXgEPeinD5k2EnCvWmey92L2btPtasDrlGUx0sY9JA==}
     peerDependencies:
       solid-js: ^1.8
     dependencies:
@@ -950,13 +950,13 @@ packages:
   /@internationalized/date@3.5.2:
     resolution: {integrity: sha512-vo1yOMUt2hzp63IutEaTUxROdvQg1qlMRsbCvbay2AK2Gai7wIgCyK5weEX3nHkiLgo4qCXHijFNC/ILhlRpOQ==}
     dependencies:
-      '@swc/helpers': 0.5.6
+      '@swc/helpers': 0.5.7
     dev: false
 
   /@internationalized/number@3.5.1:
     resolution: {integrity: sha512-N0fPU/nz15SwR9IbfJ5xaS9Ss/O5h1sVXMZf43vc9mxEG48ovglvvzBjF53aHlq20uoR6c+88CrIXipU/LSzwg==}
     dependencies:
-      '@swc/helpers': 0.5.6
+      '@swc/helpers': 0.5.7
     dev: false
 
   /@ioredis/commands@1.2.0:
@@ -1006,8 +1006,8 @@ packages:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /@kobalte/core@0.12.5(solid-js@1.8.15):
-    resolution: {integrity: sha512-OUT8u6x0WdiAsk0ZSf0tJT925QMq7VVttkR06mSbRrJv404pCpZPbBnhlcgqKTjSl3SytPSPm2J0T34o+8sCBw==}
+  /@kobalte/core@0.12.6(solid-js@1.8.15):
+    resolution: {integrity: sha512-+Ta2o2wEqZ2fCqLMkvjT40VHNmcFKdGe8TNDVQbbMPk66qoU6g/DDRFR/Ib7eAjb+C95VoIyk6zaafos2VOo0w==}
     peerDependencies:
       solid-js: ^1.8.15
     dependencies:
@@ -1016,7 +1016,7 @@ packages:
       '@internationalized/number': 3.5.1
       '@kobalte/utils': 0.9.0(solid-js@1.8.15)
       solid-js: 1.8.15
-      solid-prevent-scroll: 0.1.5(solid-js@1.8.15)
+      solid-prevent-scroll: 0.1.6(solid-js@1.8.15)
     dev: false
 
   /@kobalte/utils@0.9.0(solid-js@1.8.15):
@@ -1823,8 +1823,8 @@ packages:
       - vite
     dev: false
 
-  /@swc/helpers@0.5.6:
-    resolution: {integrity: sha512-aYX01Ke9hunpoCexYAgQucEpARGQ5w/cqHFrIR+e9gdKb1QWTsVJuTJ2ozQzIAxLyRQe/m+2RqzkyOOGiMKRQA==}
+  /@swc/helpers@0.5.7:
+    resolution: {integrity: sha512-BVvNZhx362+l2tSwSuyEUV4h7+jk9raNdoTSdLfwTshXJSaGmYKluGRJznziCI3KX02Z19DdsQrdfrpXAU3Hfg==}
     dependencies:
       tslib: 2.6.2
     dev: false
@@ -4112,6 +4112,15 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
+  /postcss@8.4.36:
+    resolution: {integrity: sha512-/n7eumA6ZjFHAsbX30yhHup/IMkOmlmvtEi7P+6RMYf+bGJSUHc3geH4a0NSZxAz/RJfiS9tooCTs9LAVYUZKw==}
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: 3.3.7
+      picocolors: 1.0.0
+      source-map-js: 1.1.0
+    dev: false
+
   /pretty-bytes@6.1.1:
     resolution: {integrity: sha512-mQUvGU6aUFQ+rNvTIAcZuWGRT9a6f6Yrg9bHs4ImKF+HZCEK+plBvnAZYSIQztknZF2qnzNtr6F8s0+IuptdlQ==}
     engines: {node: ^14.13.1 || >=16.0.0}
@@ -4499,12 +4508,12 @@ packages:
       seroval-plugins: 1.0.5(seroval@1.0.5)
     dev: false
 
-  /solid-prevent-scroll@0.1.5(solid-js@1.8.15):
-    resolution: {integrity: sha512-8sIlHqaSclBGQJrsPabRlnlAKJib1+gfYWiQLG265tyxao+6yIaccIgbo58QHgPtRrRavANK7Io7DtAUBtP6QA==}
+  /solid-prevent-scroll@0.1.6(solid-js@1.8.15):
+    resolution: {integrity: sha512-uLyVFx5bQL0/Gw3dr7BRsFiZ5CGyPUeqVW44dMxcSGt4eC7N40QJirMUTbLDaYeOTTyQ2MtXfk7Td3FdaBfAFw==}
     peerDependencies:
       solid-js: ^1.8
     dependencies:
-      '@corvu/utils': 0.1.0(solid-js@1.8.15)
+      '@corvu/utils': 0.1.1(solid-js@1.8.15)
       solid-js: 1.8.15
     dev: false
 
@@ -4531,6 +4540,11 @@ packages:
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
+
+  /source-map-js@1.1.0:
+    resolution: {integrity: sha512-9vC2SfsJzlej6MAaMPLu8HiBSHGdRAJ9hVFYN1ibZoNkeanmDmLUcIrj6G9DGL7XMJ54AKg/G75akXl1/izTOw==}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /source-map-support@0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
@@ -5183,7 +5197,7 @@ packages:
         optional: true
     dependencies:
       esbuild: 0.19.12
-      postcss: 8.4.35
+      postcss: 8.4.36
       rollup: 4.13.0
     optionalDependencies:
       fsevents: 2.3.3
