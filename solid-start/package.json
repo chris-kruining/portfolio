@@ -8,7 +8,7 @@
     },
     "dependencies": {
         "@kobalte/core": "^0.12.4",
-        "@solidjs/router": "0.13.1",
+        "@solidjs/router": "0.13.2",
         "@solidjs/start": "^0.7.4",
         "@tailwindcss/container-queries": "^0.1.1",
         "solid-icons": "^1.1.0",
