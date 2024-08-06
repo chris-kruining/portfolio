@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@kobalte/core':
-    specifier: ^0.12.4
-    version: 0.12.6(solid-js@1.8.19)
+    specifier: ^0.13.0
+    version: 0.13.4(solid-js@1.8.19)
   '@solidjs/router':
     specifier: 0.14.1
     version: 0.14.1(solid-js@1.8.19)
@@ -502,6 +502,15 @@ packages:
     peerDependencies:
       solid-js: ^1.8
     dependencies:
+      solid-js: 1.8.19
+    dev: false
+
+  /@corvu/utils@0.4.0(solid-js@1.8.19):
+    resolution: {integrity: sha512-LTjH/gSf4t/slzGoQdFYWrAykHp3A7JZYH+KjM5KCppVjDEY7pLjZkMTHU/vPF7gvjiXDYgA+6q68eiHRiJ8wA==}
+    peerDependencies:
+      solid-js: ^1.8
+    dependencies:
+      '@floating-ui/dom': 1.6.9
       solid-js: 1.8.19
     dev: false
 
@@ -1146,8 +1155,19 @@ packages:
       '@floating-ui/utils': 0.2.1
     dev: false
 
+  /@floating-ui/dom@1.6.9:
+    resolution: {integrity: sha512-zB1PcI350t4tkm3rvUhSRKa9sT7vH5CrAbQxW+VaPYJXKAO0gsg4CTueL+6Ajp7XzAQC8CW4Jj1Wgqc0sB6oUQ==}
+    dependencies:
+      '@floating-ui/core': 1.6.0
+      '@floating-ui/utils': 0.2.6
+    dev: false
+
   /@floating-ui/utils@0.2.1:
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
+    dev: false
+
+  /@floating-ui/utils@0.2.6:
+    resolution: {integrity: sha512-0KI3zGxIUs1KDR/pjQPdJH4Z8nGBm0yJ5WRoRfdw1Kzeh45jkIfA0rmD0kBF6fKHH+xaH7g8y4jIXyAV5MGK3g==}
     dev: false
 
   /@internationalized/date@3.5.2:
@@ -1209,8 +1229,8 @@ packages:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  /@kobalte/core@0.12.6(solid-js@1.8.19):
-    resolution: {integrity: sha512-+Ta2o2wEqZ2fCqLMkvjT40VHNmcFKdGe8TNDVQbbMPk66qoU6g/DDRFR/Ib7eAjb+C95VoIyk6zaafos2VOo0w==}
+  /@kobalte/core@0.13.4(solid-js@1.8.19):
+    resolution: {integrity: sha512-ElvazoxoQU/z5pQUdHtXAzjiZA60J+Fo36WgO+j8sMvycIGwrlv+Fdr+uXcLSm1onYOYoSG1+vumD3Ce5OYzzw==}
     peerDependencies:
       solid-js: ^1.8.15
     dependencies:
@@ -1218,7 +1238,9 @@ packages:
       '@internationalized/date': 3.5.2
       '@internationalized/number': 3.5.1
       '@kobalte/utils': 0.9.0(solid-js@1.8.19)
+      '@solid-primitives/props': 3.1.11(solid-js@1.8.19)
       solid-js: 1.8.19
+      solid-presence: 0.1.8(solid-js@1.8.19)
       solid-prevent-scroll: 0.1.6(solid-js@1.8.19)
     dev: false
 
@@ -4804,6 +4826,15 @@ packages:
       csstype: 3.1.3
       seroval: 1.1.0
       seroval-plugins: 1.1.0(seroval@1.1.0)
+    dev: false
+
+  /solid-presence@0.1.8(solid-js@1.8.19):
+    resolution: {integrity: sha512-pWGtXUFWYYUZNbg5YpG5vkQJyOtzn2KXhxYaMx/4I+lylTLYkITOLevaCwMRN+liCVk0pqB6EayLWojNqBFECA==}
+    peerDependencies:
+      solid-js: ^1.8
+    dependencies:
+      '@corvu/utils': 0.4.0(solid-js@1.8.19)
+      solid-js: 1.8.19
     dev: false
 
   /solid-prevent-scroll@0.1.6(solid-js@1.8.19):
