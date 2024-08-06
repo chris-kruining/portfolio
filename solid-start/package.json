@@ -7,7 +7,7 @@
         "start": "vinxi start"
     },
     "dependencies": {
-        "@kobalte/core": "^0.12.4",
+        "@kobalte/core": "^0.13.0",
         "@solidjs/router": "0.14.1",
         "@solidjs/start": "^0.7.4",
         "@tailwindcss/container-queries": "^0.1.1",
