@@ -14,7 +14,7 @@
         "solid-icons": "^1.1.0",
         "solid-js": "1.8.19",
         "unstorage": "^1.10.1",
-        "vinxi": "^0.3.10",
+        "vinxi": "^0.4.0",
         "vite-plugin-mkcert": "^1.17.4",
         "zod": "^3.22.4"
     },
