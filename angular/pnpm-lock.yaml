@@ -90,7 +90,7 @@ devDependencies:
     version: 18.3.5(@angular-devkit/build-angular@18.1.3)(@angular-devkit/core@18.1.3)(@angular-devkit/schematics@18.1.3)(@schematics/angular@18.1.3)(@types/node@20.14.14)(eslint@8.57.0)(nx@18.3.5)(rxjs@7.8.1)(typescript@5.5.4)
   '@nx/vite':
     specifier: ^18.0.2
-    version: 18.3.5(@types/node@20.14.14)(nx@18.3.5)(typescript@5.5.4)(vite@5.3.5)(vitest@1.6.0)
+    version: 18.3.5(@types/node@20.14.14)(nx@18.3.5)(typescript@5.5.4)(vite@5.4.0)(vitest@1.6.0)
   '@nx/web':
     specifier: 18.3.5
     version: 18.3.5(@types/node@20.14.14)(nx@18.3.5)(typescript@5.5.4)
@@ -138,10 +138,10 @@ devDependencies:
     version: 5.5.4
   vite:
     specifier: ^5.0.0
-    version: 5.3.5(@types/node@20.14.14)(less@4.1.3)(stylus@0.59.0)
+    version: 5.4.0(@types/node@20.14.14)(less@4.1.3)(stylus@0.59.0)
   vite-plugin-mkcert:
     specifier: ^1.17.3
-    version: 1.17.5(vite@5.3.5)
+    version: 1.17.5(vite@5.4.0)
   vitest:
     specifier: ^1.2.2
     version: 1.6.0(@types/node@20.14.14)(@vitest/ui@1.6.0)(less@4.1.3)(stylus@0.59.0)
@@ -4191,10 +4191,10 @@ packages:
       - debug
     dev: true
 
-  /@nrwl/vite@18.3.5(@types/node@20.14.14)(nx@18.3.5)(typescript@5.5.4)(vite@5.3.5)(vitest@1.6.0):
+  /@nrwl/vite@18.3.5(@types/node@20.14.14)(nx@18.3.5)(typescript@5.5.4)(vite@5.4.0)(vitest@1.6.0):
     resolution: {integrity: sha512-kzJ7xFqt9ji6jae4plmgozFrBnFoX8fnF4vWUVJ7NdoYEH/RbsIuPCsjH3Mf5XHY9wSluYycd+6LYGyl+efV2g==}
     dependencies:
-      '@nx/vite': 18.3.5(@types/node@20.14.14)(nx@18.3.5)(typescript@5.5.4)(vite@5.3.5)(vitest@1.6.0)
+      '@nx/vite': 18.3.5(@types/node@20.14.14)(nx@18.3.5)(typescript@5.5.4)(vite@5.4.0)(vitest@1.6.0)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -4586,20 +4586,20 @@ packages:
     dev: true
     optional: true
 
-  /@nx/vite@18.3.5(@types/node@20.14.14)(nx@18.3.5)(typescript@5.5.4)(vite@5.3.5)(vitest@1.6.0):
+  /@nx/vite@18.3.5(@types/node@20.14.14)(nx@18.3.5)(typescript@5.5.4)(vite@5.4.0)(vitest@1.6.0):
     resolution: {integrity: sha512-EJbCrvlFy0I4SVEfAyAm/wMe0sRgqKs8Q8nn9nZmZrh8hwOI6WBb9Md0t5Ubbrd8v3PbWb6kTMPWdzrOmKaMOA==}
     peerDependencies:
       vite: ^5.0.0
       vitest: ^1.3.1
     dependencies:
-      '@nrwl/vite': 18.3.5(@types/node@20.14.14)(nx@18.3.5)(typescript@5.5.4)(vite@5.3.5)(vitest@1.6.0)
+      '@nrwl/vite': 18.3.5(@types/node@20.14.14)(nx@18.3.5)(typescript@5.5.4)(vite@5.4.0)(vitest@1.6.0)
       '@nx/devkit': 18.3.5(nx@18.3.5)
       '@nx/js': 18.3.5(@types/node@20.14.14)(nx@18.3.5)(typescript@5.5.4)
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.5.4)
       '@swc/helpers': 0.5.12
       enquirer: 2.3.6
       tsconfig-paths: 4.2.0
-      vite: 5.3.5(@types/node@20.14.14)(less@4.1.3)(stylus@0.59.0)
+      vite: 5.4.0(@types/node@20.14.14)(less@4.1.3)(stylus@0.59.0)
       vitest: 1.6.0(@types/node@20.14.14)(@vitest/ui@1.6.0)(less@4.1.3)(stylus@0.59.0)
     transitivePeerDependencies:
       - '@babel/traverse'
@@ -13739,19 +13739,20 @@ packages:
       debug: 4.3.6
       pathe: 1.1.2
       picocolors: 1.0.1
-      vite: 5.3.5(@types/node@20.14.14)(less@4.1.3)(stylus@0.59.0)
+      vite: 5.4.0(@types/node@20.14.14)(less@4.1.3)(stylus@0.59.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
       - lightningcss
       - sass
+      - sass-embedded
       - stylus
       - sugarss
       - supports-color
       - terser
     dev: true
 
-  /vite-plugin-mkcert@1.17.5(vite@5.3.5):
+  /vite-plugin-mkcert@1.17.5(vite@5.4.0):
     resolution: {integrity: sha512-KKGY3iHx/9zb7ow8JJ+nLN2HiNIBuPBwj34fJ+jAJT89/8qfk7msO7G7qipR8VDEm9xMCys0xT11QOJbZcg3/Q==}
     engines: {node: '>=v16.7.0'}
     peerDependencies:
@@ -13761,7 +13762,7 @@ packages:
       axios: 1.7.2(debug@4.3.5)
       debug: 4.3.5
       picocolors: 1.0.1
-      vite: 5.3.5(@types/node@20.14.14)(less@4.1.3)(stylus@0.59.0)
+      vite: 5.4.0(@types/node@20.14.14)(less@4.1.3)(stylus@0.59.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -13806,8 +13807,8 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vite@5.3.5(@types/node@20.14.14)(less@4.1.3)(stylus@0.59.0):
-    resolution: {integrity: sha512-MdjglKR6AQXQb9JGiS7Rc2wC6uMjcm7Go/NHNO63EwiJXfuk9PgqiP/n5IDJCziMkfw9n4Ubp7lttNwz+8ZVKA==}
+  /vite@5.4.0(@types/node@20.14.14)(less@4.1.3)(stylus@0.59.0):
+    resolution: {integrity: sha512-5xokfMX0PIiwCMCMb9ZJcMyh5wbBun0zUzKib+L65vAZ8GY9ePZMXxFrHbr/Kyll2+LSCY7xtERPpxkBDKngwg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -13815,6 +13816,7 @@ packages:
       less: '*'
       lightningcss: ^1.21.0
       sass: '*'
+      sass-embedded: '*'
       stylus: '*'
       sugarss: '*'
       terser: ^5.4.0
@@ -13826,6 +13828,8 @@ packages:
       lightningcss:
         optional: true
       sass:
+        optional: true
+      sass-embedded:
         optional: true
       stylus:
         optional: true
@@ -13888,13 +13892,14 @@ packages:
       strip-literal: 2.1.0
       tinybench: 2.8.0
       tinypool: 0.8.4
-      vite: 5.3.5(@types/node@20.14.14)(less@4.1.3)(stylus@0.59.0)
+      vite: 5.4.0(@types/node@20.14.14)(less@4.1.3)(stylus@0.59.0)
       vite-node: 1.6.0(@types/node@20.14.14)(less@4.1.3)(stylus@0.59.0)
       why-is-node-running: 2.3.0
     transitivePeerDependencies:
       - less
       - lightningcss
       - sass
+      - sass-embedded
       - stylus
       - sugarss
       - supports-color
