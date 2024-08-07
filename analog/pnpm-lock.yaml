@@ -70,7 +70,7 @@ dependencies:
     version: 1.17.5(vite@5.3.5)
   zod:
     specifier: ^3.22.4
-    version: 3.22.4
+    version: 3.23.8
   zone.js:
     specifier: ~0.14.0
     version: 0.14.10
@@ -13423,8 +13423,8 @@ packages:
       readable-stream: 4.5.2
     dev: true
 
-  /zod@3.22.4:
-    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+  /zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
     dev: false
 
   /zone.js@0.14.10:

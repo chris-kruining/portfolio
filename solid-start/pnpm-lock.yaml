@@ -34,7 +34,7 @@ dependencies:
     version: 1.17.5(vite@5.3.5)
   zod:
     specifier: ^3.22.4
-    version: 3.22.4
+    version: 3.23.8
 
 devDependencies:
   autoprefixer:
@@ -5374,7 +5374,7 @@ packages:
       unenv: 1.9.0
       unstorage: 1.10.2(ioredis@5.4.1)
       vite: 5.2.10
-      zod: 3.22.4
+      zod: 3.23.8
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -5661,6 +5661,6 @@ packages:
       readable-stream: 4.5.2
     dev: false
 
-  /zod@3.22.4:
-    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+  /zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
     dev: false
