@@ -34,7 +34,7 @@
     "superjson": "^2.2.1",
     "tslib": "^2.3.0",
     "zod": "^3.22.4",
-    "zone.js": "~0.14.2"
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@analogjs/vite-plugin-angular": "^0.2.30",
