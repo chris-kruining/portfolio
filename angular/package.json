@@ -37,8 +37,8 @@
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
-    "@analogjs/vite-plugin-angular": "^0.2.30",
-    "@analogjs/vite-plugin-nitro": "^0.2.30",
+    "@analogjs/vite-plugin-angular": "^1.0.0",
+    "@analogjs/vite-plugin-nitro": "^1.0.0",
     "@angular-devkit/build-angular": "^18.0.0",
     "@angular-devkit/core": "~18.2.0",
     "@angular-devkit/schematics": "~18.2.0",
